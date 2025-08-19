@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "builds": [{ "src": "src/pages/portfolio.vue", "use": "@vercel/vue" }],
+  "routes": [{ "src": "/(.*)", "dest": "/src/pages/portfolio.vue" }],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}
