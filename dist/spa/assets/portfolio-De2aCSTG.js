@@ -1,1 +1,4211 @@
-import{e as T,f as s,h as d,r as B,i as Bt,g as ee,j as L,k as Y,n as Ge,l as ye,m as X,p as R,w as I,q as me,s as $e,t as fe,u as Ue,P as rn,v as Lt,x as Ie,y as O,z as Qe,A as we,B as lt,C as sn,D as zt,T as Oe,K as un,E as cn,H as Pe,F as dn,G as ot,I as Xe,J as fn,L as mn,M as vn,N as At,O as Ye,Q as It,R as qe,S as gn,d as hn,U as ae,o as D,V as _,b as w,W as rt,X as De,a as v,c as G,Y as ie,Z as le,_ as de,$ as st,a0 as bn,a1 as pn}from"./index-CsdK2_iG.js";import{h as V,a as Je,u as Ze,b as et,c as re,d as Qt,e as tt,f as Dt,R as yn,g as kn,i as wn,v as Vt,j as qn,k as Ft,Q as H,l as Ce,m as ut,n as xn,o as Sn}from"./QBtn-C_M2HtO4.js";const jt=T({name:"QToolbarTitle",props:{shrink:Boolean},setup(e,{slots:t}){const n=s(()=>"q-toolbar__title ellipsis"+(e.shrink===!0?" col-shrink":""));return()=>d("div",{class:n.value},V(t.default))}}),He=T({name:"QSpace",setup(){const e=d("div",{class:"q-space"});return()=>e}}),Nt=T({name:"QToolbar",props:{inset:Boolean},setup(e,{slots:t}){const n=s(()=>"q-toolbar row no-wrap items-center"+(e.inset===!0?" q-toolbar--inset":""));return()=>d("div",{class:n.value,role:"toolbar"},V(t.default))}});function _n(){const e=B(!Bt.value);return e.value===!1&&ee(()=>{e.value=!0}),{isHydrated:e}}const Rt=typeof ResizeObserver<"u",ct=Rt===!0?{}:{style:"display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;",url:"about:blank"},Ke=T({name:"QResizeObserver",props:{debounce:{type:[String,Number],default:100}},emits:["resize"],setup(e,{emit:t}){let n=null,a,o={width:-1,height:-1};function i(u){u===!0||e.debounce===0||e.debounce==="0"?l():n===null&&(n=setTimeout(l,e.debounce))}function l(){if(n!==null&&(clearTimeout(n),n=null),a){const{offsetWidth:u,offsetHeight:f}=a;(u!==o.width||f!==o.height)&&(o={width:u,height:f},t("resize",o))}}const{proxy:r}=L();if(r.trigger=i,Rt===!0){let u;const f=m=>{a=r.$el.parentNode,a?(u=new ResizeObserver(i),u.observe(a),l()):m!==!0&&ye(()=>{f(!0)})};return ee(()=>{f()}),Y(()=>{n!==null&&clearTimeout(n),u!==void 0&&(u.disconnect!==void 0?u.disconnect():a&&u.unobserve(a))}),Ge}else{let u=function(){n!==null&&(clearTimeout(n),n=null),h!==void 0&&(h.removeEventListener!==void 0&&h.removeEventListener("resize",i,X.passive),h=void 0)},f=function(){u(),a?.contentDocument&&(h=a.contentDocument.defaultView,h.addEventListener("resize",i,X.passive),l())};const{isHydrated:m}=_n();let h;return ee(()=>{ye(()=>{a=r.$el,a&&f()})}),Y(u),()=>{if(m.value===!0)return d("object",{class:"q--avoid-card-border",style:ct.style,tabindex:-1,type:"text/html",data:ct.url,"aria-hidden":"true",onLoad:f})}}}}),Mt=T({name:"QHeader",props:{modelValue:{type:Boolean,default:!0},reveal:Boolean,revealOffset:{type:Number,default:250},bordered:Boolean,elevated:Boolean,heightHint:{type:[String,Number],default:50}},emits:["reveal","focusin"],setup(e,{slots:t,emit:n}){const{proxy:{$q:a}}=L(),o=me($e,R);if(o===R)return console.error("QHeader needs to be child of QLayout"),R;const i=B(parseInt(e.heightHint,10)),l=B(!0),r=s(()=>e.reveal===!0||o.view.value.indexOf("H")!==-1||a.platform.is.ios&&o.isContainer.value===!0),u=s(()=>{if(e.modelValue!==!0)return 0;if(r.value===!0)return l.value===!0?i.value:0;const c=i.value-o.scroll.value.position;return c>0?c:0}),f=s(()=>e.modelValue!==!0||r.value===!0&&l.value!==!0),m=s(()=>e.modelValue===!0&&f.value===!0&&e.reveal===!0),h=s(()=>"q-header q-layout__section--marginal "+(r.value===!0?"fixed":"absolute")+"-top"+(e.bordered===!0?" q-header--bordered":"")+(f.value===!0?" q-header--hidden":"")+(e.modelValue!==!0?" q-layout--prevent-focus":"")),k=s(()=>{const c=o.rows.value.top,y={};return c[0]==="l"&&o.left.space===!0&&(y[a.lang.rtl===!0?"right":"left"]=`${o.left.size}px`),c[2]==="r"&&o.right.space===!0&&(y[a.lang.rtl===!0?"left":"right"]=`${o.right.size}px`),y});function b(c,y){o.update("header",c,y)}function p(c,y){c.value!==y&&(c.value=y)}function C({height:c}){p(i,c),b("size",c)}function g(c){m.value===!0&&p(l,!0),n("focusin",c)}I(()=>e.modelValue,c=>{b("space",c),p(l,!0),o.animate()}),I(u,c=>{b("offset",c)}),I(()=>e.reveal,c=>{c===!1&&p(l,e.modelValue)}),I(l,c=>{o.animate(),n("reveal",c)}),I(o.scroll,c=>{e.reveal===!0&&p(l,c.direction==="up"||c.position<=e.revealOffset||c.position-c.inflectionPoint<100)});const $={};return o.instances.header=$,e.modelValue===!0&&b("size",i.value),b("space",e.modelValue),b("offset",u.value),Y(()=>{o.instances.header===$&&(o.instances.header=void 0,b("size",0),b("offset",0),b("space",!1))}),()=>{const c=Je(t.default,[]);return e.elevated===!0&&c.push(d("div",{class:"q-layout__shadow absolute-full overflow-hidden no-pointer-events"})),c.push(d(Ke,{debounce:0,onResize:C})),d("header",{class:h.value,style:k.value,onFocusin:g},c)}}}),Ot=T({name:"QAvatar",props:{...Ze,fontSize:String,color:String,textColor:String,icon:String,square:Boolean,rounded:Boolean},setup(e,{slots:t}){const n=et(e),a=s(()=>"q-avatar"+(e.color?` bg-${e.color}`:"")+(e.textColor?` text-${e.textColor} q-chip--colored`:"")+(e.square===!0?" q-avatar--square":e.rounded===!0?" rounded-borders":"")),o=s(()=>e.fontSize?{fontSize:e.fontSize}:null);return()=>{const i=e.icon!==void 0?[d(re,{name:e.icon})]:void 0;return d("div",{class:a.value,style:n.value},[d("div",{class:"q-avatar__content row flex-center overflow-hidden",style:o.value},Qt(t.default,i))])}}}),te={dark:{type:Boolean,default:null}};function ne(e,t){return s(()=>e.dark===null?t.dark.isActive:e.dark)}const U=T({name:"QCard",props:{...te,tag:{type:String,default:"div"},square:Boolean,flat:Boolean,bordered:Boolean},setup(e,{slots:t}){const{proxy:{$q:n}}=L(),a=ne(e,n),o=s(()=>"q-card"+(a.value===!0?" q-card--dark q-dark":"")+(e.bordered===!0?" q-card--bordered":"")+(e.square===!0?" q-card--square no-border-radius":"")+(e.flat===!0?" q-card--flat no-shadow":""));return()=>d(e.tag,{class:o.value},V(t.default))}}),Cn={xs:2,sm:4,md:6,lg:10,xl:14};function dt(e,t,n){return{transform:t===!0?`translateX(${n.lang.rtl===!0?"-":""}100%) scale3d(${-e},1,1)`:`scale3d(${e},1,1)`}}const Ht=T({name:"QLinearProgress",props:{...te,...Ze,value:{type:Number,default:0},buffer:Number,color:String,trackColor:String,reverse:Boolean,stripe:Boolean,indeterminate:Boolean,query:Boolean,rounded:Boolean,animationSpeed:{type:[String,Number],default:2100},instantFeedback:Boolean},setup(e,{slots:t}){const{proxy:n}=L(),a=ne(e,n.$q),o=et(e,Cn),i=s(()=>e.indeterminate===!0||e.query===!0),l=s(()=>e.reverse!==e.query),r=s(()=>({...o.value!==null?o.value:{},"--q-linear-progress-speed":`${e.animationSpeed}ms`})),u=s(()=>"q-linear-progress"+(e.color!==void 0?` text-${e.color}`:"")+(e.reverse===!0||e.query===!0?" q-linear-progress--reverse":"")+(e.rounded===!0?" rounded-borders":"")),f=s(()=>dt(e.buffer!==void 0?e.buffer:1,l.value,n.$q)),m=s(()=>`with${e.instantFeedback===!0?"out":""}-transition`),h=s(()=>`q-linear-progress__track absolute-full q-linear-progress__track--${m.value} q-linear-progress__track--${a.value===!0?"dark":"light"}`+(e.trackColor!==void 0?` bg-${e.trackColor}`:"")),k=s(()=>dt(i.value===!0?1:e.value,l.value,n.$q)),b=s(()=>`q-linear-progress__model absolute-full q-linear-progress__model--${m.value} q-linear-progress__model--${i.value===!0?"in":""}determinate`),p=s(()=>({width:`${e.value*100}%`})),C=s(()=>`q-linear-progress__stripe absolute-${e.reverse===!0?"right":"left"} q-linear-progress__stripe--${m.value}`);return()=>{const g=[d("div",{class:h.value,style:f.value}),d("div",{class:b.value,style:k.value})];return e.stripe===!0&&i.value===!1&&g.push(d("div",{class:C.value,style:p.value})),d("div",{class:u.value,style:r.value,role:"progressbar","aria-valuemin":0,"aria-valuemax":1,"aria-valuenow":e.indeterminate===!0?void 0:e.value},tt(t.default,g))}}}),Tn={xs:8,sm:10,md:14,lg:20,xl:24},We=T({name:"QChip",props:{...te,...Ze,dense:Boolean,icon:String,iconRight:String,iconRemove:String,iconSelected:String,label:[String,Number],color:String,textColor:String,modelValue:{type:Boolean,default:!0},selected:{type:Boolean,default:null},square:Boolean,outline:Boolean,clickable:Boolean,removable:Boolean,removeAriaLabel:String,tabindex:[String,Number],disable:Boolean,ripple:{type:[Boolean,Object],default:!0}},emits:["update:modelValue","update:selected","remove","click"],setup(e,{slots:t,emit:n}){const{proxy:{$q:a}}=L(),o=ne(e,a),i=et(e,Tn),l=s(()=>e.selected===!0||e.icon!==void 0),r=s(()=>e.selected===!0?e.iconSelected||a.iconSet.chip.selected:e.icon),u=s(()=>e.iconRemove||a.iconSet.chip.remove),f=s(()=>e.disable===!1&&(e.clickable===!0||e.selected!==null)),m=s(()=>{const g=e.outline===!0&&e.color||e.textColor;return"q-chip row inline no-wrap items-center"+(e.outline===!1&&e.color!==void 0?` bg-${e.color}`:"")+(g?` text-${g} q-chip--colored`:"")+(e.disable===!0?" disabled":"")+(e.dense===!0?" q-chip--dense":"")+(e.outline===!0?" q-chip--outline":"")+(e.selected===!0?" q-chip--selected":"")+(f.value===!0?" q-chip--clickable cursor-pointer non-selectable q-hoverable":"")+(e.square===!0?" q-chip--square":"")+(o.value===!0?" q-chip--dark q-dark":"")}),h=s(()=>{const g=e.disable===!0?{tabindex:-1,"aria-disabled":"true"}:{tabindex:e.tabindex||0},$={...g,role:"button","aria-hidden":"false","aria-label":e.removeAriaLabel||a.lang.label.remove};return{chip:g,remove:$}});function k(g){g.keyCode===13&&b(g)}function b(g){e.disable||(n("update:selected",!e.selected),n("click",g))}function p(g){(g.keyCode===void 0||g.keyCode===13)&&(fe(g),e.disable===!1&&(n("update:modelValue",!1),n("remove")))}function C(){const g=[];f.value===!0&&g.push(d("div",{class:"q-focus-helper"})),l.value===!0&&g.push(d(re,{class:"q-chip__icon q-chip__icon--left",name:r.value}));const $=e.label!==void 0?[d("div",{class:"ellipsis"},[e.label])]:void 0;return g.push(d("div",{class:"q-chip__content col row no-wrap items-center q-anchor--skip"},Qt(t.default,$))),e.iconRight&&g.push(d(re,{class:"q-chip__icon q-chip__icon--right",name:e.iconRight})),e.removable===!0&&g.push(d(re,{class:"q-chip__icon q-chip__icon--remove cursor-pointer",name:u.value,...h.value.remove,onClick:p,onKeyup:p})),g}return()=>{if(e.modelValue===!1)return;const g={class:m.value,style:i.value};return f.value===!0&&Object.assign(g,h.value.chip,{onClick:b,onKeyup:k}),Dt("div",g,C(),"ripple",e.ripple!==!1&&e.disable!==!0,()=>[[yn,e.ripple]])}}}),Ve=T({name:"QCardSection",props:{tag:{type:String,default:"div"},horizontal:Boolean},setup(e,{slots:t}){const n=s(()=>`q-card__section q-card__section--${e.horizontal===!0?"horiz row no-wrap":"vert"}`);return()=>d(e.tag,{class:n.value},V(t.default))}}),ft=T({name:"QItemSection",props:{avatar:Boolean,thumbnail:Boolean,side:Boolean,top:Boolean,noWrap:Boolean},setup(e,{slots:t}){const n=s(()=>`q-item__section column q-item__section--${e.avatar===!0||e.side===!0||e.thumbnail===!0?"side":"main"}`+(e.top===!0?" q-item__section--top justify-start":" justify-center")+(e.avatar===!0?" q-item__section--avatar":"")+(e.thumbnail===!0?" q-item__section--thumbnail":"")+(e.noWrap===!0?" q-item__section--nowrap":""));return()=>d("div",{class:n.value},V(t.default))}}),mt=T({name:"QItemLabel",props:{overline:Boolean,caption:Boolean,header:Boolean,lines:[Number,String]},setup(e,{slots:t}){const n=s(()=>parseInt(e.lines,10)),a=s(()=>"q-item__label"+(e.overline===!0?" q-item__label--overline text-overline":"")+(e.caption===!0?" q-item__label--caption text-caption":"")+(e.header===!0?" q-item__label--header":"")+(n.value===1?" ellipsis":"")),o=s(()=>e.lines!==void 0&&n.value>1?{overflow:"hidden",display:"-webkit-box","-webkit-box-orient":"vertical","-webkit-line-clamp":n.value}:null);return()=>d("div",{style:o.value,class:a.value},V(t.default))}}),Pn=T({name:"QItem",props:{...te,...kn,tag:{type:String,default:"div"},active:{type:Boolean,default:null},clickable:Boolean,dense:Boolean,insetLevel:Number,tabindex:[String,Number],focused:Boolean,manualFocus:Boolean},emits:["click","keyup"],setup(e,{slots:t,emit:n}){const{proxy:{$q:a}}=L(),o=ne(e,a),{hasLink:i,linkAttrs:l,linkClass:r,linkTag:u,navigateOnClick:f}=wn(),m=B(null),h=B(null),k=s(()=>e.clickable===!0||i.value===!0||e.tag==="label"),b=s(()=>e.disable!==!0&&k.value===!0),p=s(()=>"q-item q-item-type row no-wrap"+(e.dense===!0?" q-item--dense":"")+(o.value===!0?" q-item--dark":"")+(i.value===!0&&e.active===null?r.value:e.active===!0?` q-item--active${e.activeClass!==void 0?` ${e.activeClass}`:""}`:"")+(e.disable===!0?" disabled":"")+(b.value===!0?" q-item--clickable q-link cursor-pointer "+(e.manualFocus===!0?"q-manual-focusable":"q-focusable q-hoverable")+(e.focused===!0?" q-manual-focusable--focused":""):"")),C=s(()=>e.insetLevel===void 0?null:{["padding"+(a.lang.rtl===!0?"Right":"Left")]:16+e.insetLevel*56+"px"});function g(y){b.value===!0&&(h.value!==null&&y.qAvoidFocus!==!0&&(y.qKeyEvent!==!0&&document.activeElement===m.value?h.value.focus():document.activeElement===h.value&&m.value.focus()),f(y))}function $(y){if(b.value===!0&&Ue(y,[13,32])===!0){fe(y),y.qKeyEvent=!0;const q=new MouseEvent("click",y);q.qKeyEvent=!0,m.value.dispatchEvent(q)}n("keyup",y)}function c(){const y=Je(t.default,[]);return b.value===!0&&y.unshift(d("div",{class:"q-focus-helper",tabindex:-1,ref:h})),y}return()=>{const y={ref:m,class:p.value,style:C.value,role:"listitem",onClick:g,onKeyup:$};return b.value===!0?(y.tabindex=e.tabindex||"0",Object.assign(y,l.value)):k.value===!0&&(y["aria-disabled"]="true"),d(u.value,y,c())}}}),$n=["ul","ol"],En=T({name:"QList",props:{...te,bordered:Boolean,dense:Boolean,separator:Boolean,padding:Boolean,tag:{type:String,default:"div"}},setup(e,{slots:t}){const n=L(),a=ne(e,n.proxy.$q),o=s(()=>$n.includes(e.tag)?null:"list"),i=s(()=>"q-list"+(e.bordered===!0?" q-list--bordered":"")+(e.dense===!0?" q-list--dense":"")+(e.separator===!0?" q-list--separator":"")+(a.value===!0?" q-list--dark":"")+(e.padding===!0?" q-list--padding":""));return()=>d(e.tag,{class:i.value,role:o.value},V(t.default))}}),Bn=T({name:"QBar",props:{...te,dense:Boolean},setup(e,{slots:t}){const{proxy:{$q:n}}=L(),a=ne(e,n),o=s(()=>`q-bar row no-wrap items-center q-bar--${e.dense===!0?"dense":"standard"}  q-bar--${a.value===!0?"dark":"light"}`);return()=>d("div",{class:o.value,role:"toolbar"},V(t.default))}}),nt={left:!0,right:!0,up:!0,down:!0,horizontal:!0,vertical:!0},Ln=Object.keys(nt);nt.all=!0;function vt(e){const t={};for(const n of Ln)e[n]===!0&&(t[n]=!0);return Object.keys(t).length===0?nt:(t.horizontal===!0?t.left=t.right=!0:t.left===!0&&t.right===!0&&(t.horizontal=!0),t.vertical===!0?t.up=t.down=!0:t.up===!0&&t.down===!0&&(t.vertical=!0),t.horizontal===!0&&t.vertical===!0&&(t.all=!0),t)}const zn=["INPUT","TEXTAREA"];function gt(e,t){return t.event===void 0&&e.target!==void 0&&e.target.draggable!==!0&&typeof t.handler=="function"&&zn.includes(e.target.nodeName.toUpperCase())===!1&&(e.qClonedBy===void 0||e.qClonedBy.indexOf(t.uid)===-1)}function An(){if(window.getSelection!==void 0){const e=window.getSelection();e.empty!==void 0?e.empty():e.removeAllRanges!==void 0&&(e.removeAllRanges(),rn.is.mobile!==!0&&e.addRange(document.createRange()))}else document.selection!==void 0&&document.selection.empty()}function In(e){const t=[.06,6,50];return typeof e=="string"&&e.length&&e.split(":").forEach((n,a)=>{const o=parseFloat(n);o&&(t[a]=o)}),t}const Qn=Lt({name:"touch-swipe",beforeMount(e,{value:t,arg:n,modifiers:a}){if(a.mouse!==!0&&O.has.touch!==!0)return;const o=a.mouseCapture===!0?"Capture":"",i={handler:t,sensitivity:In(n),direction:vt(a),noop:Ge,mouseStart(l){gt(l,i)&&sn(l)&&(we(i,"temp",[[document,"mousemove","move",`notPassive${o}`],[document,"mouseup","end","notPassiveCapture"]]),i.start(l,!0))},touchStart(l){if(gt(l,i)){const r=l.target;we(i,"temp",[[r,"touchmove","move","notPassiveCapture"],[r,"touchcancel","end","notPassiveCapture"],[r,"touchend","end","notPassiveCapture"]]),i.start(l)}},start(l,r){O.is.firefox===!0&&Qe(e,!0);const u=lt(l);i.event={x:u.left,y:u.top,time:Date.now(),mouse:r===!0,dir:!1}},move(l){if(i.event===void 0)return;if(i.event.dir!==!1){fe(l);return}const r=Date.now()-i.event.time;if(r===0)return;const u=lt(l),f=u.left-i.event.x,m=Math.abs(f),h=u.top-i.event.y,k=Math.abs(h);if(i.event.mouse!==!0){if(m<i.sensitivity[1]&&k<i.sensitivity[1]){i.end(l);return}}else if(window.getSelection().toString()!==""){i.end(l);return}else if(m<i.sensitivity[2]&&k<i.sensitivity[2])return;const b=m/r,p=k/r;i.direction.vertical===!0&&m<k&&m<100&&p>i.sensitivity[0]&&(i.event.dir=h<0?"up":"down"),i.direction.horizontal===!0&&m>k&&k<100&&b>i.sensitivity[0]&&(i.event.dir=f<0?"left":"right"),i.direction.up===!0&&m<k&&h<0&&m<100&&p>i.sensitivity[0]&&(i.event.dir="up"),i.direction.down===!0&&m<k&&h>0&&m<100&&p>i.sensitivity[0]&&(i.event.dir="down"),i.direction.left===!0&&m>k&&f<0&&k<100&&b>i.sensitivity[0]&&(i.event.dir="left"),i.direction.right===!0&&m>k&&f>0&&k<100&&b>i.sensitivity[0]&&(i.event.dir="right"),i.event.dir!==!1?(fe(l),i.event.mouse===!0&&(document.body.classList.add("no-pointer-events--children"),document.body.classList.add("non-selectable"),An(),i.styleCleanup=C=>{i.styleCleanup=void 0,document.body.classList.remove("non-selectable");const g=()=>{document.body.classList.remove("no-pointer-events--children")};C===!0?setTimeout(g,50):g()}),i.handler({evt:l,touch:i.event.mouse!==!0,mouse:i.event.mouse,direction:i.event.dir,duration:r,distance:{x:m,y:k}})):i.end(l)},end(l){i.event!==void 0&&(Ie(i,"temp"),O.is.firefox===!0&&Qe(e,!1),i.styleCleanup?.(!0),l!==void 0&&i.event.dir!==!1&&fe(l),i.event=void 0)}};if(e.__qtouchswipe=i,a.mouse===!0){const l=a.mouseCapture===!0||a.mousecapture===!0?"Capture":"";we(i,"main",[[e,"mousedown","mouseStart",`passive${l}`]])}O.has.touch===!0&&we(i,"main",[[e,"touchstart","touchStart",`passive${a.capture===!0?"Capture":""}`],[e,"touchmove","noop","notPassiveCapture"]])},updated(e,t){const n=e.__qtouchswipe;n!==void 0&&(t.oldValue!==t.value&&(typeof t.value!="function"&&n.end(),n.handler=t.value),n.direction=vt(t.modifiers))},beforeUnmount(e){const t=e.__qtouchswipe;t!==void 0&&(Ie(t,"main"),Ie(t,"temp"),O.is.firefox===!0&&Qe(e,!1),t.styleCleanup?.(),delete e.__qtouchswipe)}});function Dn(){let e=Object.create(null);return{getCache:(t,n)=>e[t]===void 0?e[t]=typeof n=="function"?n():n:e[t],setCache(t,n){e[t]=n},hasCache(t){return Object.hasOwnProperty.call(e,t)},clearCache(t){t!==void 0?delete e[t]:e=Object.create(null)}}}function Kt(){let e=null;const t=L();function n(){e!==null&&(clearTimeout(e),e=null)}return zt(n),Y(n),{removeTimeout:n,registerTimeout(a,o){n(),Vt(t)===!1&&(e=setTimeout(()=>{e=null,a()},o))}}}const Vn={name:{required:!0},disable:Boolean},ht={setup(e,{slots:t}){return()=>d("div",{class:"q-panel scroll",role:"tabpanel"},V(t.default))}},Fn={modelValue:{required:!0},animated:Boolean,infinite:Boolean,swipeable:Boolean,vertical:Boolean,transitionPrev:String,transitionNext:String,transitionDuration:{type:[String,Number],default:300},keepAlive:Boolean,keepAliveInclude:[String,Array,RegExp],keepAliveExclude:[String,Array,RegExp],keepAliveMax:Number},jn=["update:modelValue","beforeTransition","transition"];function Nn(){const{props:e,emit:t,proxy:n}=L(),{getCache:a}=Dn(),{registerTimeout:o}=Kt();let i,l;const r=B(null),u={value:null};function f(x){const P=e.vertical===!0?"up":"left";Q((n.$q.lang.rtl===!0?-1:1)*(x.direction===P?1:-1))}const m=s(()=>[[Qn,f,void 0,{horizontal:e.vertical!==!0,vertical:e.vertical,mouse:!0}]]),h=s(()=>e.transitionPrev||`slide-${e.vertical===!0?"down":"right"}`),k=s(()=>e.transitionNext||`slide-${e.vertical===!0?"up":"left"}`),b=s(()=>`--q-transition-duration: ${e.transitionDuration}ms`),p=s(()=>typeof e.modelValue=="string"||typeof e.modelValue=="number"?e.modelValue:String(e.modelValue)),C=s(()=>({include:e.keepAliveInclude,exclude:e.keepAliveExclude,max:e.keepAliveMax})),g=s(()=>e.keepAliveInclude!==void 0||e.keepAliveExclude!==void 0);I(()=>e.modelValue,(x,P)=>{const M=q(x)===!0?E(x):-1;l!==!0&&A(M===-1?0:M<E(P)?-1:1),u.value!==M&&(u.value=M,t("beforeTransition",x,P),o(()=>{t("transition",x,P)},e.transitionDuration))});function $(){Q(1)}function c(){Q(-1)}function y(x){t("update:modelValue",x)}function q(x){return x!=null&&x!==""}function E(x){return i.findIndex(P=>P.props.name===x&&P.props.disable!==""&&P.props.disable!==!0)}function F(){return i.filter(x=>x.props.disable!==""&&x.props.disable!==!0)}function A(x){const P=x!==0&&e.animated===!0&&u.value!==-1?"q-transition--"+(x===-1?h.value:k.value):null;r.value!==P&&(r.value=P)}function Q(x,P=u.value){let M=P+x;for(;M!==-1&&M<i.length;){const W=i[M];if(W!==void 0&&W.props.disable!==""&&W.props.disable!==!0){A(x),l=!0,t("update:modelValue",W.props.name),setTimeout(()=>{l=!1});return}M+=x}e.infinite===!0&&i.length!==0&&P!==-1&&P!==i.length&&Q(x,x===-1?i.length:-1)}function J(){const x=E(e.modelValue);return u.value!==x&&(u.value=x),!0}function z(){const x=q(e.modelValue)===!0&&J()&&i[u.value];return e.keepAlive===!0?[d(un,C.value,[d(g.value===!0?a(p.value,()=>({...ht,name:p.value})):ht,{key:p.value,style:b.value},()=>x)])]:[d("div",{class:"q-panel scroll",style:b.value,key:p.value,role:"tabpanel"},[x])]}function Z(){if(i.length!==0)return e.animated===!0?[d(Oe,{name:r.value},z)]:z()}function K(x){return i=qn(V(x.default,[])).filter(P=>P.props!==null&&P.props.slot===void 0&&q(P.props.name)===!0),i.length}function j(){return i}return Object.assign(n,{next:$,previous:c,goTo:y}),{panelIndex:u,panelDirectives:m,updatePanelsList:K,updatePanelIndex:J,getPanelContent:Z,getEnabledPanels:F,getPanels:j,isValidPanelName:q,keepAliveProps:C,needsUniqueKeepAliveWrapper:g,goToPanelByOffset:Q,goToPanel:y,nextPanel:$,previousPanel:c}}const Rn=T({name:"QCarouselSlide",props:{...Vn,imgSrc:String},setup(e,{slots:t}){const n=s(()=>e.imgSrc?{backgroundImage:`url("${e.imgSrc}")`}:{});return()=>d("div",{class:"q-carousel__slide",style:n.value},V(t.default))}});let ge=0;const Mn={fullscreen:Boolean,noRouteFullscreenExit:Boolean},On=["update:fullscreen","fullscreen"];function Hn(){const e=L(),{props:t,emit:n,proxy:a}=e;let o,i,l;const r=B(!1);Ft(e)===!0&&I(()=>a.$route.fullPath,()=>{t.noRouteFullscreenExit!==!0&&m()}),I(()=>t.fullscreen,h=>{r.value!==h&&u()}),I(r,h=>{n("update:fullscreen",h),n("fullscreen",h)});function u(){r.value===!0?m():f()}function f(){r.value!==!0&&(r.value=!0,l=a.$el.parentNode,l.replaceChild(i,a.$el),document.body.appendChild(a.$el),ge++,ge===1&&document.body.classList.add("q-body--fullscreen-mixin"),o={handler:m},Pe.add(o))}function m(){r.value===!0&&(o!==void 0&&(Pe.remove(o),o=void 0),l.replaceChild(a.$el,i),r.value=!1,ge=Math.max(0,ge-1),ge===0&&(document.body.classList.remove("q-body--fullscreen-mixin"),a.$el.scrollIntoView!==void 0&&setTimeout(()=>{a.$el.scrollIntoView()})))}return cn(()=>{i=document.createElement("span")}),ee(()=>{t.fullscreen===!0&&f()}),Y(m),Object.assign(a,{toggleFullscreen:u,setFullscreen:f,exitFullscreen:m}),{inFullscreen:r,toggleFullscreen:u}}const Kn=["top","right","bottom","left"],Wn=["regular","flat","outline","push","unelevated"],Gn=T({name:"QCarousel",props:{...te,...Fn,...Mn,transitionPrev:{type:String,default:"fade"},transitionNext:{type:String,default:"fade"},height:String,padding:Boolean,controlColor:String,controlTextColor:String,controlType:{type:String,validator:e=>Wn.includes(e),default:"flat"},autoplay:[Number,Boolean],arrows:Boolean,prevIcon:String,nextIcon:String,navigation:Boolean,navigationPosition:{type:String,validator:e=>Kn.includes(e)},navigationIcon:String,navigationActiveIcon:String,thumbnails:Boolean},emits:[...On,...jn],setup(e,{slots:t}){const{proxy:{$q:n}}=L(),a=ne(e,n);let o=null,i;const{updatePanelsList:l,getPanelContent:r,panelDirectives:u,goToPanel:f,previousPanel:m,nextPanel:h,getEnabledPanels:k,panelIndex:b}=Nn(),{inFullscreen:p}=Hn(),C=s(()=>p.value!==!0&&e.height!==void 0?{height:e.height}:{}),g=s(()=>e.vertical===!0?"vertical":"horizontal"),$=s(()=>e.navigationPosition||(e.vertical===!0?"right":"bottom")),c=s(()=>`q-carousel q-panel-parent q-carousel--with${e.padding===!0?"":"out"}-padding`+(p.value===!0?" fullscreen":"")+(a.value===!0?" q-carousel--dark q-dark":"")+(e.arrows===!0?` q-carousel--arrows-${g.value}`:"")+(e.navigation===!0?` q-carousel--navigation-${$.value}`:"")),y=s(()=>{const z=[e.prevIcon||n.iconSet.carousel[e.vertical===!0?"up":"left"],e.nextIcon||n.iconSet.carousel[e.vertical===!0?"down":"right"]];return e.vertical===!1&&n.lang.rtl===!0?z.reverse():z}),q=s(()=>e.navigationIcon||n.iconSet.carousel.navigationIcon),E=s(()=>e.navigationActiveIcon||q.value),F=s(()=>({color:e.controlColor,textColor:e.controlTextColor,round:!0,[e.controlType]:!0,dense:!0}));I(()=>e.modelValue,()=>{e.autoplay&&A()}),I(()=>e.autoplay,z=>{z?A():o!==null&&(clearTimeout(o),o=null)});function A(){const z=dn(e.autoplay)===!0?Math.abs(e.autoplay):5e3;o!==null&&clearTimeout(o),o=setTimeout(()=>{o=null,z>=0?h():m()},z)}ee(()=>{e.autoplay&&A()}),Y(()=>{o!==null&&clearTimeout(o)});function Q(z,Z){return d("div",{class:`q-carousel__control q-carousel__navigation no-wrap absolute flex q-carousel__navigation--${z} q-carousel__navigation--${$.value}`+(e.controlColor!==void 0?` text-${e.controlColor}`:"")},[d("div",{class:"q-carousel__navigation-inner flex flex-center no-wrap"},k().map(Z))])}function J(){const z=[];if(e.navigation===!0){const Z=t["navigation-icon"]!==void 0?t["navigation-icon"]:j=>d(H,{key:"nav"+j.name,class:`q-carousel__navigation-icon q-carousel__navigation-icon--${j.active===!0?"":"in"}active`,...j.btnProps,onClick:j.onClick}),K=i-1;z.push(Q("buttons",(j,x)=>{const P=j.props.name,M=b.value===x;return Z({index:x,maxIndex:K,name:P,active:M,btnProps:{icon:M===!0?E.value:q.value,size:"sm",...F.value},onClick:()=>{f(P)}})}))}else if(e.thumbnails===!0){const Z=e.controlColor!==void 0?` text-${e.controlColor}`:"";z.push(Q("thumbnails",K=>{const j=K.props;return d("img",{key:"tmb#"+j.name,class:`q-carousel__thumbnail q-carousel__thumbnail--${j.name===e.modelValue?"":"in"}active`+Z,src:j.imgSrc||j["img-src"],onClick:()=>{f(j.name)}})}))}return e.arrows===!0&&b.value>=0&&((e.infinite===!0||b.value>0)&&z.push(d("div",{key:"prev",class:`q-carousel__control q-carousel__arrow q-carousel__prev-arrow q-carousel__prev-arrow--${g.value} absolute flex flex-center`},[d(H,{icon:y.value[0],...F.value,onClick:m})])),(e.infinite===!0||b.value<i-1)&&z.push(d("div",{key:"next",class:`q-carousel__control q-carousel__arrow q-carousel__next-arrow q-carousel__next-arrow--${g.value} absolute flex flex-center`},[d(H,{icon:y.value[1],...F.value,onClick:h})]))),tt(t.control,z)}return()=>(i=l(t),d("div",{class:c.value,style:C.value},[Dt("div",{class:"q-carousel__slides-container"},r(),"sl-cont",e.swipeable,()=>u.value)].concat(J())))}});function Un(e,t,n){let a;function o(){a!==void 0&&(Pe.remove(a),a=void 0)}return Y(()=>{e.value===!0&&o()}),{removeFromHistory:o,addToHistory(){a={condition:()=>n.value===!0,handler:t},Pe.add(a)}}}function Xn(){let e;const t=L();function n(){e=void 0}return zt(n),Y(n),{removeTick:n,registerTick(a){e=a,ye(()=>{e===a&&(Vt(t)===!1&&e(),e=void 0)})}}}const Yn={modelValue:{type:Boolean,default:null},"onUpdate:modelValue":[Function,Array]},Jn=["beforeShow","show","beforeHide","hide"];function Zn({showing:e,canShow:t,hideOnRouteChange:n,handleShow:a,handleHide:o,processOnMount:i}){const l=L(),{props:r,emit:u,proxy:f}=l;let m;function h(c){e.value===!0?p(c):k(c)}function k(c){if(r.disable===!0||c?.qAnchorHandled===!0||t!==void 0&&t(c)!==!0)return;const y=r["onUpdate:modelValue"]!==void 0;y===!0&&(u("update:modelValue",!0),m=c,ye(()=>{m===c&&(m=void 0)})),(r.modelValue===null||y===!1)&&b(c)}function b(c){e.value!==!0&&(e.value=!0,u("beforeShow",c),a!==void 0?a(c):u("show",c))}function p(c){if(r.disable===!0)return;const y=r["onUpdate:modelValue"]!==void 0;y===!0&&(u("update:modelValue",!1),m=c,ye(()=>{m===c&&(m=void 0)})),(r.modelValue===null||y===!1)&&C(c)}function C(c){e.value!==!1&&(e.value=!1,u("beforeHide",c),o!==void 0?o(c):u("hide",c))}function g(c){r.disable===!0&&c===!0?r["onUpdate:modelValue"]!==void 0&&u("update:modelValue",!1):c===!0!==e.value&&(c===!0?b:C)(m)}I(()=>r.modelValue,g),n!==void 0&&Ft(l)===!0&&I(()=>f.$route.fullPath,()=>{n.value===!0&&e.value===!0&&p()}),ee(()=>{g(r.modelValue)});const $={show:k,hide:p,toggle:h};return Object.assign(f,$),$}const ea={transitionShow:{type:String,default:"fade"},transitionHide:{type:String,default:"fade"},transitionDuration:{type:[String,Number],default:300}};function ta(e,t=()=>{},n=()=>{}){return{transitionProps:s(()=>{const a=`q-transition--${e.transitionShow||t()}`,o=`q-transition--${e.transitionHide||n()}`;return{appear:!0,enterFromClass:`${a}-enter-from`,enterActiveClass:`${a}-enter-active`,enterToClass:`${a}-enter-to`,leaveFromClass:`${o}-leave-from`,leaveActiveClass:`${o}-leave-active`,leaveToClass:`${o}-leave-to`}}),transitionStyle:s(()=>`--q-transition-duration: ${e.transitionDuration}ms`)}}let be=[],ke=[];function Wt(e){ke=ke.filter(t=>t!==e)}function na(e){Wt(e),ke.push(e)}function bt(e){Wt(e),ke.length===0&&be.length!==0&&(be[be.length-1](),be=[])}function aa(e){ke.length===0?e():be.push(e)}let ia=1,la=document.body;function oa(e,t){const n=document.createElement("div");if(n.id=`q-portal--${t}--${ia++}`,ot.globalNodes!==void 0){const a=ot.globalNodes.class;a!==void 0&&(n.className=a)}return la.appendChild(n),n}function ra(e){e.remove()}const Te=[];function sa(e){return Te.find(t=>t.contentEl!==null&&t.contentEl.contains(e))}function ua(e,t){do{if(e.$options.name==="QMenu"){if(e.hide(t),e.$props.separateClosePopup===!0)return Ce(e)}else if(e.__qPortal===!0){const n=Ce(e);return n?.$options.name==="QPopupProxy"?(e.hide(t),n):e}e=Ce(e)}while(e!=null)}function ca(e,t,n){for(;n!==0&&e!==void 0&&e!==null;){if(e.__qPortal===!0){if(n--,e.$options.name==="QMenu"){e=ua(e,t);continue}e.hide(t)}e=Ce(e)}}const da=T({name:"QPortal",setup(e,{slots:t}){return()=>t.default()}});function fa(e){for(e=e.parent;e!=null;){if(e.type.name==="QGlobalDialog")return!0;if(e.type.name==="QDialog"||e.type.name==="QMenu")return!1;e=e.parent}return!1}function ma(e,t,n,a){const o=B(!1),i=B(!1);let l=null;const r={},u=fa(e);function f(h){if(h===!0){bt(r),i.value=!0;return}i.value=!1,o.value===!1&&(u===!1&&l===null&&(l=oa(!1,a)),o.value=!0,Te.push(e.proxy),na(r))}function m(h){if(i.value=!1,h!==!0)return;bt(r),o.value=!1;const k=Te.indexOf(e.proxy);k!==-1&&Te.splice(k,1),l!==null&&(ra(l),l=null)}return Xe(()=>{m(!0)}),e.proxy.__qPortal=!0,fn(e.proxy,"contentEl",()=>t.value),{showPortal:f,hidePortal:m,portalIsActive:o,portalIsAccessible:i,renderPortal:()=>u===!0?n():o.value===!0?[d(mn,{to:l},d(da,n))]:void 0}}const va=[Element,String],ga=[null,document,document.body,document.scrollingElement,document.documentElement];function ha(e,t){let n=xn(t);if(n===void 0){if(e==null)return window;n=e.closest(".scroll,.scroll-y,.overflow-auto")}return ga.includes(n)?window:n}function Gt(e){return e===window?window.pageYOffset||window.scrollY||document.body.scrollTop||0:e.scrollTop}function Ut(e){return e===window?window.pageXOffset||window.scrollX||document.body.scrollLeft||0:e.scrollLeft}let xe;function Fe(){if(xe!==void 0)return xe;const e=document.createElement("p"),t=document.createElement("div");ut(e,{width:"100%",height:"200px"}),ut(t,{position:"absolute",top:"0px",left:"0px",visibility:"hidden",width:"200px",height:"150px",overflow:"hidden"}),t.appendChild(e),document.body.appendChild(t);const n=e.offsetWidth;t.style.overflow="scroll";let a=e.offsetWidth;return n===a&&(a=t.clientWidth),t.remove(),xe=n-a,xe}function ba(e,t=!0){return!e||e.nodeType!==Node.ELEMENT_NODE?!1:t?e.scrollHeight>e.clientHeight&&(e.classList.contains("scroll")||e.classList.contains("overflow-auto")||["auto","scroll"].includes(window.getComputedStyle(e)["overflow-y"])):e.scrollWidth>e.clientWidth&&(e.classList.contains("scroll")||e.classList.contains("overflow-auto")||["auto","scroll"].includes(window.getComputedStyle(e)["overflow-x"]))}let he=0,je,Ne,pe,Re=!1,pt,yt,kt,oe=null;function pa(e){ya(e)&&fe(e)}function ya(e){if(e.target===document.body||e.target.classList.contains("q-layout__backdrop"))return!0;const t=vn(e),n=e.shiftKey&&!e.deltaX,a=!n&&Math.abs(e.deltaX)<=Math.abs(e.deltaY),o=n||a?e.deltaY:e.deltaX;for(let i=0;i<t.length;i++){const l=t[i];if(ba(l,a))return a?o<0&&l.scrollTop===0?!0:o>0&&l.scrollTop+l.clientHeight===l.scrollHeight:o<0&&l.scrollLeft===0?!0:o>0&&l.scrollLeft+l.clientWidth===l.scrollWidth}return!0}function wt(e){e.target===document&&(document.scrollingElement.scrollTop=document.scrollingElement.scrollTop)}function Se(e){Re!==!0&&(Re=!0,requestAnimationFrame(()=>{Re=!1;const{height:t}=e.target,{clientHeight:n,scrollTop:a}=document.scrollingElement;(pe===void 0||t!==window.innerHeight)&&(pe=n-t,document.scrollingElement.scrollTop=a),a>pe&&(document.scrollingElement.scrollTop-=Math.ceil((a-pe)/8))}))}function qt(e){const t=document.body,n=window.visualViewport!==void 0;if(e==="add"){const{overflowY:a,overflowX:o}=window.getComputedStyle(t);je=Ut(window),Ne=Gt(window),pt=t.style.left,yt=t.style.top,kt=window.location.href,t.style.left=`-${je}px`,t.style.top=`-${Ne}px`,o!=="hidden"&&(o==="scroll"||t.scrollWidth>window.innerWidth)&&t.classList.add("q-body--force-scrollbar-x"),a!=="hidden"&&(a==="scroll"||t.scrollHeight>window.innerHeight)&&t.classList.add("q-body--force-scrollbar-y"),t.classList.add("q-body--prevent-scroll"),document.qScrollPrevented=!0,O.is.ios===!0&&(n===!0?(window.scrollTo(0,0),window.visualViewport.addEventListener("resize",Se,X.passiveCapture),window.visualViewport.addEventListener("scroll",Se,X.passiveCapture),window.scrollTo(0,0)):window.addEventListener("scroll",wt,X.passiveCapture))}O.is.desktop===!0&&O.is.mac===!0&&window[`${e}EventListener`]("wheel",pa,X.notPassive),e==="remove"&&(O.is.ios===!0&&(n===!0?(window.visualViewport.removeEventListener("resize",Se,X.passiveCapture),window.visualViewport.removeEventListener("scroll",Se,X.passiveCapture)):window.removeEventListener("scroll",wt,X.passiveCapture)),t.classList.remove("q-body--prevent-scroll"),t.classList.remove("q-body--force-scrollbar-x"),t.classList.remove("q-body--force-scrollbar-y"),document.qScrollPrevented=!1,t.style.left=pt,t.style.top=yt,window.location.href===kt&&window.scrollTo(je,Ne),pe=void 0)}function ka(e){let t="add";if(e===!0){if(he++,oe!==null){clearTimeout(oe),oe=null;return}if(he>1)return}else{if(he===0||(he--,he>0))return;if(t="remove",O.is.ios===!0&&O.is.nativeMobile===!0){oe!==null&&clearTimeout(oe),oe=setTimeout(()=>{qt(t),oe=null},100);return}}qt(t)}function wa(){let e;return{preventBodyScroll(t){t!==e&&(e!==void 0||t===!0)&&(e=t,ka(t))}}}const se=[];let ve;function qa(e){ve=e.keyCode===27}function xa(){ve===!0&&(ve=!1)}function Sa(e){ve===!0&&(ve=!1,Ue(e,27)===!0&&se[se.length-1](e))}function Xt(e){window[e]("keydown",qa),window[e]("blur",xa),window[e]("keyup",Sa),ve=!1}function _a(e){O.is.desktop===!0&&(se.push(e),se.length===1&&Xt("addEventListener"))}function xt(e){const t=se.indexOf(e);t!==-1&&(se.splice(t,1),se.length===0&&Xt("removeEventListener"))}const ue=[];function Yt(e){ue[ue.length-1](e)}function Ca(e){O.is.desktop===!0&&(ue.push(e),ue.length===1&&document.body.addEventListener("focusin",Yt))}function St(e){const t=ue.indexOf(e);t!==-1&&(ue.splice(t,1),ue.length===0&&document.body.removeEventListener("focusin",Yt))}let _e=0;const Ta={standard:"fixed-full flex-center",top:"fixed-top justify-center",bottom:"fixed-bottom justify-center",right:"fixed-right items-center",left:"fixed-left items-center"},_t={standard:["scale","scale"],top:["slide-down","slide-up"],bottom:["slide-up","slide-down"],right:["slide-left","slide-right"],left:["slide-right","slide-left"]},Pa=T({name:"QDialog",inheritAttrs:!1,props:{...Yn,...ea,transitionShow:String,transitionHide:String,persistent:Boolean,autoClose:Boolean,allowFocusOutside:Boolean,noEscDismiss:Boolean,noBackdropDismiss:Boolean,noRouteDismiss:Boolean,noRefocus:Boolean,noFocus:Boolean,noShake:Boolean,seamless:Boolean,maximized:Boolean,fullWidth:Boolean,fullHeight:Boolean,square:Boolean,backdropFilter:String,position:{type:String,default:"standard",validator:e=>["standard","top","bottom","left","right"].includes(e)}},emits:[...Jn,"shake","click","escapeKey"],setup(e,{slots:t,emit:n,attrs:a}){const o=L(),i=B(null),l=B(!1),r=B(!1);let u=null,f=null,m,h;const k=s(()=>e.persistent!==!0&&e.noRouteDismiss!==!0&&e.seamless!==!0),{preventBodyScroll:b}=wa(),{registerTimeout:p}=Kt(),{registerTick:C,removeTick:g}=Xn(),{transitionProps:$,transitionStyle:c}=ta(e,()=>_t[e.position][0],()=>_t[e.position][1]),y=s(()=>c.value+(e.backdropFilter!==void 0?`;backdrop-filter:${e.backdropFilter};-webkit-backdrop-filter:${e.backdropFilter}`:"")),{showPortal:q,hidePortal:E,portalIsAccessible:F,renderPortal:A}=ma(o,i,on,"dialog"),{hide:Q}=Zn({showing:l,hideOnRouteChange:k,handleShow:P,handleHide:M,processOnMount:!0}),{addToHistory:J,removeFromHistory:z}=Un(l,Q,k),Z=s(()=>`q-dialog__inner flex no-pointer-events q-dialog__inner--${e.maximized===!0?"maximized":"minimized"} q-dialog__inner--${e.position} ${Ta[e.position]}`+(r.value===!0?" q-dialog__inner--animating":"")+(e.fullWidth===!0?" q-dialog__inner--fullwidth":"")+(e.fullHeight===!0?" q-dialog__inner--fullheight":"")+(e.square===!0?" q-dialog__inner--square":"")),K=s(()=>l.value===!0&&e.seamless!==!0),j=s(()=>e.autoClose===!0?{onClick:an}:{}),x=s(()=>[`q-dialog fullscreen no-pointer-events q-dialog--${K.value===!0?"modal":"seamless"}`,a.class]);I(()=>e.maximized,S=>{l.value===!0&&Le(S)}),I(K,S=>{b(S),S===!0?(Ca(ze),_a(Be)):(St(ze),xt(Be))});function P(S){J(),f=e.noRefocus===!1&&document.activeElement!==null?document.activeElement:null,Le(e.maximized),q(),r.value=!0,e.noFocus!==!0?(document.activeElement?.blur(),C(W)):g(),p(()=>{if(o.proxy.$q.platform.is.ios===!0){if(e.seamless!==!0&&document.activeElement){const{top:N,bottom:ce}=document.activeElement.getBoundingClientRect(),{innerHeight:it}=window,Ae=window.visualViewport!==void 0?window.visualViewport.height:it;N>0&&ce>Ae/2&&(document.scrollingElement.scrollTop=Math.min(document.scrollingElement.scrollHeight-Ae,ce>=it?1/0:Math.ceil(document.scrollingElement.scrollTop+ce-Ae/2))),document.activeElement.scrollIntoView()}h=!0,i.value.click(),h=!1}q(!0),r.value=!1,n("show",S)},e.transitionDuration)}function M(S){g(),z(),at(!0),r.value=!0,E(),f!==null&&(((S?.type.indexOf("key")===0?f.closest('[tabindex]:not([tabindex^="-"])'):void 0)||f).focus(),f=null),p(()=>{E(!0),r.value=!1,n("hide",S)},e.transitionDuration)}function W(S){aa(()=>{let N=i.value;if(N!==null){if(S!==void 0){const ce=N.querySelector(S);if(ce!==null){ce.focus({preventScroll:!0});return}}N.contains(document.activeElement)!==!0&&(N=N.querySelector("[autofocus][tabindex], [data-autofocus][tabindex]")||N.querySelector("[autofocus] [tabindex], [data-autofocus] [tabindex]")||N.querySelector("[autofocus], [data-autofocus]")||N,N.focus({preventScroll:!0}))}})}function Ee(S){S&&typeof S.focus=="function"?S.focus({preventScroll:!0}):W(),n("shake");const N=i.value;N!==null&&(N.classList.remove("q-animate--scale"),N.classList.add("q-animate--scale"),u!==null&&clearTimeout(u),u=setTimeout(()=>{u=null,i.value!==null&&(N.classList.remove("q-animate--scale"),W())},170))}function Be(){e.seamless!==!0&&(e.persistent===!0||e.noEscDismiss===!0?e.maximized!==!0&&e.noShake!==!0&&Ee():(n("escapeKey"),Q()))}function at(S){u!==null&&(clearTimeout(u),u=null),(S===!0||l.value===!0)&&(Le(!1),e.seamless!==!0&&(b(!1),St(ze),xt(Be))),S!==!0&&(f=null)}function Le(S){S===!0?m!==!0&&(_e<1&&document.body.classList.add("q-body--dialog"),_e++,m=!0):m===!0&&(_e<2&&document.body.classList.remove("q-body--dialog"),_e--,m=!1)}function an(S){h!==!0&&(Q(S),n("click",S))}function ln(S){e.persistent!==!0&&e.noBackdropDismiss!==!0?Q(S):e.noShake!==!0&&Ee()}function ze(S){e.allowFocusOutside!==!0&&F.value===!0&&Sn(i.value,S.target)!==!0&&W('[tabindex]:not([tabindex="-1"])')}Object.assign(o.proxy,{focus:W,shake:Ee,__updateRefocusTarget(S){f=S||null}}),Y(at);function on(){return d("div",{role:"dialog","aria-modal":K.value===!0?"true":"false",...a,class:x.value},[d(Oe,{name:"q-transition--fade",appear:!0},()=>K.value===!0?d("div",{class:"q-dialog__backdrop fixed-full",style:y.value,"aria-hidden":"true",tabindex:-1,onClick:ln}):null),d(Oe,$.value,()=>l.value===!0?d("div",{ref:i,class:Z.value,style:c.value,tabindex:-1,...j.value},V(t.default)):null)])}return A}}),Jt=T({name:"QTimelineEntry",props:{heading:Boolean,tag:{type:String,default:"h3"},side:{type:String,default:"right",validator:e=>["left","right"].includes(e)},icon:String,avatar:String,color:String,title:String,subtitle:String,body:String},setup(e,{slots:t}){const n=me(At,R);if(n===R)return console.error("QTimelineEntry needs to be child of QTimeline"),R;const a=s(()=>`q-timeline__entry q-timeline__entry--${e.side}`+(e.icon!==void 0||e.avatar!==void 0?" q-timeline__entry--icon":"")),o=s(()=>`q-timeline__dot text-${e.color||n.color}`),i=s(()=>n.layout==="comfortable"&&n.side==="left");return()=>{const l=Je(t.default,[]);if(e.body!==void 0&&l.unshift(e.body),e.heading===!0){const f=[d("div"),d("div"),d(e.tag,{class:"q-timeline__heading-title"},l)];return d("div",{class:"q-timeline__heading"},i.value===!0?f.reverse():f)}let r;e.icon!==void 0?r=[d(re,{class:"row items-center justify-center",name:e.icon})]:e.avatar!==void 0&&(r=[d("img",{class:"q-timeline__dot-img",src:e.avatar})]);const u=[d("div",{class:"q-timeline__subtitle"},[d("span",{},V(t.subtitle,[e.subtitle]))]),d("div",{class:o.value},r),d("div",{class:"q-timeline__content"},[d("h6",{class:"q-timeline__title"},V(t.title,[e.title]))].concat(l))];return d("li",{class:a.value},i.value===!0?u.reverse():u)}}}),Zt=T({name:"QTimeline",props:{...te,color:{type:String,default:"primary"},side:{type:String,default:"right",validator:e=>["left","right"].includes(e)},layout:{type:String,default:"dense",validator:e=>["dense","comfortable","loose"].includes(e)}},setup(e,{slots:t}){const n=L(),a=ne(e,n.proxy.$q);Ye(At,e);const o=s(()=>`q-timeline q-timeline--${e.layout} q-timeline--${e.layout}--${e.side}`+(a.value===!0?" q-timeline--dark":""));return()=>d("ul",{class:o.value},V(t.default))}}),$a={true:"inset",item:"item-inset","item-thumbnail":"item-thumbnail-inset"},Me={xs:2,sm:4,md:8,lg:16,xl:24},Ea=T({name:"QSeparator",props:{...te,spaced:[Boolean,String],inset:[Boolean,String],vertical:Boolean,color:String,size:String},setup(e){const t=L(),n=ne(e,t.proxy.$q),a=s(()=>e.vertical===!0?"vertical":"horizontal"),o=s(()=>` q-separator--${a.value}`),i=s(()=>e.inset!==!1?`${o.value}-${$a[e.inset]}`:""),l=s(()=>`q-separator${o.value}${i.value}`+(e.color!==void 0?` bg-${e.color}`:"")+(n.value===!0?" q-separator--dark":"")),r=s(()=>{const u={};if(e.size!==void 0&&(u[e.vertical===!0?"width":"height"]=e.size),e.spaced!==!1){const f=e.spaced===!0?`${Me.md}px`:e.spaced in Me?`${Me[e.spaced]}px`:e.spaced,m=e.vertical===!0?["Left","Right"]:["Top","Bottom"];u[`margin${m[0]}`]=u[`margin${m[1]}`]=f}return u});return()=>d("hr",{class:l.value,style:r.value,"aria-orientation":a.value})}}),en=T({name:"QPage",props:{padding:Boolean,styleFn:Function},setup(e,{slots:t}){const{proxy:{$q:n}}=L(),a=me($e,R);if(a===R)return console.error("QPage needs to be a deep child of QLayout"),R;if(me(It,R)===R)return console.error("QPage needs to be child of QPageContainer"),R;const i=s(()=>{const r=(a.header.space===!0?a.header.size:0)+(a.footer.space===!0?a.footer.size:0);if(typeof e.styleFn=="function"){const u=a.isContainer.value===!0?a.containerHeight.value:n.screen.height;return e.styleFn(r,u)}return{minHeight:a.isContainer.value===!0?a.containerHeight.value-r+"px":n.screen.height===0?r!==0?`calc(100vh - ${r}px)`:"100vh":n.screen.height-r+"px"}}),l=s(()=>`q-page${e.padding===!0?" q-layout-padding":""}`);return()=>d("main",{class:l.value,style:i.value},V(t.default))}}),tn=T({name:"QPageContainer",setup(e,{slots:t}){const{proxy:{$q:n}}=L(),a=me($e,R);if(a===R)return console.error("QPageContainer needs to be child of QLayout"),R;Ye(It,!0);const o=s(()=>{const i={};return a.header.space===!0&&(i.paddingTop=`${a.header.size}px`),a.right.space===!0&&(i[`padding${n.lang.rtl===!0?"Left":"Right"}`]=`${a.right.size}px`),a.footer.space===!0&&(i.paddingBottom=`${a.footer.size}px`),a.left.space===!0&&(i[`padding${n.lang.rtl===!0?"Right":"Left"}`]=`${a.left.size}px`),i});return()=>d("div",{class:"q-page-container",style:o.value},V(t.default))}}),{passive:Ct}=X,Ba=["both","horizontal","vertical"],La=T({name:"QScrollObserver",props:{axis:{type:String,validator:e=>Ba.includes(e),default:"vertical"},debounce:[String,Number],scrollTarget:va},emits:["scroll"],setup(e,{emit:t}){const n={position:{top:0,left:0},direction:"down",directionChanged:!1,delta:{top:0,left:0},inflectionPoint:{top:0,left:0}};let a=null,o,i;I(()=>e.scrollTarget,()=>{u(),r()});function l(){a?.();const h=Math.max(0,Gt(o)),k=Ut(o),b={top:h-n.position.top,left:k-n.position.left};if(e.axis==="vertical"&&b.top===0||e.axis==="horizontal"&&b.left===0)return;const p=Math.abs(b.top)>=Math.abs(b.left)?b.top<0?"up":"down":b.left<0?"left":"right";n.position={top:h,left:k},n.directionChanged=n.direction!==p,n.delta=b,n.directionChanged===!0&&(n.direction=p,n.inflectionPoint=n.position),t("scroll",{...n})}function r(){o=ha(i,e.scrollTarget),o.addEventListener("scroll",f,Ct),f(!0)}function u(){o!==void 0&&(o.removeEventListener("scroll",f,Ct),o=void 0)}function f(h){if(h===!0||e.debounce===0||e.debounce==="0")l();else if(a===null){const[k,b]=e.debounce?[setTimeout(l,e.debounce),clearTimeout]:[requestAnimationFrame(l),cancelAnimationFrame];a=()=>{b(k),a=null}}}const{proxy:m}=L();return I(()=>m.$q.lang.rtl,l),ee(()=>{i=m.$el.parentNode,r()}),Y(()=>{a?.(),u()}),Object.assign(m,{trigger:f,getPosition:()=>n}),Ge}}),nn=T({name:"QLayout",props:{container:Boolean,view:{type:String,default:"hhh lpr fff",validator:e=>/^(h|l)h(h|r) lpr (f|l)f(f|r)$/.test(e.toLowerCase())},onScroll:Function,onScrollHeight:Function,onResize:Function},setup(e,{slots:t,emit:n}){const{proxy:{$q:a}}=L(),o=B(null),i=B(a.screen.height),l=B(e.container===!0?0:a.screen.width),r=B({position:0,direction:"down",inflectionPoint:0}),u=B(0),f=B(Bt.value===!0?0:Fe()),m=s(()=>"q-layout q-layout--"+(e.container===!0?"containerized":"standard")),h=s(()=>e.container===!1?{minHeight:a.screen.height+"px"}:null),k=s(()=>f.value!==0?{[a.lang.rtl===!0?"left":"right"]:`${f.value}px`}:null),b=s(()=>f.value!==0?{[a.lang.rtl===!0?"right":"left"]:0,[a.lang.rtl===!0?"left":"right"]:`-${f.value}px`,width:`calc(100% + ${f.value}px)`}:null);function p(q){if(e.container===!0||document.qScrollPrevented!==!0){const E={position:q.position.top,direction:q.direction,directionChanged:q.directionChanged,inflectionPoint:q.inflectionPoint.top,delta:q.delta.top};r.value=E,e.onScroll!==void 0&&n("scroll",E)}}function C(q){const{height:E,width:F}=q;let A=!1;i.value!==E&&(A=!0,i.value=E,e.onScrollHeight!==void 0&&n("scrollHeight",E),$()),l.value!==F&&(A=!0,l.value=F),A===!0&&e.onResize!==void 0&&n("resize",q)}function g({height:q}){u.value!==q&&(u.value=q,$())}function $(){if(e.container===!0){const q=i.value>u.value?Fe():0;f.value!==q&&(f.value=q)}}let c=null;const y={instances:{},view:s(()=>e.view),isContainer:s(()=>e.container),rootRef:o,height:i,containerHeight:u,scrollbarWidth:f,totalWidth:s(()=>l.value+f.value),rows:s(()=>{const q=e.view.toLowerCase().split(" ");return{top:q[0].split(""),middle:q[1].split(""),bottom:q[2].split("")}}),header:qe({size:0,offset:0,space:!1}),right:qe({size:300,offset:0,space:!1}),footer:qe({size:0,offset:0,space:!1}),left:qe({size:300,offset:0,space:!1}),scroll:r,animate(){c!==null?clearTimeout(c):document.body.classList.add("q-body--layout-animate"),c=setTimeout(()=>{c=null,document.body.classList.remove("q-body--layout-animate")},155)},update(q,E,F){y[q][E]=F}};if(Ye($e,y),Fe()>0){let q=function(){A=null,Q.classList.remove("hide-scrollbar")},E=function(){if(A===null){if(Q.scrollHeight>a.screen.height)return;Q.classList.add("hide-scrollbar")}else clearTimeout(A);A=setTimeout(q,300)},F=function(J){A!==null&&J==="remove"&&(clearTimeout(A),q()),window[`${J}EventListener`]("resize",E)},A=null;const Q=document.body;I(()=>e.container!==!0?"add":"remove",F),e.container!==!0&&F("add"),Xe(()=>{F("remove")})}return()=>{const q=tt(t.default,[d(La,{onScroll:p}),d(Ke,{onResize:C})]),E=d("div",{class:m.value,style:h.value,ref:e.container===!0?void 0:o,tabindex:-1},q);return e.container===!0?d("div",{class:"q-layout-container overflow-hidden",ref:o},[d(Ke,{onResize:g}),d("div",{class:"absolute-full",style:k.value},[d("div",{class:"scroll",style:b.value},[E])])]):E}}});function Tt(e){if(e===!1)return 0;if(e===!0||e===void 0)return 1;const t=parseInt(e,10);return isNaN(t)?0:t}const za=Lt({name:"close-popup",beforeMount(e,{value:t}){const n={depth:Tt(t),handler(a){n.depth!==0&&setTimeout(()=>{const o=sa(e);o!==void 0&&ca(o,a,n.depth)})},handlerKey(a){Ue(a,13)===!0&&n.handler(a)}};e.__qclosepopup=n,e.addEventListener("click",n.handler),e.addEventListener("keyup",n.handlerKey)},updated(e,{value:t,oldValue:n}){t!==n&&(e.__qclosepopup.depth=Tt(t))},beforeUnmount(e){const t=e.__qclosepopup;e.removeEventListener("click",t.handler),e.removeEventListener("keyup",t.handlerKey),delete e.__qclosepopup}});function Aa(){return me(gn)}const Pt=B(!1),$t=B([]),Et=B(0),Ia=hn({name:"PortfolioPage",components:{QLayout:nn,QPageContainer:tn,QPage:en,QCard:U,QBtn:H,QAvatar:Ot,QTimeline:Zt,QTimelineEntry:Jt,QChip:We,QLinearProgress:Ht,QHeader:Mt,QToolbar:Nt,QToolbarTitle:jt,QSpace:He},setup(){const e=Aa(),t=p=>{const C=document.getElementById(p);C&&C.scrollIntoView({behavior:"smooth"})},n=()=>{window.open("/cv/CV_Al_Anasvianto.pdf","_blank")};let a=null;const o=()=>{const p=document.querySelectorAll(".animated-card");p.forEach(g=>g.classList.remove("is-visible"));const C={root:null,rootMargin:"0px",threshold:.2};a=new IntersectionObserver((g,$)=>{g.forEach(c=>{c.isIntersecting&&(c.target.classList.add("is-visible"),$.unobserve(c.target))})},C),p.forEach(g=>{a?.observe(g)})};function i(p){$t.value=p,Et.value=0,Pt.value=!0}ee(()=>{o()}),Xe(()=>{a&&a.disconnect()}),ee(()=>{setTimeout(()=>{l.forEach((p,C)=>{setTimeout(()=>{f.value[C]=p.level/100},C*150)})},300)}),I(()=>e.dark.isActive,()=>{a&&a.disconnect(),o()});const l=[{name:"Vue.js",level:80,icon:"mdi-vuejs"},{name:"Node.js",level:80,icon:"mdi-nodejs"},{name:"Golang",level:70,icon:"mdi-language-go"},{name:"Database SQL",level:80,icon:"mdi-database"},{name:"ChatGPT",level:75,icon:"mdi-robot"},{name:"Python",level:35,icon:"mdi-language-python"},{name:"Teknik Komputer",level:85,icon:"mdi-desktop-classic"},{name:"Teknik Jaringan Dasar",level:80,icon:"mdi-access-point"},{name:"Teknik Jaringan Lanjutan",level:60,icon:"mdi-router-network"}],r=["Teamwork","Problem Solving","Leadership","Adaptability","Time Management"],u=["primary","secondary","positive","info","warning","deep-orange"],f=B(l.map(()=>0));return{technicalSkills:l,softSkills:r,projects:[{id:1,title:"Envismart",description:"Aplikasi berbasis web untuk monitoring real-time penggunaan listrik, emisi pembangkit, data limbah, keanekaragaman hayati, dan reporting",tech:["Vue.js","Node.js","MongoDB"],link:null,image:["/img/envismart1.png","/img/envismart2.png","/img/envismart3.png","/img/envismart4.png","/img/envismart5.png"]},{id:2,title:"E-Presensi Web",description:"Aplikasi presensi digital sekolah untuk siswa dan guru, terintegrasi dengan fingerprint, jadwal, dan e-raport.",tech:["Vue.js","Node.js","MongoDB"],link:null,image:["/img/e-presensi1.png","/img/e-presensi2.png"]},{id:3,title:"E-Presensi Mobile",description:"Versi mobile dari E-Presensi untuk fleksibilitas siswa & guru, menggunakan absensi foto dan lokasi GPS sebagai alternatif fingerprint.",tech:["Ionic","Vue.js","Node.js","MongoDB"],link:null,image:["/img/presensi-mobile1.png"]},{id:4,title:"Hawa CEMS Online",description:"Aplikasi CEMS Online berbasis web yang berfungsi sebagai Data Acquisition System (DAS) dan Data Interfacing System (DIS) yang terintegrasi secara mandiri.",tech:["Node.js","Golang","SQL","InfluxDB"],link:null,image:["/img/hawa1.png","/img/hawa2.png"]},{id:5,title:"Ukara - Industrial Notification Gateway",description:"Gateway notifikasi dari alarm atau device monitoring, panel, atau IoT yang dikirimkan ke berbagai platform seperti WhatsApp, Telegram, dan Email secara real-time, logis, atau terjadwal.",tech:["Node.js","Golang","SQL","Vue.js"],link:null,image:["/img/ukara1.png"]},{id:6,title:"PI Notification System",description:"Aplikasi web yang berfungsi sebagai gateway dari PI VISION untuk memonitoring tag-tag secara real-time, membuat logika alarm, dan mengirimkan notifikasi ke WhatsApp menggunakan Ukara.",tech:["Vue.js","Node.js","Golang","SQL"],link:null,image:["/img/pi-notif1.png"]},{id:6,title:"Devianto Store",description:"Website landing page toko & katalog produk yang efektif, memudahkan pelanggan untuk berbelanja dan langsung terhubung dengan penjual melalui WhatsApp",tech:["HTML","CSS","JS","Jquery"],link:null,image:["/img/deviantostore1.png","/img/deviantostore2.png","/img/deviantostore3.png","/img/deviantostore4.png"]}],services:[{title:"Auto Print Document",desc:"Cetak otomatis dokumen dengan terjadwal",icon:"print"},{title:"MQTT Service",desc:"Layanan komunikasi berbasis MQTT.",icon:"hub"},{title:"Modbus TCP/IP Reader & Parser",desc:"Membaca dan mem-parsing data Modbus TCP.",icon:"memory"},{title:"Modbus RTU Reader & Parser",desc:"Reader Modbus RTU untuk perangkat industri.",icon:"settings_input_component"},{title:"MySQL API Gateway",desc:"Gateway API berbasis MySQL.",icon:"storage"},{title:"Gateway Server API",desc:"Server gateway untuk integrasi API.",icon:"dns"},{title:"ASCII Reader & Parser",desc:"Membaca & parsing data ASCII.",icon:"article"},{title:"InfluxDB Database Cloner",desc:"Kloning database InfluxDB secara otomatis.",icon:"content_copy"},{title:"Auto Backup Database InfluxDB",desc:"Backup otomatis untuk database InfluxDB.",icon:"backup"},{title:"OPC Collector",desc:"mengambil data dari OPC dan mengirimkannya ke berbagai platform keamanan tinggi.",icon:"sync_alt"},{title:"Database Collector",desc:"mengambil data dari Database dan mengirimkannya ke berbagai platform dengan keamanan tinggi.",icon:"storage"},{title:"Telegram Notification Service",desc:"Layanan notifikasi telegram terjadwal dan real-time.",icon:"telegram"},{title:"Email Notification Service",desc:"Layanan notifikasi email terjadwal dan real-time.",icon:"email"}],experiences:["Freelance Fullstack Developer (2018-2020)","Junior Fullstack Developer di PT Genta Raya Cemerlang (2020-2021)","Junior Technical Support & IT Support di PT Genta Raya Cemerlang (2021-2022)","Senior Fullstack Developer di PT Genta Raya Cemerlang (2022-2025)","Senior Technical Support & IT Support di PT Genta Raya Cemerlang (2022-2025)"],testimonials:[{name:"Budi Santoso",role:"Manager IT",text:"Al adalah developer yang sangat berdedikasi dan profesional.",avatar:"https://randomuser.me/api/portraits/men/45.jpg"},{name:"Siti Aminah",role:"Rekan Kerja",text:"Selalu membantu dan solutif dalam tim.",avatar:"https://randomuser.me/api/portraits/women/65.jpg"}],chipColors:u,animatedLevels:f,$q:e,scrollToElement:t,downloadCV:n,openImage:i,showImage:Pt,selectedImages:$t,slide:Et}}}),Qa=(e,t)=>{const n=e.__vccOpts||e;for(const[a,o]of t)n[a]=o;return n},Da={class:"profile-header-content"},Va={class:"profile-photo-container"},Fa={class:"skills-list row q-col-gutter-lg"},ja={class:"col-xs-12 col-md-6"},Na={class:"q-list"},Ra={class:"skill-info flex justify-between items-center q-mb-xs"},Ma={class:"flex items-center q-gutter-sm"},Oa={class:"text-body1 text-grey-7"},Ha={class:"skill-level text-caption text-grey-6"},Ka={class:"col-xs-12 col-md-6"},Wa={class:"soft-skills-list q-gutter-sm"},Ga={class:"projects-grid q-gutter-md"},Ua=["src"],Xa={class:"text-h6 text-weight-bold q-mb-sm"},Ya={class:"text-body2 text-grey-7"},Ja={class:"project-tech-chips q-gutter-xs q-mt-md"},Za=["href"],ei=["src"],ti={class:"q-mt-lg"};function ni(e,t,n,a,o,i){return D(),ae(nn,{view:"lHh Lpr lFf"},{default:_(()=>[w(Mt,{class:rt([e.$q.dark.isActive?"bg-dark":"bg-white","text-grey-8 shadow-2"])},{default:_(()=>[w(Nt,{class:"q-py-xs gt-xs"},{default:_(()=>[w(jt,{class:"text-weight-bold text-primary text-body1 q-ml-md"},{default:_(()=>t[9]||(t[9]=[De(" Al Anasvianto ",-1)])),_:1,__:[9]}),w(He),w(H,{flat:"",class:"q-mx-sm",size:"sm",color:"primary",label:"Tentang Saya",onClick:t[0]||(t[0]=l=>e.scrollToElement("tentang-saya"))}),w(H,{class:"q-mx-sm",flat:"",size:"sm",color:"primary",label:"Keahlian",onClick:t[1]||(t[1]=l=>e.scrollToElement("keahlian"))}),w(H,{class:"q-mx-sm",flat:"",size:"sm",color:"primary",label:"Portofolio",onClick:t[2]||(t[2]=l=>e.scrollToElement("portofolio"))}),w(H,{class:"q-mx-sm",flat:"",size:"sm",color:"primary",label:"Pengalaman",onClick:t[3]||(t[3]=l=>e.scrollToElement("pengalaman"))}),w(H,{class:"q-mx-sm",flat:"",size:"sm",color:"primary",label:"Kontak",onClick:t[4]||(t[4]=l=>e.scrollToElement("kontak"))}),w(H,{flat:"",round:"",dense:"",icon:e.$q.dark.isActive?"brightness_4":"dark_mode",size:"md",onClick:t[5]||(t[5]=l=>e.$q.dark.toggle()),class:"q-ml-sm q-mr-md"},null,8,["icon"])]),_:1})]),_:1},8,["class"]),w(tn,null,{default:_(()=>[w(en,{class:"portfolio-page"},{default:_(()=>[w(U,{class:"profile-header-card animated-card"},{default:_(()=>[v("div",Da,[t[11]||(t[11]=v("div",{class:"profile-text-content"},[v("h1",{class:"text-h2 text-weight-bold text-primary"},"Al Anasvianto"),v("p",{class:"tagline text-subtitle1 text-grey-6 q-my-sm"}," Fullstack Developer & Network Engineer "),v("p",{class:"bio text-body1 text-grey-8 q-mb-md"}," Berkomitmen membangun solusi digital yang andal, efisien, dan inovatif. "),v("div",{class:"header-actions"},[v("div",{class:"stats-group"},[v("div",{class:"stat-item"},[v("span",{class:"stat-value text-h5 text-weight-bold text-primary"},"6+ "),v("span",{class:"stat-label text-caption text-grey-6"},[v("strong",null,"Tahun Pengalaman")])]),v("div",{class:"stat-item"},[v("span",{class:"stat-value text-h5 text-weight-bold text-primary"},"140+ "),v("span",{class:"stat-label text-caption text-grey-6"},[v("strong",null,"Proyek Terselesaikan")])])])])],-1)),v("div",Va,[w(Ot,{size:"250px",class:"profile-photo"},{default:_(()=>t[10]||(t[10]=[v("img",{src:"/img/20250721_070304.jpg",alt:"Al Anasvianto"},null,-1)])),_:1,__:[10]})])])]),_:1}),v("main",null,[w(U,{id:"tentang-saya",class:"content-card q-pa-lg animated-card"},{default:_(()=>t[12]||(t[12]=[v("h2",{class:"text-h5 text-weight-bold text-grey-8 q-mb-md"},"Tentang Saya",-1),v("div",{class:"about-details text-grey-8 q-mb-md"}," Saya adalah seorang Fullstack Developer dan Network Engineer yang memiliki passion dalam membangun aplikasi berbasis web serta infrastruktur jaringan yang handal. Dengan pengalaman lebih dari 6 tahun, saya terbiasa bekerja secara profesional, bertanggung jawab, serta mengutamakan komunikasi yang jelas dengan tim maupun klien. ",-1),v("div",{class:"about-details row q-col-gutter-lg"},[v("div",{class:"col-xs-12 col-md-6"},[v("h3",{class:"text-h6 text-weight-bold text-primary"},"Nilai Kerja"),v("p",{class:"text-body2 text-grey-7"}," Profesional dan berintegritas dalam setiap proyek Tanggung jawab penuh atas hasil pekerjaan Komunikasi dan kolaborasi sebagai kunci keberhasilan ")]),v("div",{class:"col-xs-12 col-md-6"},[v("h3",{class:"text-h6 text-weight-bold text-primary"},"Tujuan Karir"),v("p",{class:"text-body2 text-grey-7"}," Saya berkomitmen untuk terus mengembangkan keterampilan teknis maupun soft skill, serta berkontribusi menciptakan produk digital yang berdampak positif. Tujuan utama saya adalah mencapai kesuksesan finansial dan profesional, sekaligus memberikan manfaat nyata bagi perusahaan dan masyarakat. ")])],-1)])),_:1,__:[12]}),w(U,{id:"keahlian",class:"content-card q-pa-lg animated-card"},{default:_(()=>[t[15]||(t[15]=v("h2",{class:"text-h5 text-weight-bold text-grey-8 q-mb-md"},"Keahlian",-1)),v("div",Fa,[v("div",ja,[t[13]||(t[13]=v("h3",{class:"text-h6 text-grey-8 text-weight-bold q-mb-md"},"Technical Skills",-1)),v("ul",Na,[(D(!0),G(ie,null,le(e.technicalSkills,(l,r)=>(D(),G("li",{key:l.name,class:"q-mb-md"},[v("div",Ra,[v("div",Ma,[w(re,{name:l.icon,size:"20px",color:"primary"},null,8,["name"]),v("span",Oa,de(l.name),1)]),v("span",Ha,de(l.level)+"%",1)]),w(Ht,{value:e.animatedLevels[r],size:"10px",color:"info",rounded:"",stripe:"","animation-speed":"800"},null,8,["value"])]))),128))])]),v("div",Ka,[t[14]||(t[14]=v("h3",{class:"text-h6 text-weight-bold q-mb-md text-grey-8"},"Soft Skills",-1)),v("div",Wa,[(D(!0),G(ie,null,le(e.softSkills,(l,r)=>(D(),ae(We,{key:r,label:l,color:e.chipColors[r%e.chipColors.length],"text-color":"white"},null,8,["label","color"]))),128))])])])]),_:1,__:[15]}),w(U,{id:"portofolio",class:"content-card q-pa-lg"},{default:_(()=>[t[16]||(t[16]=v("h2",{class:"text-h5 text-weight-bold text-grey-8 q-mb-md"},"Portofolio Proyek",-1)),v("div",Ga,[(D(!0),G(ie,null,le(e.projects,l=>(D(),ae(U,{key:l.id,class:"project-card animated-card"},{default:_(()=>[w(Ve,{class:"project-image-placeholder text-center bg-primary cursor-pointer",style:{padding:"0px"},onClick:r=>e.openImage(l.image??[])},{default:_(()=>[l.image&&l.image.length>0?(D(),G("img",{key:0,src:l.image[0]??"",alt:"Project Image",class:"project-image"},null,8,Ua)):st("",!0)]),_:2},1032,["onClick"]),w(Ve,null,{default:_(()=>[v("h3",Xa,de(l.title),1),v("p",Ya,de(l.description),1),v("div",Ja,[(D(!0),G(ie,null,le(l.tech,r=>(D(),ae(We,{key:r,label:r,color:"info","text-color":"white"},null,8,["label"]))),128))]),l.link?(D(),G("a",{key:0,href:l.link,target:"_blank",rel:"noopener",class:"demo-link text-weight-bold q-mt-md text-secondary"},"Lihat Demo",8,Za)):st("",!0)]),_:2},1024)]),_:2},1024))),128))]),t[17]||(t[17]=v("h3",{class:"text-h6 text-weight-bold text-grey-8 q-mb-md"},"Aplikasi Service (SaaS)",-1)),v("div",null,[w(En,{bordered:"",separator:""},{default:_(()=>[(D(!0),G(ie,null,le(e.services,(l,r)=>(D(),ae(Pn,{key:r,clickable:""},{default:_(()=>[w(ft,{avatar:""},{default:_(()=>[w(re,{name:l.icon,color:"primary"},null,8,["name"])]),_:2},1024),w(ft,null,{default:_(()=>[w(mt,null,{default:_(()=>[De(de(l.title),1)]),_:2},1024),w(mt,{caption:""},{default:_(()=>[De(de(l.desc),1)]),_:2},1024)]),_:2},1024)]),_:2},1024))),128))]),_:1})]),w(Pa,{modelValue:e.showImage,"onUpdate:modelValue":t[7]||(t[7]=l=>e.showImage=l),maximized:""},{default:_(()=>[w(U,{class:"bg-black"},{default:_(()=>[w(Bn,{class:"bg-transparent text-white"},{default:_(()=>[w(He),bn(w(H,{dense:"",flat:"",icon:"close"},null,512),[[za]])]),_:1}),w(Ve,{class:"q-pa-none flex flex-center"},{default:_(()=>[w(Gn,{modelValue:e.slide,"onUpdate:modelValue":t[6]||(t[6]=l=>e.slide=l),animated:"",arrows:"",swipeable:"",navigation:"",height:"800px",class:"bg-black"},{default:_(()=>[(D(!0),G(ie,null,le(e.selectedImages,(l,r)=>(D(),ae(Rn,{key:r,name:r,class:"flex flex-center bg-black"},{default:_(()=>[v("img",{src:l,class:rt(e.$q.screen.lt.md?"w-full":"full-width full-height"),style:pn(e.$q.screen.lt.md?"height: 260px; width:100vw; object-fit: fill;":"object-fit: fill;")},null,14,ei)]),_:2},1032,["name"]))),128))]),_:1},8,["modelValue"])]),_:1})]),_:1})]),_:1},8,["modelValue"])]),_:1,__:[16,17]}),w(U,{id:"pengalaman",class:"content-card q-pa-lg animated-card"},{default:_(()=>[t[18]||(t[18]=v("h2",{class:"text-h5 text-weight-bold text-grey-8 q-mb-md"},"Pengalaman & Pencapaian",-1)),w(Zt,{color:"primary"},{default:_(()=>[(D(!0),G(ie,null,le(e.experiences,(l,r)=>(D(),ae(Jt,{key:r,subtitle:l},null,8,["subtitle"]))),128))]),_:1})]),_:1,__:[18]}),w(U,{class:"content-card q-pa-lg text-center animated-card"},{default:_(()=>t[19]||(t[19]=[v("h2",{class:"text-h5 text-weight-bold text-grey-8 q-mb-md"},"Blog & Artikel",-1),v("p",{class:"blog-placeholder text-subtitle2 text-grey-6"}," Segera hadir: Artikel & tulisan seputar teknologi, software, dan industri. ",-1)])),_:1,__:[19]}),w(U,{id:"kontak",class:"content-card q-pa-lg animated-card"},{default:_(()=>[t[20]||(t[20]=v("div",{class:"text-h6 text-grey-8 text-weight-bold q-mb-md"},"Kontak & Sosial Media",-1)),w(Ea,{spaced:""}),t[21]||(t[21]=v("div",{class:"q-mt-md"},[v("ul",{class:"text-body1"},[v("li",{class:"q-mb-sm"},[v("strong",null,"Email:"),v("a",{href:"mailto:anas.vianto11@gmail.com",class:"text-primary"}," anas.vianto11@gmail.com ")]),v("li",{class:"q-mb-sm"},[v("strong",null,"Instagram:"),v("a",{href:"https://instagram.com/anasvianto_",target:"_blank",class:"text-primary"}," @anasvianto_ ")]),v("li",{class:"q-mb-sm"},[v("strong",null,"WhatsApp:"),v("a",{href:"https://wa.me/6281326914169",target:"_blank",class:"text-primary"}," 081326914169 ")])])],-1)),v("div",ti,[w(H,{icon:"download",color:"primary",label:"Download CV (PDF)",style:{width:"100%"},onClick:t[8]||(t[8]=l=>e.downloadCV())})])]),_:1,__:[20,21]})])]),_:1})]),_:1})]),_:1})}const li=Qa(Ia,[["render",ni],["__scopeId","data-v-b074c3d0"]]);export{li as default};
+import {
+  e as T,
+  f as s,
+  h as d,
+  r as B,
+  i as Bt,
+  g as ee,
+  j as L,
+  k as Y,
+  n as Ge,
+  l as ye,
+  m as X,
+  p as R,
+  w as I,
+  q as me,
+  s as $e,
+  t as fe,
+  u as Ue,
+  P as rn,
+  v as Lt,
+  x as Ie,
+  y as O,
+  z as Qe,
+  A as we,
+  B as lt,
+  C as sn,
+  D as zt,
+  T as Oe,
+  K as un,
+  E as cn,
+  H as Pe,
+  F as dn,
+  G as ot,
+  I as Xe,
+  J as fn,
+  L as mn,
+  M as vn,
+  N as At,
+  O as Ye,
+  Q as It,
+  R as qe,
+  S as gn,
+  d as hn,
+  U as ae,
+  o as D,
+  V as _,
+  b as w,
+  W as rt,
+  X as De,
+  a as v,
+  c as G,
+  Y as ie,
+  Z as le,
+  _ as de,
+  $ as st,
+  a0 as bn,
+  a1 as pn,
+} from "./index-CsdK2_iG.js";
+import {
+  h as V,
+  a as Je,
+  u as Ze,
+  b as et,
+  c as re,
+  d as Qt,
+  e as tt,
+  f as Dt,
+  R as yn,
+  g as kn,
+  i as wn,
+  v as Vt,
+  j as qn,
+  k as Ft,
+  Q as H,
+  l as Ce,
+  m as ut,
+  n as xn,
+  o as Sn,
+} from "./QBtn-C_M2HtO4.js";
+const jt = T({
+    name: "QToolbarTitle",
+    props: { shrink: Boolean },
+    setup(e, { slots: t }) {
+      const n = s(
+        () =>
+          "q-toolbar__title ellipsis" + (e.shrink === !0 ? " col-shrink" : "")
+      );
+      return () => d("div", { class: n.value }, V(t.default));
+    },
+  }),
+  He = T({
+    name: "QSpace",
+    setup() {
+      const e = d("div", { class: "q-space" });
+      return () => e;
+    },
+  }),
+  Nt = T({
+    name: "QToolbar",
+    props: { inset: Boolean },
+    setup(e, { slots: t }) {
+      const n = s(
+        () =>
+          "q-toolbar row no-wrap items-center" +
+          (e.inset === !0 ? " q-toolbar--inset" : "")
+      );
+      return () => d("div", { class: n.value, role: "toolbar" }, V(t.default));
+    },
+  });
+function _n() {
+  const e = B(!Bt.value);
+  return (
+    e.value === !1 &&
+      ee(() => {
+        e.value = !0;
+      }),
+    { isHydrated: e }
+  );
+}
+const Rt = typeof ResizeObserver < "u",
+  ct =
+    Rt === !0
+      ? {}
+      : {
+          style:
+            "display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;",
+          url: "about:blank",
+        },
+  Ke = T({
+    name: "QResizeObserver",
+    props: { debounce: { type: [String, Number], default: 100 } },
+    emits: ["resize"],
+    setup(e, { emit: t }) {
+      let n = null,
+        a,
+        o = { width: -1, height: -1 };
+      function i(u) {
+        u === !0 || e.debounce === 0 || e.debounce === "0"
+          ? l()
+          : n === null && (n = setTimeout(l, e.debounce));
+      }
+      function l() {
+        if ((n !== null && (clearTimeout(n), (n = null)), a)) {
+          const { offsetWidth: u, offsetHeight: f } = a;
+          (u !== o.width || f !== o.height) &&
+            ((o = { width: u, height: f }), t("resize", o));
+        }
+      }
+      const { proxy: r } = L();
+      if (((r.trigger = i), Rt === !0)) {
+        let u;
+        const f = (m) => {
+          (a = r.$el.parentNode),
+            a
+              ? ((u = new ResizeObserver(i)), u.observe(a), l())
+              : m !== !0 &&
+                ye(() => {
+                  f(!0);
+                });
+        };
+        return (
+          ee(() => {
+            f();
+          }),
+          Y(() => {
+            n !== null && clearTimeout(n),
+              u !== void 0 &&
+                (u.disconnect !== void 0
+                  ? u.disconnect()
+                  : a && u.unobserve(a));
+          }),
+          Ge
+        );
+      } else {
+        let u = function () {
+            n !== null && (clearTimeout(n), (n = null)),
+              h !== void 0 &&
+                (h.removeEventListener !== void 0 &&
+                  h.removeEventListener("resize", i, X.passive),
+                (h = void 0));
+          },
+          f = function () {
+            u(),
+              a?.contentDocument &&
+                ((h = a.contentDocument.defaultView),
+                h.addEventListener("resize", i, X.passive),
+                l());
+          };
+        const { isHydrated: m } = _n();
+        let h;
+        return (
+          ee(() => {
+            ye(() => {
+              (a = r.$el), a && f();
+            });
+          }),
+          Y(u),
+          () => {
+            if (m.value === !0)
+              return d("object", {
+                class: "q--avoid-card-border",
+                style: ct.style,
+                tabindex: -1,
+                type: "text/html",
+                data: ct.url,
+                "aria-hidden": "true",
+                onLoad: f,
+              });
+          }
+        );
+      }
+    },
+  }),
+  Mt = T({
+    name: "QHeader",
+    props: {
+      modelValue: { type: Boolean, default: !0 },
+      reveal: Boolean,
+      revealOffset: { type: Number, default: 250 },
+      bordered: Boolean,
+      elevated: Boolean,
+      heightHint: { type: [String, Number], default: 50 },
+    },
+    emits: ["reveal", "focusin"],
+    setup(e, { slots: t, emit: n }) {
+      const {
+          proxy: { $q: a },
+        } = L(),
+        o = me($e, R);
+      if (o === R)
+        return console.error("QHeader needs to be child of QLayout"), R;
+      const i = B(parseInt(e.heightHint, 10)),
+        l = B(!0),
+        r = s(
+          () =>
+            e.reveal === !0 ||
+            o.view.value.indexOf("H") !== -1 ||
+            (a.platform.is.ios && o.isContainer.value === !0)
+        ),
+        u = s(() => {
+          if (e.modelValue !== !0) return 0;
+          if (r.value === !0) return l.value === !0 ? i.value : 0;
+          const c = i.value - o.scroll.value.position;
+          return c > 0 ? c : 0;
+        }),
+        f = s(() => e.modelValue !== !0 || (r.value === !0 && l.value !== !0)),
+        m = s(() => e.modelValue === !0 && f.value === !0 && e.reveal === !0),
+        h = s(
+          () =>
+            "q-header q-layout__section--marginal " +
+            (r.value === !0 ? "fixed" : "absolute") +
+            "-top" +
+            (e.bordered === !0 ? " q-header--bordered" : "") +
+            (f.value === !0 ? " q-header--hidden" : "") +
+            (e.modelValue !== !0 ? " q-layout--prevent-focus" : "")
+        ),
+        k = s(() => {
+          const c = o.rows.value.top,
+            y = {};
+          return (
+            c[0] === "l" &&
+              o.left.space === !0 &&
+              (y[a.lang.rtl === !0 ? "right" : "left"] = `${o.left.size}px`),
+            c[2] === "r" &&
+              o.right.space === !0 &&
+              (y[a.lang.rtl === !0 ? "left" : "right"] = `${o.right.size}px`),
+            y
+          );
+        });
+      function b(c, y) {
+        o.update("header", c, y);
+      }
+      function p(c, y) {
+        c.value !== y && (c.value = y);
+      }
+      function C({ height: c }) {
+        p(i, c), b("size", c);
+      }
+      function g(c) {
+        m.value === !0 && p(l, !0), n("focusin", c);
+      }
+      I(
+        () => e.modelValue,
+        (c) => {
+          b("space", c), p(l, !0), o.animate();
+        }
+      ),
+        I(u, (c) => {
+          b("offset", c);
+        }),
+        I(
+          () => e.reveal,
+          (c) => {
+            c === !1 && p(l, e.modelValue);
+          }
+        ),
+        I(l, (c) => {
+          o.animate(), n("reveal", c);
+        }),
+        I(o.scroll, (c) => {
+          e.reveal === !0 &&
+            p(
+              l,
+              c.direction === "up" ||
+                c.position <= e.revealOffset ||
+                c.position - c.inflectionPoint < 100
+            );
+        });
+      const $ = {};
+      return (
+        (o.instances.header = $),
+        e.modelValue === !0 && b("size", i.value),
+        b("space", e.modelValue),
+        b("offset", u.value),
+        Y(() => {
+          o.instances.header === $ &&
+            ((o.instances.header = void 0),
+            b("size", 0),
+            b("offset", 0),
+            b("space", !1));
+        }),
+        () => {
+          const c = Je(t.default, []);
+          return (
+            e.elevated === !0 &&
+              c.push(
+                d("div", {
+                  class:
+                    "q-layout__shadow absolute-full overflow-hidden no-pointer-events",
+                })
+              ),
+            c.push(d(Ke, { debounce: 0, onResize: C })),
+            d("header", { class: h.value, style: k.value, onFocusin: g }, c)
+          );
+        }
+      );
+    },
+  }),
+  Ot = T({
+    name: "QAvatar",
+    props: {
+      ...Ze,
+      fontSize: String,
+      color: String,
+      textColor: String,
+      icon: String,
+      square: Boolean,
+      rounded: Boolean,
+    },
+    setup(e, { slots: t }) {
+      const n = et(e),
+        a = s(
+          () =>
+            "q-avatar" +
+            (e.color ? ` bg-${e.color}` : "") +
+            (e.textColor ? ` text-${e.textColor} q-chip--colored` : "") +
+            (e.square === !0
+              ? " q-avatar--square"
+              : e.rounded === !0
+              ? " rounded-borders"
+              : "")
+        ),
+        o = s(() => (e.fontSize ? { fontSize: e.fontSize } : null));
+      return () => {
+        const i = e.icon !== void 0 ? [d(re, { name: e.icon })] : void 0;
+        return d("div", { class: a.value, style: n.value }, [
+          d(
+            "div",
+            {
+              class: "q-avatar__content row flex-center overflow-hidden",
+              style: o.value,
+            },
+            Qt(t.default, i)
+          ),
+        ]);
+      };
+    },
+  }),
+  te = { dark: { type: Boolean, default: null } };
+function ne(e, t) {
+  return s(() => (e.dark === null ? t.dark.isActive : e.dark));
+}
+const U = T({
+    name: "QCard",
+    props: {
+      ...te,
+      tag: { type: String, default: "div" },
+      square: Boolean,
+      flat: Boolean,
+      bordered: Boolean,
+    },
+    setup(e, { slots: t }) {
+      const {
+          proxy: { $q: n },
+        } = L(),
+        a = ne(e, n),
+        o = s(
+          () =>
+            "q-card" +
+            (a.value === !0 ? " q-card--dark q-dark" : "") +
+            (e.bordered === !0 ? " q-card--bordered" : "") +
+            (e.square === !0 ? " q-card--square no-border-radius" : "") +
+            (e.flat === !0 ? " q-card--flat no-shadow" : "")
+        );
+      return () => d(e.tag, { class: o.value }, V(t.default));
+    },
+  }),
+  Cn = { xs: 2, sm: 4, md: 6, lg: 10, xl: 14 };
+function dt(e, t, n) {
+  return {
+    transform:
+      t === !0
+        ? `translateX(${n.lang.rtl === !0 ? "-" : ""}100%) scale3d(${-e},1,1)`
+        : `scale3d(${e},1,1)`,
+  };
+}
+const Ht = T({
+    name: "QLinearProgress",
+    props: {
+      ...te,
+      ...Ze,
+      value: { type: Number, default: 0 },
+      buffer: Number,
+      color: String,
+      trackColor: String,
+      reverse: Boolean,
+      stripe: Boolean,
+      indeterminate: Boolean,
+      query: Boolean,
+      rounded: Boolean,
+      animationSpeed: { type: [String, Number], default: 2100 },
+      instantFeedback: Boolean,
+    },
+    setup(e, { slots: t }) {
+      const { proxy: n } = L(),
+        a = ne(e, n.$q),
+        o = et(e, Cn),
+        i = s(() => e.indeterminate === !0 || e.query === !0),
+        l = s(() => e.reverse !== e.query),
+        r = s(() => ({
+          ...(o.value !== null ? o.value : {}),
+          "--q-linear-progress-speed": `${e.animationSpeed}ms`,
+        })),
+        u = s(
+          () =>
+            "q-linear-progress" +
+            (e.color !== void 0 ? ` text-${e.color}` : "") +
+            (e.reverse === !0 || e.query === !0
+              ? " q-linear-progress--reverse"
+              : "") +
+            (e.rounded === !0 ? " rounded-borders" : "")
+        ),
+        f = s(() => dt(e.buffer !== void 0 ? e.buffer : 1, l.value, n.$q)),
+        m = s(() => `with${e.instantFeedback === !0 ? "out" : ""}-transition`),
+        h = s(
+          () =>
+            `q-linear-progress__track absolute-full q-linear-progress__track--${
+              m.value
+            } q-linear-progress__track--${a.value === !0 ? "dark" : "light"}` +
+            (e.trackColor !== void 0 ? ` bg-${e.trackColor}` : "")
+        ),
+        k = s(() => dt(i.value === !0 ? 1 : e.value, l.value, n.$q)),
+        b = s(
+          () =>
+            `q-linear-progress__model absolute-full q-linear-progress__model--${
+              m.value
+            } q-linear-progress__model--${
+              i.value === !0 ? "in" : ""
+            }determinate`
+        ),
+        p = s(() => ({ width: `${e.value * 100}%` })),
+        C = s(
+          () =>
+            `q-linear-progress__stripe absolute-${
+              e.reverse === !0 ? "right" : "left"
+            } q-linear-progress__stripe--${m.value}`
+        );
+      return () => {
+        const g = [
+          d("div", { class: h.value, style: f.value }),
+          d("div", { class: b.value, style: k.value }),
+        ];
+        return (
+          e.stripe === !0 &&
+            i.value === !1 &&
+            g.push(d("div", { class: C.value, style: p.value })),
+          d(
+            "div",
+            {
+              class: u.value,
+              style: r.value,
+              role: "progressbar",
+              "aria-valuemin": 0,
+              "aria-valuemax": 1,
+              "aria-valuenow": e.indeterminate === !0 ? void 0 : e.value,
+            },
+            tt(t.default, g)
+          )
+        );
+      };
+    },
+  }),
+  Tn = { xs: 8, sm: 10, md: 14, lg: 20, xl: 24 },
+  We = T({
+    name: "QChip",
+    props: {
+      ...te,
+      ...Ze,
+      dense: Boolean,
+      icon: String,
+      iconRight: String,
+      iconRemove: String,
+      iconSelected: String,
+      label: [String, Number],
+      color: String,
+      textColor: String,
+      modelValue: { type: Boolean, default: !0 },
+      selected: { type: Boolean, default: null },
+      square: Boolean,
+      outline: Boolean,
+      clickable: Boolean,
+      removable: Boolean,
+      removeAriaLabel: String,
+      tabindex: [String, Number],
+      disable: Boolean,
+      ripple: { type: [Boolean, Object], default: !0 },
+    },
+    emits: ["update:modelValue", "update:selected", "remove", "click"],
+    setup(e, { slots: t, emit: n }) {
+      const {
+          proxy: { $q: a },
+        } = L(),
+        o = ne(e, a),
+        i = et(e, Tn),
+        l = s(() => e.selected === !0 || e.icon !== void 0),
+        r = s(() =>
+          e.selected === !0 ? e.iconSelected || a.iconSet.chip.selected : e.icon
+        ),
+        u = s(() => e.iconRemove || a.iconSet.chip.remove),
+        f = s(
+          () => e.disable === !1 && (e.clickable === !0 || e.selected !== null)
+        ),
+        m = s(() => {
+          const g = (e.outline === !0 && e.color) || e.textColor;
+          return (
+            "q-chip row inline no-wrap items-center" +
+            (e.outline === !1 && e.color !== void 0 ? ` bg-${e.color}` : "") +
+            (g ? ` text-${g} q-chip--colored` : "") +
+            (e.disable === !0 ? " disabled" : "") +
+            (e.dense === !0 ? " q-chip--dense" : "") +
+            (e.outline === !0 ? " q-chip--outline" : "") +
+            (e.selected === !0 ? " q-chip--selected" : "") +
+            (f.value === !0
+              ? " q-chip--clickable cursor-pointer non-selectable q-hoverable"
+              : "") +
+            (e.square === !0 ? " q-chip--square" : "") +
+            (o.value === !0 ? " q-chip--dark q-dark" : "")
+          );
+        }),
+        h = s(() => {
+          const g =
+              e.disable === !0
+                ? { tabindex: -1, "aria-disabled": "true" }
+                : { tabindex: e.tabindex || 0 },
+            $ = {
+              ...g,
+              role: "button",
+              "aria-hidden": "false",
+              "aria-label": e.removeAriaLabel || a.lang.label.remove,
+            };
+          return { chip: g, remove: $ };
+        });
+      function k(g) {
+        g.keyCode === 13 && b(g);
+      }
+      function b(g) {
+        e.disable || (n("update:selected", !e.selected), n("click", g));
+      }
+      function p(g) {
+        (g.keyCode === void 0 || g.keyCode === 13) &&
+          (fe(g),
+          e.disable === !1 && (n("update:modelValue", !1), n("remove")));
+      }
+      function C() {
+        const g = [];
+        f.value === !0 && g.push(d("div", { class: "q-focus-helper" })),
+          l.value === !0 &&
+            g.push(
+              d(re, { class: "q-chip__icon q-chip__icon--left", name: r.value })
+            );
+        const $ =
+          e.label !== void 0
+            ? [d("div", { class: "ellipsis" }, [e.label])]
+            : void 0;
+        return (
+          g.push(
+            d(
+              "div",
+              {
+                class:
+                  "q-chip__content col row no-wrap items-center q-anchor--skip",
+              },
+              Qt(t.default, $)
+            )
+          ),
+          e.iconRight &&
+            g.push(
+              d(re, {
+                class: "q-chip__icon q-chip__icon--right",
+                name: e.iconRight,
+              })
+            ),
+          e.removable === !0 &&
+            g.push(
+              d(re, {
+                class: "q-chip__icon q-chip__icon--remove cursor-pointer",
+                name: u.value,
+                ...h.value.remove,
+                onClick: p,
+                onKeyup: p,
+              })
+            ),
+          g
+        );
+      }
+      return () => {
+        if (e.modelValue === !1) return;
+        const g = { class: m.value, style: i.value };
+        return (
+          f.value === !0 &&
+            Object.assign(g, h.value.chip, { onClick: b, onKeyup: k }),
+          Dt(
+            "div",
+            g,
+            C(),
+            "ripple",
+            e.ripple !== !1 && e.disable !== !0,
+            () => [[yn, e.ripple]]
+          )
+        );
+      };
+    },
+  }),
+  Ve = T({
+    name: "QCardSection",
+    props: { tag: { type: String, default: "div" }, horizontal: Boolean },
+    setup(e, { slots: t }) {
+      const n = s(
+        () =>
+          `q-card__section q-card__section--${
+            e.horizontal === !0 ? "horiz row no-wrap" : "vert"
+          }`
+      );
+      return () => d(e.tag, { class: n.value }, V(t.default));
+    },
+  }),
+  ft = T({
+    name: "QItemSection",
+    props: {
+      avatar: Boolean,
+      thumbnail: Boolean,
+      side: Boolean,
+      top: Boolean,
+      noWrap: Boolean,
+    },
+    setup(e, { slots: t }) {
+      const n = s(
+        () =>
+          `q-item__section column q-item__section--${
+            e.avatar === !0 || e.side === !0 || e.thumbnail === !0
+              ? "side"
+              : "main"
+          }` +
+          (e.top === !0
+            ? " q-item__section--top justify-start"
+            : " justify-center") +
+          (e.avatar === !0 ? " q-item__section--avatar" : "") +
+          (e.thumbnail === !0 ? " q-item__section--thumbnail" : "") +
+          (e.noWrap === !0 ? " q-item__section--nowrap" : "")
+      );
+      return () => d("div", { class: n.value }, V(t.default));
+    },
+  }),
+  mt = T({
+    name: "QItemLabel",
+    props: {
+      overline: Boolean,
+      caption: Boolean,
+      header: Boolean,
+      lines: [Number, String],
+    },
+    setup(e, { slots: t }) {
+      const n = s(() => parseInt(e.lines, 10)),
+        a = s(
+          () =>
+            "q-item__label" +
+            (e.overline === !0
+              ? " q-item__label--overline text-overline"
+              : "") +
+            (e.caption === !0 ? " q-item__label--caption text-caption" : "") +
+            (e.header === !0 ? " q-item__label--header" : "") +
+            (n.value === 1 ? " ellipsis" : "")
+        ),
+        o = s(() =>
+          e.lines !== void 0 && n.value > 1
+            ? {
+                overflow: "hidden",
+                display: "-webkit-box",
+                "-webkit-box-orient": "vertical",
+                "-webkit-line-clamp": n.value,
+              }
+            : null
+        );
+      return () => d("div", { style: o.value, class: a.value }, V(t.default));
+    },
+  }),
+  Pn = T({
+    name: "QItem",
+    props: {
+      ...te,
+      ...kn,
+      tag: { type: String, default: "div" },
+      active: { type: Boolean, default: null },
+      clickable: Boolean,
+      dense: Boolean,
+      insetLevel: Number,
+      tabindex: [String, Number],
+      focused: Boolean,
+      manualFocus: Boolean,
+    },
+    emits: ["click", "keyup"],
+    setup(e, { slots: t, emit: n }) {
+      const {
+          proxy: { $q: a },
+        } = L(),
+        o = ne(e, a),
+        {
+          hasLink: i,
+          linkAttrs: l,
+          linkClass: r,
+          linkTag: u,
+          navigateOnClick: f,
+        } = wn(),
+        m = B(null),
+        h = B(null),
+        k = s(() => e.clickable === !0 || i.value === !0 || e.tag === "label"),
+        b = s(() => e.disable !== !0 && k.value === !0),
+        p = s(
+          () =>
+            "q-item q-item-type row no-wrap" +
+            (e.dense === !0 ? " q-item--dense" : "") +
+            (o.value === !0 ? " q-item--dark" : "") +
+            (i.value === !0 && e.active === null
+              ? r.value
+              : e.active === !0
+              ? ` q-item--active${
+                  e.activeClass !== void 0 ? ` ${e.activeClass}` : ""
+                }`
+              : "") +
+            (e.disable === !0 ? " disabled" : "") +
+            (b.value === !0
+              ? " q-item--clickable q-link cursor-pointer " +
+                (e.manualFocus === !0
+                  ? "q-manual-focusable"
+                  : "q-focusable q-hoverable") +
+                (e.focused === !0 ? " q-manual-focusable--focused" : "")
+              : "")
+        ),
+        C = s(() =>
+          e.insetLevel === void 0
+            ? null
+            : {
+                ["padding" + (a.lang.rtl === !0 ? "Right" : "Left")]:
+                  16 + e.insetLevel * 56 + "px",
+              }
+        );
+      function g(y) {
+        b.value === !0 &&
+          (h.value !== null &&
+            y.qAvoidFocus !== !0 &&
+            (y.qKeyEvent !== !0 && document.activeElement === m.value
+              ? h.value.focus()
+              : document.activeElement === h.value && m.value.focus()),
+          f(y));
+      }
+      function $(y) {
+        if (b.value === !0 && Ue(y, [13, 32]) === !0) {
+          fe(y), (y.qKeyEvent = !0);
+          const q = new MouseEvent("click", y);
+          (q.qKeyEvent = !0), m.value.dispatchEvent(q);
+        }
+        n("keyup", y);
+      }
+      function c() {
+        const y = Je(t.default, []);
+        return (
+          b.value === !0 &&
+            y.unshift(
+              d("div", { class: "q-focus-helper", tabindex: -1, ref: h })
+            ),
+          y
+        );
+      }
+      return () => {
+        const y = {
+          ref: m,
+          class: p.value,
+          style: C.value,
+          role: "listitem",
+          onClick: g,
+          onKeyup: $,
+        };
+        return (
+          b.value === !0
+            ? ((y.tabindex = e.tabindex || "0"), Object.assign(y, l.value))
+            : k.value === !0 && (y["aria-disabled"] = "true"),
+          d(u.value, y, c())
+        );
+      };
+    },
+  }),
+  $n = ["ul", "ol"],
+  En = T({
+    name: "QList",
+    props: {
+      ...te,
+      bordered: Boolean,
+      dense: Boolean,
+      separator: Boolean,
+      padding: Boolean,
+      tag: { type: String, default: "div" },
+    },
+    setup(e, { slots: t }) {
+      const n = L(),
+        a = ne(e, n.proxy.$q),
+        o = s(() => ($n.includes(e.tag) ? null : "list")),
+        i = s(
+          () =>
+            "q-list" +
+            (e.bordered === !0 ? " q-list--bordered" : "") +
+            (e.dense === !0 ? " q-list--dense" : "") +
+            (e.separator === !0 ? " q-list--separator" : "") +
+            (a.value === !0 ? " q-list--dark" : "") +
+            (e.padding === !0 ? " q-list--padding" : "")
+        );
+      return () => d(e.tag, { class: i.value, role: o.value }, V(t.default));
+    },
+  }),
+  Bn = T({
+    name: "QBar",
+    props: { ...te, dense: Boolean },
+    setup(e, { slots: t }) {
+      const {
+          proxy: { $q: n },
+        } = L(),
+        a = ne(e, n),
+        o = s(
+          () =>
+            `q-bar row no-wrap items-center q-bar--${
+              e.dense === !0 ? "dense" : "standard"
+            }  q-bar--${a.value === !0 ? "dark" : "light"}`
+        );
+      return () => d("div", { class: o.value, role: "toolbar" }, V(t.default));
+    },
+  }),
+  nt = { left: !0, right: !0, up: !0, down: !0, horizontal: !0, vertical: !0 },
+  Ln = Object.keys(nt);
+nt.all = !0;
+function vt(e) {
+  const t = {};
+  for (const n of Ln) e[n] === !0 && (t[n] = !0);
+  return Object.keys(t).length === 0
+    ? nt
+    : (t.horizontal === !0
+        ? (t.left = t.right = !0)
+        : t.left === !0 && t.right === !0 && (t.horizontal = !0),
+      t.vertical === !0
+        ? (t.up = t.down = !0)
+        : t.up === !0 && t.down === !0 && (t.vertical = !0),
+      t.horizontal === !0 && t.vertical === !0 && (t.all = !0),
+      t);
+}
+const zn = ["INPUT", "TEXTAREA"];
+function gt(e, t) {
+  return (
+    t.event === void 0 &&
+    e.target !== void 0 &&
+    e.target.draggable !== !0 &&
+    typeof t.handler == "function" &&
+    zn.includes(e.target.nodeName.toUpperCase()) === !1 &&
+    (e.qClonedBy === void 0 || e.qClonedBy.indexOf(t.uid) === -1)
+  );
+}
+function An() {
+  if (window.getSelection !== void 0) {
+    const e = window.getSelection();
+    e.empty !== void 0
+      ? e.empty()
+      : e.removeAllRanges !== void 0 &&
+        (e.removeAllRanges(),
+        rn.is.mobile !== !0 && e.addRange(document.createRange()));
+  } else document.selection !== void 0 && document.selection.empty();
+}
+function In(e) {
+  const t = [0.06, 6, 50];
+  return (
+    typeof e == "string" &&
+      e.length &&
+      e.split(":").forEach((n, a) => {
+        const o = parseFloat(n);
+        o && (t[a] = o);
+      }),
+    t
+  );
+}
+const Qn = Lt({
+  name: "touch-swipe",
+  beforeMount(e, { value: t, arg: n, modifiers: a }) {
+    if (a.mouse !== !0 && O.has.touch !== !0) return;
+    const o = a.mouseCapture === !0 ? "Capture" : "",
+      i = {
+        handler: t,
+        sensitivity: In(n),
+        direction: vt(a),
+        noop: Ge,
+        mouseStart(l) {
+          gt(l, i) &&
+            sn(l) &&
+            (we(i, "temp", [
+              [document, "mousemove", "move", `notPassive${o}`],
+              [document, "mouseup", "end", "notPassiveCapture"],
+            ]),
+            i.start(l, !0));
+        },
+        touchStart(l) {
+          if (gt(l, i)) {
+            const r = l.target;
+            we(i, "temp", [
+              [r, "touchmove", "move", "notPassiveCapture"],
+              [r, "touchcancel", "end", "notPassiveCapture"],
+              [r, "touchend", "end", "notPassiveCapture"],
+            ]),
+              i.start(l);
+          }
+        },
+        start(l, r) {
+          O.is.firefox === !0 && Qe(e, !0);
+          const u = lt(l);
+          i.event = {
+            x: u.left,
+            y: u.top,
+            time: Date.now(),
+            mouse: r === !0,
+            dir: !1,
+          };
+        },
+        move(l) {
+          if (i.event === void 0) return;
+          if (i.event.dir !== !1) {
+            fe(l);
+            return;
+          }
+          const r = Date.now() - i.event.time;
+          if (r === 0) return;
+          const u = lt(l),
+            f = u.left - i.event.x,
+            m = Math.abs(f),
+            h = u.top - i.event.y,
+            k = Math.abs(h);
+          if (i.event.mouse !== !0) {
+            if (m < i.sensitivity[1] && k < i.sensitivity[1]) {
+              i.end(l);
+              return;
+            }
+          } else if (window.getSelection().toString() !== "") {
+            i.end(l);
+            return;
+          } else if (m < i.sensitivity[2] && k < i.sensitivity[2]) return;
+          const b = m / r,
+            p = k / r;
+          i.direction.vertical === !0 &&
+            m < k &&
+            m < 100 &&
+            p > i.sensitivity[0] &&
+            (i.event.dir = h < 0 ? "up" : "down"),
+            i.direction.horizontal === !0 &&
+              m > k &&
+              k < 100 &&
+              b > i.sensitivity[0] &&
+              (i.event.dir = f < 0 ? "left" : "right"),
+            i.direction.up === !0 &&
+              m < k &&
+              h < 0 &&
+              m < 100 &&
+              p > i.sensitivity[0] &&
+              (i.event.dir = "up"),
+            i.direction.down === !0 &&
+              m < k &&
+              h > 0 &&
+              m < 100 &&
+              p > i.sensitivity[0] &&
+              (i.event.dir = "down"),
+            i.direction.left === !0 &&
+              m > k &&
+              f < 0 &&
+              k < 100 &&
+              b > i.sensitivity[0] &&
+              (i.event.dir = "left"),
+            i.direction.right === !0 &&
+              m > k &&
+              f > 0 &&
+              k < 100 &&
+              b > i.sensitivity[0] &&
+              (i.event.dir = "right"),
+            i.event.dir !== !1
+              ? (fe(l),
+                i.event.mouse === !0 &&
+                  (document.body.classList.add("no-pointer-events--children"),
+                  document.body.classList.add("non-selectable"),
+                  An(),
+                  (i.styleCleanup = (C) => {
+                    (i.styleCleanup = void 0),
+                      document.body.classList.remove("non-selectable");
+                    const g = () => {
+                      document.body.classList.remove(
+                        "no-pointer-events--children"
+                      );
+                    };
+                    C === !0 ? setTimeout(g, 50) : g();
+                  })),
+                i.handler({
+                  evt: l,
+                  touch: i.event.mouse !== !0,
+                  mouse: i.event.mouse,
+                  direction: i.event.dir,
+                  duration: r,
+                  distance: { x: m, y: k },
+                }))
+              : i.end(l);
+        },
+        end(l) {
+          i.event !== void 0 &&
+            (Ie(i, "temp"),
+            O.is.firefox === !0 && Qe(e, !1),
+            i.styleCleanup?.(!0),
+            l !== void 0 && i.event.dir !== !1 && fe(l),
+            (i.event = void 0));
+        },
+      };
+    if (((e.__qtouchswipe = i), a.mouse === !0)) {
+      const l = a.mouseCapture === !0 || a.mousecapture === !0 ? "Capture" : "";
+      we(i, "main", [[e, "mousedown", "mouseStart", `passive${l}`]]);
+    }
+    O.has.touch === !0 &&
+      we(i, "main", [
+        [
+          e,
+          "touchstart",
+          "touchStart",
+          `passive${a.capture === !0 ? "Capture" : ""}`,
+        ],
+        [e, "touchmove", "noop", "notPassiveCapture"],
+      ]);
+  },
+  updated(e, t) {
+    const n = e.__qtouchswipe;
+    n !== void 0 &&
+      (t.oldValue !== t.value &&
+        (typeof t.value != "function" && n.end(), (n.handler = t.value)),
+      (n.direction = vt(t.modifiers)));
+  },
+  beforeUnmount(e) {
+    const t = e.__qtouchswipe;
+    t !== void 0 &&
+      (Ie(t, "main"),
+      Ie(t, "temp"),
+      O.is.firefox === !0 && Qe(e, !1),
+      t.styleCleanup?.(),
+      delete e.__qtouchswipe);
+  },
+});
+function Dn() {
+  let e = Object.create(null);
+  return {
+    getCache: (t, n) =>
+      e[t] === void 0 ? (e[t] = typeof n == "function" ? n() : n) : e[t],
+    setCache(t, n) {
+      e[t] = n;
+    },
+    hasCache(t) {
+      return Object.hasOwnProperty.call(e, t);
+    },
+    clearCache(t) {
+      t !== void 0 ? delete e[t] : (e = Object.create(null));
+    },
+  };
+}
+function Kt() {
+  let e = null;
+  const t = L();
+  function n() {
+    e !== null && (clearTimeout(e), (e = null));
+  }
+  return (
+    zt(n),
+    Y(n),
+    {
+      removeTimeout: n,
+      registerTimeout(a, o) {
+        n(),
+          Vt(t) === !1 &&
+            (e = setTimeout(() => {
+              (e = null), a();
+            }, o));
+      },
+    }
+  );
+}
+const Vn = { name: { required: !0 }, disable: Boolean },
+  ht = {
+    setup(e, { slots: t }) {
+      return () =>
+        d("div", { class: "q-panel scroll", role: "tabpanel" }, V(t.default));
+    },
+  },
+  Fn = {
+    modelValue: { required: !0 },
+    animated: Boolean,
+    infinite: Boolean,
+    swipeable: Boolean,
+    vertical: Boolean,
+    transitionPrev: String,
+    transitionNext: String,
+    transitionDuration: { type: [String, Number], default: 300 },
+    keepAlive: Boolean,
+    keepAliveInclude: [String, Array, RegExp],
+    keepAliveExclude: [String, Array, RegExp],
+    keepAliveMax: Number,
+  },
+  jn = ["update:modelValue", "beforeTransition", "transition"];
+function Nn() {
+  const { props: e, emit: t, proxy: n } = L(),
+    { getCache: a } = Dn(),
+    { registerTimeout: o } = Kt();
+  let i, l;
+  const r = B(null),
+    u = { value: null };
+  function f(x) {
+    const P = e.vertical === !0 ? "up" : "left";
+    Q((n.$q.lang.rtl === !0 ? -1 : 1) * (x.direction === P ? 1 : -1));
+  }
+  const m = s(() => [
+      [
+        Qn,
+        f,
+        void 0,
+        { horizontal: e.vertical !== !0, vertical: e.vertical, mouse: !0 },
+      ],
+    ]),
+    h = s(
+      () => e.transitionPrev || `slide-${e.vertical === !0 ? "down" : "right"}`
+    ),
+    k = s(
+      () => e.transitionNext || `slide-${e.vertical === !0 ? "up" : "left"}`
+    ),
+    b = s(() => `--q-transition-duration: ${e.transitionDuration}ms`),
+    p = s(() =>
+      typeof e.modelValue == "string" || typeof e.modelValue == "number"
+        ? e.modelValue
+        : String(e.modelValue)
+    ),
+    C = s(() => ({
+      include: e.keepAliveInclude,
+      exclude: e.keepAliveExclude,
+      max: e.keepAliveMax,
+    })),
+    g = s(() => e.keepAliveInclude !== void 0 || e.keepAliveExclude !== void 0);
+  I(
+    () => e.modelValue,
+    (x, P) => {
+      const M = q(x) === !0 ? E(x) : -1;
+      l !== !0 && A(M === -1 ? 0 : M < E(P) ? -1 : 1),
+        u.value !== M &&
+          ((u.value = M),
+          t("beforeTransition", x, P),
+          o(() => {
+            t("transition", x, P);
+          }, e.transitionDuration));
+    }
+  );
+  function $() {
+    Q(1);
+  }
+  function c() {
+    Q(-1);
+  }
+  function y(x) {
+    t("update:modelValue", x);
+  }
+  function q(x) {
+    return x != null && x !== "";
+  }
+  function E(x) {
+    return i.findIndex(
+      (P) =>
+        P.props.name === x && P.props.disable !== "" && P.props.disable !== !0
+    );
+  }
+  function F() {
+    return i.filter((x) => x.props.disable !== "" && x.props.disable !== !0);
+  }
+  function A(x) {
+    const P =
+      x !== 0 && e.animated === !0 && u.value !== -1
+        ? "q-transition--" + (x === -1 ? h.value : k.value)
+        : null;
+    r.value !== P && (r.value = P);
+  }
+  function Q(x, P = u.value) {
+    let M = P + x;
+    for (; M !== -1 && M < i.length; ) {
+      const W = i[M];
+      if (W !== void 0 && W.props.disable !== "" && W.props.disable !== !0) {
+        A(x),
+          (l = !0),
+          t("update:modelValue", W.props.name),
+          setTimeout(() => {
+            l = !1;
+          });
+        return;
+      }
+      M += x;
+    }
+    e.infinite === !0 &&
+      i.length !== 0 &&
+      P !== -1 &&
+      P !== i.length &&
+      Q(x, x === -1 ? i.length : -1);
+  }
+  function J() {
+    const x = E(e.modelValue);
+    return u.value !== x && (u.value = x), !0;
+  }
+  function z() {
+    const x = q(e.modelValue) === !0 && J() && i[u.value];
+    return e.keepAlive === !0
+      ? [
+          d(un, C.value, [
+            d(
+              g.value === !0
+                ? a(p.value, () => ({ ...ht, name: p.value }))
+                : ht,
+              { key: p.value, style: b.value },
+              () => x
+            ),
+          ]),
+        ]
+      : [
+          d(
+            "div",
+            {
+              class: "q-panel scroll",
+              style: b.value,
+              key: p.value,
+              role: "tabpanel",
+            },
+            [x]
+          ),
+        ];
+  }
+  function Z() {
+    if (i.length !== 0)
+      return e.animated === !0 ? [d(Oe, { name: r.value }, z)] : z();
+  }
+  function K(x) {
+    return (
+      (i = qn(V(x.default, [])).filter(
+        (P) =>
+          P.props !== null && P.props.slot === void 0 && q(P.props.name) === !0
+      )),
+      i.length
+    );
+  }
+  function j() {
+    return i;
+  }
+  return (
+    Object.assign(n, { next: $, previous: c, goTo: y }),
+    {
+      panelIndex: u,
+      panelDirectives: m,
+      updatePanelsList: K,
+      updatePanelIndex: J,
+      getPanelContent: Z,
+      getEnabledPanels: F,
+      getPanels: j,
+      isValidPanelName: q,
+      keepAliveProps: C,
+      needsUniqueKeepAliveWrapper: g,
+      goToPanelByOffset: Q,
+      goToPanel: y,
+      nextPanel: $,
+      previousPanel: c,
+    }
+  );
+}
+const Rn = T({
+  name: "QCarouselSlide",
+  props: { ...Vn, imgSrc: String },
+  setup(e, { slots: t }) {
+    const n = s(() =>
+      e.imgSrc ? { backgroundImage: `url("${e.imgSrc}")` } : {}
+    );
+    return () =>
+      d("div", { class: "q-carousel__slide", style: n.value }, V(t.default));
+  },
+});
+let ge = 0;
+const Mn = { fullscreen: Boolean, noRouteFullscreenExit: Boolean },
+  On = ["update:fullscreen", "fullscreen"];
+function Hn() {
+  const e = L(),
+    { props: t, emit: n, proxy: a } = e;
+  let o, i, l;
+  const r = B(!1);
+  Ft(e) === !0 &&
+    I(
+      () => a.$route.fullPath,
+      () => {
+        t.noRouteFullscreenExit !== !0 && m();
+      }
+    ),
+    I(
+      () => t.fullscreen,
+      (h) => {
+        r.value !== h && u();
+      }
+    ),
+    I(r, (h) => {
+      n("update:fullscreen", h), n("fullscreen", h);
+    });
+  function u() {
+    r.value === !0 ? m() : f();
+  }
+  function f() {
+    r.value !== !0 &&
+      ((r.value = !0),
+      (l = a.$el.parentNode),
+      l.replaceChild(i, a.$el),
+      document.body.appendChild(a.$el),
+      ge++,
+      ge === 1 && document.body.classList.add("q-body--fullscreen-mixin"),
+      (o = { handler: m }),
+      Pe.add(o));
+  }
+  function m() {
+    r.value === !0 &&
+      (o !== void 0 && (Pe.remove(o), (o = void 0)),
+      l.replaceChild(a.$el, i),
+      (r.value = !1),
+      (ge = Math.max(0, ge - 1)),
+      ge === 0 &&
+        (document.body.classList.remove("q-body--fullscreen-mixin"),
+        a.$el.scrollIntoView !== void 0 &&
+          setTimeout(() => {
+            a.$el.scrollIntoView();
+          })));
+  }
+  return (
+    cn(() => {
+      i = document.createElement("span");
+    }),
+    ee(() => {
+      t.fullscreen === !0 && f();
+    }),
+    Y(m),
+    Object.assign(a, {
+      toggleFullscreen: u,
+      setFullscreen: f,
+      exitFullscreen: m,
+    }),
+    { inFullscreen: r, toggleFullscreen: u }
+  );
+}
+const Kn = ["top", "right", "bottom", "left"],
+  Wn = ["regular", "flat", "outline", "push", "unelevated"],
+  Gn = T({
+    name: "QCarousel",
+    props: {
+      ...te,
+      ...Fn,
+      ...Mn,
+      transitionPrev: { type: String, default: "fade" },
+      transitionNext: { type: String, default: "fade" },
+      height: String,
+      padding: Boolean,
+      controlColor: String,
+      controlTextColor: String,
+      controlType: {
+        type: String,
+        validator: (e) => Wn.includes(e),
+        default: "flat",
+      },
+      autoplay: [Number, Boolean],
+      arrows: Boolean,
+      prevIcon: String,
+      nextIcon: String,
+      navigation: Boolean,
+      navigationPosition: { type: String, validator: (e) => Kn.includes(e) },
+      navigationIcon: String,
+      navigationActiveIcon: String,
+      thumbnails: Boolean,
+    },
+    emits: [...On, ...jn],
+    setup(e, { slots: t }) {
+      const {
+          proxy: { $q: n },
+        } = L(),
+        a = ne(e, n);
+      let o = null,
+        i;
+      const {
+          updatePanelsList: l,
+          getPanelContent: r,
+          panelDirectives: u,
+          goToPanel: f,
+          previousPanel: m,
+          nextPanel: h,
+          getEnabledPanels: k,
+          panelIndex: b,
+        } = Nn(),
+        { inFullscreen: p } = Hn(),
+        C = s(() =>
+          p.value !== !0 && e.height !== void 0 ? { height: e.height } : {}
+        ),
+        g = s(() => (e.vertical === !0 ? "vertical" : "horizontal")),
+        $ = s(
+          () => e.navigationPosition || (e.vertical === !0 ? "right" : "bottom")
+        ),
+        c = s(
+          () =>
+            `q-carousel q-panel-parent q-carousel--with${
+              e.padding === !0 ? "" : "out"
+            }-padding` +
+            (p.value === !0 ? " fullscreen" : "") +
+            (a.value === !0 ? " q-carousel--dark q-dark" : "") +
+            (e.arrows === !0 ? ` q-carousel--arrows-${g.value}` : "") +
+            (e.navigation === !0 ? ` q-carousel--navigation-${$.value}` : "")
+        ),
+        y = s(() => {
+          const z = [
+            e.prevIcon || n.iconSet.carousel[e.vertical === !0 ? "up" : "left"],
+            e.nextIcon ||
+              n.iconSet.carousel[e.vertical === !0 ? "down" : "right"],
+          ];
+          return e.vertical === !1 && n.lang.rtl === !0 ? z.reverse() : z;
+        }),
+        q = s(() => e.navigationIcon || n.iconSet.carousel.navigationIcon),
+        E = s(() => e.navigationActiveIcon || q.value),
+        F = s(() => ({
+          color: e.controlColor,
+          textColor: e.controlTextColor,
+          round: !0,
+          [e.controlType]: !0,
+          dense: !0,
+        }));
+      I(
+        () => e.modelValue,
+        () => {
+          e.autoplay && A();
+        }
+      ),
+        I(
+          () => e.autoplay,
+          (z) => {
+            z ? A() : o !== null && (clearTimeout(o), (o = null));
+          }
+        );
+      function A() {
+        const z = dn(e.autoplay) === !0 ? Math.abs(e.autoplay) : 5e3;
+        o !== null && clearTimeout(o),
+          (o = setTimeout(() => {
+            (o = null), z >= 0 ? h() : m();
+          }, z));
+      }
+      ee(() => {
+        e.autoplay && A();
+      }),
+        Y(() => {
+          o !== null && clearTimeout(o);
+        });
+      function Q(z, Z) {
+        return d(
+          "div",
+          {
+            class:
+              `q-carousel__control q-carousel__navigation no-wrap absolute flex q-carousel__navigation--${z} q-carousel__navigation--${$.value}` +
+              (e.controlColor !== void 0 ? ` text-${e.controlColor}` : ""),
+          },
+          [
+            d(
+              "div",
+              {
+                class: "q-carousel__navigation-inner flex flex-center no-wrap",
+              },
+              k().map(Z)
+            ),
+          ]
+        );
+      }
+      function J() {
+        const z = [];
+        if (e.navigation === !0) {
+          const Z =
+              t["navigation-icon"] !== void 0
+                ? t["navigation-icon"]
+                : (j) =>
+                    d(H, {
+                      key: "nav" + j.name,
+                      class: `q-carousel__navigation-icon q-carousel__navigation-icon--${
+                        j.active === !0 ? "" : "in"
+                      }active`,
+                      ...j.btnProps,
+                      onClick: j.onClick,
+                    }),
+            K = i - 1;
+          z.push(
+            Q("buttons", (j, x) => {
+              const P = j.props.name,
+                M = b.value === x;
+              return Z({
+                index: x,
+                maxIndex: K,
+                name: P,
+                active: M,
+                btnProps: {
+                  icon: M === !0 ? E.value : q.value,
+                  size: "sm",
+                  ...F.value,
+                },
+                onClick: () => {
+                  f(P);
+                },
+              });
+            })
+          );
+        } else if (e.thumbnails === !0) {
+          const Z = e.controlColor !== void 0 ? ` text-${e.controlColor}` : "";
+          z.push(
+            Q("thumbnails", (K) => {
+              const j = K.props;
+              return d("img", {
+                key: "tmb#" + j.name,
+                class:
+                  `q-carousel__thumbnail q-carousel__thumbnail--${
+                    j.name === e.modelValue ? "" : "in"
+                  }active` + Z,
+                src: j.imgSrc || j["img-src"],
+                onClick: () => {
+                  f(j.name);
+                },
+              });
+            })
+          );
+        }
+        return (
+          e.arrows === !0 &&
+            b.value >= 0 &&
+            ((e.infinite === !0 || b.value > 0) &&
+              z.push(
+                d(
+                  "div",
+                  {
+                    key: "prev",
+                    class: `q-carousel__control q-carousel__arrow q-carousel__prev-arrow q-carousel__prev-arrow--${g.value} absolute flex flex-center`,
+                  },
+                  [d(H, { icon: y.value[0], ...F.value, onClick: m })]
+                )
+              ),
+            (e.infinite === !0 || b.value < i - 1) &&
+              z.push(
+                d(
+                  "div",
+                  {
+                    key: "next",
+                    class: `q-carousel__control q-carousel__arrow q-carousel__next-arrow q-carousel__next-arrow--${g.value} absolute flex flex-center`,
+                  },
+                  [d(H, { icon: y.value[1], ...F.value, onClick: h })]
+                )
+              )),
+          tt(t.control, z)
+        );
+      }
+      return () => (
+        (i = l(t)),
+        d(
+          "div",
+          { class: c.value, style: C.value },
+          [
+            Dt(
+              "div",
+              { class: "q-carousel__slides-container" },
+              r(),
+              "sl-cont",
+              e.swipeable,
+              () => u.value
+            ),
+          ].concat(J())
+        )
+      );
+    },
+  });
+function Un(e, t, n) {
+  let a;
+  function o() {
+    a !== void 0 && (Pe.remove(a), (a = void 0));
+  }
+  return (
+    Y(() => {
+      e.value === !0 && o();
+    }),
+    {
+      removeFromHistory: o,
+      addToHistory() {
+        (a = { condition: () => n.value === !0, handler: t }), Pe.add(a);
+      },
+    }
+  );
+}
+function Xn() {
+  let e;
+  const t = L();
+  function n() {
+    e = void 0;
+  }
+  return (
+    zt(n),
+    Y(n),
+    {
+      removeTick: n,
+      registerTick(a) {
+        (e = a),
+          ye(() => {
+            e === a && (Vt(t) === !1 && e(), (e = void 0));
+          });
+      },
+    }
+  );
+}
+const Yn = {
+    modelValue: { type: Boolean, default: null },
+    "onUpdate:modelValue": [Function, Array],
+  },
+  Jn = ["beforeShow", "show", "beforeHide", "hide"];
+function Zn({
+  showing: e,
+  canShow: t,
+  hideOnRouteChange: n,
+  handleShow: a,
+  handleHide: o,
+  processOnMount: i,
+}) {
+  const l = L(),
+    { props: r, emit: u, proxy: f } = l;
+  let m;
+  function h(c) {
+    e.value === !0 ? p(c) : k(c);
+  }
+  function k(c) {
+    if (
+      r.disable === !0 ||
+      c?.qAnchorHandled === !0 ||
+      (t !== void 0 && t(c) !== !0)
+    )
+      return;
+    const y = r["onUpdate:modelValue"] !== void 0;
+    y === !0 &&
+      (u("update:modelValue", !0),
+      (m = c),
+      ye(() => {
+        m === c && (m = void 0);
+      })),
+      (r.modelValue === null || y === !1) && b(c);
+  }
+  function b(c) {
+    e.value !== !0 &&
+      ((e.value = !0), u("beforeShow", c), a !== void 0 ? a(c) : u("show", c));
+  }
+  function p(c) {
+    if (r.disable === !0) return;
+    const y = r["onUpdate:modelValue"] !== void 0;
+    y === !0 &&
+      (u("update:modelValue", !1),
+      (m = c),
+      ye(() => {
+        m === c && (m = void 0);
+      })),
+      (r.modelValue === null || y === !1) && C(c);
+  }
+  function C(c) {
+    e.value !== !1 &&
+      ((e.value = !1), u("beforeHide", c), o !== void 0 ? o(c) : u("hide", c));
+  }
+  function g(c) {
+    r.disable === !0 && c === !0
+      ? r["onUpdate:modelValue"] !== void 0 && u("update:modelValue", !1)
+      : (c === !0) !== e.value && (c === !0 ? b : C)(m);
+  }
+  I(() => r.modelValue, g),
+    n !== void 0 &&
+      Ft(l) === !0 &&
+      I(
+        () => f.$route.fullPath,
+        () => {
+          n.value === !0 && e.value === !0 && p();
+        }
+      ),
+    ee(() => {
+      g(r.modelValue);
+    });
+  const $ = { show: k, hide: p, toggle: h };
+  return Object.assign(f, $), $;
+}
+const ea = {
+  transitionShow: { type: String, default: "fade" },
+  transitionHide: { type: String, default: "fade" },
+  transitionDuration: { type: [String, Number], default: 300 },
+};
+function ta(e, t = () => {}, n = () => {}) {
+  return {
+    transitionProps: s(() => {
+      const a = `q-transition--${e.transitionShow || t()}`,
+        o = `q-transition--${e.transitionHide || n()}`;
+      return {
+        appear: !0,
+        enterFromClass: `${a}-enter-from`,
+        enterActiveClass: `${a}-enter-active`,
+        enterToClass: `${a}-enter-to`,
+        leaveFromClass: `${o}-leave-from`,
+        leaveActiveClass: `${o}-leave-active`,
+        leaveToClass: `${o}-leave-to`,
+      };
+    }),
+    transitionStyle: s(
+      () => `--q-transition-duration: ${e.transitionDuration}ms`
+    ),
+  };
+}
+let be = [],
+  ke = [];
+function Wt(e) {
+  ke = ke.filter((t) => t !== e);
+}
+function na(e) {
+  Wt(e), ke.push(e);
+}
+function bt(e) {
+  Wt(e), ke.length === 0 && be.length !== 0 && (be[be.length - 1](), (be = []));
+}
+function aa(e) {
+  ke.length === 0 ? e() : be.push(e);
+}
+let ia = 1,
+  la = document.body;
+function oa(e, t) {
+  const n = document.createElement("div");
+  if (((n.id = `q-portal--${t}--${ia++}`), ot.globalNodes !== void 0)) {
+    const a = ot.globalNodes.class;
+    a !== void 0 && (n.className = a);
+  }
+  return la.appendChild(n), n;
+}
+function ra(e) {
+  e.remove();
+}
+const Te = [];
+function sa(e) {
+  return Te.find((t) => t.contentEl !== null && t.contentEl.contains(e));
+}
+function ua(e, t) {
+  do {
+    if (e.$options.name === "QMenu") {
+      if ((e.hide(t), e.$props.separateClosePopup === !0)) return Ce(e);
+    } else if (e.__qPortal === !0) {
+      const n = Ce(e);
+      return n?.$options.name === "QPopupProxy" ? (e.hide(t), n) : e;
+    }
+    e = Ce(e);
+  } while (e != null);
+}
+function ca(e, t, n) {
+  for (; n !== 0 && e !== void 0 && e !== null; ) {
+    if (e.__qPortal === !0) {
+      if ((n--, e.$options.name === "QMenu")) {
+        e = ua(e, t);
+        continue;
+      }
+      e.hide(t);
+    }
+    e = Ce(e);
+  }
+}
+const da = T({
+  name: "QPortal",
+  setup(e, { slots: t }) {
+    return () => t.default();
+  },
+});
+function fa(e) {
+  for (e = e.parent; e != null; ) {
+    if (e.type.name === "QGlobalDialog") return !0;
+    if (e.type.name === "QDialog" || e.type.name === "QMenu") return !1;
+    e = e.parent;
+  }
+  return !1;
+}
+function ma(e, t, n, a) {
+  const o = B(!1),
+    i = B(!1);
+  let l = null;
+  const r = {},
+    u = fa(e);
+  function f(h) {
+    if (h === !0) {
+      bt(r), (i.value = !0);
+      return;
+    }
+    (i.value = !1),
+      o.value === !1 &&
+        (u === !1 && l === null && (l = oa(!1, a)),
+        (o.value = !0),
+        Te.push(e.proxy),
+        na(r));
+  }
+  function m(h) {
+    if (((i.value = !1), h !== !0)) return;
+    bt(r), (o.value = !1);
+    const k = Te.indexOf(e.proxy);
+    k !== -1 && Te.splice(k, 1), l !== null && (ra(l), (l = null));
+  }
+  return (
+    Xe(() => {
+      m(!0);
+    }),
+    (e.proxy.__qPortal = !0),
+    fn(e.proxy, "contentEl", () => t.value),
+    {
+      showPortal: f,
+      hidePortal: m,
+      portalIsActive: o,
+      portalIsAccessible: i,
+      renderPortal: () =>
+        u === !0 ? n() : o.value === !0 ? [d(mn, { to: l }, d(da, n))] : void 0,
+    }
+  );
+}
+const va = [Element, String],
+  ga = [
+    null,
+    document,
+    document.body,
+    document.scrollingElement,
+    document.documentElement,
+  ];
+function ha(e, t) {
+  let n = xn(t);
+  if (n === void 0) {
+    if (e == null) return window;
+    n = e.closest(".scroll,.scroll-y,.overflow-auto");
+  }
+  return ga.includes(n) ? window : n;
+}
+function Gt(e) {
+  return e === window
+    ? window.pageYOffset || window.scrollY || document.body.scrollTop || 0
+    : e.scrollTop;
+}
+function Ut(e) {
+  return e === window
+    ? window.pageXOffset || window.scrollX || document.body.scrollLeft || 0
+    : e.scrollLeft;
+}
+let xe;
+function Fe() {
+  if (xe !== void 0) return xe;
+  const e = document.createElement("p"),
+    t = document.createElement("div");
+  ut(e, { width: "100%", height: "200px" }),
+    ut(t, {
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      visibility: "hidden",
+      width: "200px",
+      height: "150px",
+      overflow: "hidden",
+    }),
+    t.appendChild(e),
+    document.body.appendChild(t);
+  const n = e.offsetWidth;
+  t.style.overflow = "scroll";
+  let a = e.offsetWidth;
+  return n === a && (a = t.clientWidth), t.remove(), (xe = n - a), xe;
+}
+function ba(e, t = !0) {
+  return !e || e.nodeType !== Node.ELEMENT_NODE
+    ? !1
+    : t
+    ? e.scrollHeight > e.clientHeight &&
+      (e.classList.contains("scroll") ||
+        e.classList.contains("overflow-auto") ||
+        ["auto", "scroll"].includes(window.getComputedStyle(e)["overflow-y"]))
+    : e.scrollWidth > e.clientWidth &&
+      (e.classList.contains("scroll") ||
+        e.classList.contains("overflow-auto") ||
+        ["auto", "scroll"].includes(window.getComputedStyle(e)["overflow-x"]));
+}
+let he = 0,
+  je,
+  Ne,
+  pe,
+  Re = !1,
+  pt,
+  yt,
+  kt,
+  oe = null;
+function pa(e) {
+  ya(e) && fe(e);
+}
+function ya(e) {
+  if (
+    e.target === document.body ||
+    e.target.classList.contains("q-layout__backdrop")
+  )
+    return !0;
+  const t = vn(e),
+    n = e.shiftKey && !e.deltaX,
+    a = !n && Math.abs(e.deltaX) <= Math.abs(e.deltaY),
+    o = n || a ? e.deltaY : e.deltaX;
+  for (let i = 0; i < t.length; i++) {
+    const l = t[i];
+    if (ba(l, a))
+      return a
+        ? o < 0 && l.scrollTop === 0
+          ? !0
+          : o > 0 && l.scrollTop + l.clientHeight === l.scrollHeight
+        : o < 0 && l.scrollLeft === 0
+        ? !0
+        : o > 0 && l.scrollLeft + l.clientWidth === l.scrollWidth;
+  }
+  return !0;
+}
+function wt(e) {
+  e.target === document &&
+    (document.scrollingElement.scrollTop = document.scrollingElement.scrollTop);
+}
+function Se(e) {
+  Re !== !0 &&
+    ((Re = !0),
+    requestAnimationFrame(() => {
+      Re = !1;
+      const { height: t } = e.target,
+        { clientHeight: n, scrollTop: a } = document.scrollingElement;
+      (pe === void 0 || t !== window.innerHeight) &&
+        ((pe = n - t), (document.scrollingElement.scrollTop = a)),
+        a > pe &&
+          (document.scrollingElement.scrollTop -= Math.ceil((a - pe) / 8));
+    }));
+}
+function qt(e) {
+  const t = document.body,
+    n = window.visualViewport !== void 0;
+  if (e === "add") {
+    const { overflowY: a, overflowX: o } = window.getComputedStyle(t);
+    (je = Ut(window)),
+      (Ne = Gt(window)),
+      (pt = t.style.left),
+      (yt = t.style.top),
+      (kt = window.location.href),
+      (t.style.left = `-${je}px`),
+      (t.style.top = `-${Ne}px`),
+      o !== "hidden" &&
+        (o === "scroll" || t.scrollWidth > window.innerWidth) &&
+        t.classList.add("q-body--force-scrollbar-x"),
+      a !== "hidden" &&
+        (a === "scroll" || t.scrollHeight > window.innerHeight) &&
+        t.classList.add("q-body--force-scrollbar-y"),
+      t.classList.add("q-body--prevent-scroll"),
+      (document.qScrollPrevented = !0),
+      O.is.ios === !0 &&
+        (n === !0
+          ? (window.scrollTo(0, 0),
+            window.visualViewport.addEventListener(
+              "resize",
+              Se,
+              X.passiveCapture
+            ),
+            window.visualViewport.addEventListener(
+              "scroll",
+              Se,
+              X.passiveCapture
+            ),
+            window.scrollTo(0, 0))
+          : window.addEventListener("scroll", wt, X.passiveCapture));
+  }
+  O.is.desktop === !0 &&
+    O.is.mac === !0 &&
+    window[`${e}EventListener`]("wheel", pa, X.notPassive),
+    e === "remove" &&
+      (O.is.ios === !0 &&
+        (n === !0
+          ? (window.visualViewport.removeEventListener(
+              "resize",
+              Se,
+              X.passiveCapture
+            ),
+            window.visualViewport.removeEventListener(
+              "scroll",
+              Se,
+              X.passiveCapture
+            ))
+          : window.removeEventListener("scroll", wt, X.passiveCapture)),
+      t.classList.remove("q-body--prevent-scroll"),
+      t.classList.remove("q-body--force-scrollbar-x"),
+      t.classList.remove("q-body--force-scrollbar-y"),
+      (document.qScrollPrevented = !1),
+      (t.style.left = pt),
+      (t.style.top = yt),
+      window.location.href === kt && window.scrollTo(je, Ne),
+      (pe = void 0));
+}
+function ka(e) {
+  let t = "add";
+  if (e === !0) {
+    if ((he++, oe !== null)) {
+      clearTimeout(oe), (oe = null);
+      return;
+    }
+    if (he > 1) return;
+  } else {
+    if (he === 0 || (he--, he > 0)) return;
+    if (((t = "remove"), O.is.ios === !0 && O.is.nativeMobile === !0)) {
+      oe !== null && clearTimeout(oe),
+        (oe = setTimeout(() => {
+          qt(t), (oe = null);
+        }, 100));
+      return;
+    }
+  }
+  qt(t);
+}
+function wa() {
+  let e;
+  return {
+    preventBodyScroll(t) {
+      t !== e && (e !== void 0 || t === !0) && ((e = t), ka(t));
+    },
+  };
+}
+const se = [];
+let ve;
+function qa(e) {
+  ve = e.keyCode === 27;
+}
+function xa() {
+  ve === !0 && (ve = !1);
+}
+function Sa(e) {
+  ve === !0 && ((ve = !1), Ue(e, 27) === !0 && se[se.length - 1](e));
+}
+function Xt(e) {
+  window[e]("keydown", qa),
+    window[e]("blur", xa),
+    window[e]("keyup", Sa),
+    (ve = !1);
+}
+function _a(e) {
+  O.is.desktop === !0 &&
+    (se.push(e), se.length === 1 && Xt("addEventListener"));
+}
+function xt(e) {
+  const t = se.indexOf(e);
+  t !== -1 && (se.splice(t, 1), se.length === 0 && Xt("removeEventListener"));
+}
+const ue = [];
+function Yt(e) {
+  ue[ue.length - 1](e);
+}
+function Ca(e) {
+  O.is.desktop === !0 &&
+    (ue.push(e),
+    ue.length === 1 && document.body.addEventListener("focusin", Yt));
+}
+function St(e) {
+  const t = ue.indexOf(e);
+  t !== -1 &&
+    (ue.splice(t, 1),
+    ue.length === 0 && document.body.removeEventListener("focusin", Yt));
+}
+let _e = 0;
+const Ta = {
+    standard: "fixed-full flex-center",
+    top: "fixed-top justify-center",
+    bottom: "fixed-bottom justify-center",
+    right: "fixed-right items-center",
+    left: "fixed-left items-center",
+  },
+  _t = {
+    standard: ["scale", "scale"],
+    top: ["slide-down", "slide-up"],
+    bottom: ["slide-up", "slide-down"],
+    right: ["slide-left", "slide-right"],
+    left: ["slide-right", "slide-left"],
+  },
+  Pa = T({
+    name: "QDialog",
+    inheritAttrs: !1,
+    props: {
+      ...Yn,
+      ...ea,
+      transitionShow: String,
+      transitionHide: String,
+      persistent: Boolean,
+      autoClose: Boolean,
+      allowFocusOutside: Boolean,
+      noEscDismiss: Boolean,
+      noBackdropDismiss: Boolean,
+      noRouteDismiss: Boolean,
+      noRefocus: Boolean,
+      noFocus: Boolean,
+      noShake: Boolean,
+      seamless: Boolean,
+      maximized: Boolean,
+      fullWidth: Boolean,
+      fullHeight: Boolean,
+      square: Boolean,
+      backdropFilter: String,
+      position: {
+        type: String,
+        default: "standard",
+        validator: (e) =>
+          ["standard", "top", "bottom", "left", "right"].includes(e),
+      },
+    },
+    emits: [...Jn, "shake", "click", "escapeKey"],
+    setup(e, { slots: t, emit: n, attrs: a }) {
+      const o = L(),
+        i = B(null),
+        l = B(!1),
+        r = B(!1);
+      let u = null,
+        f = null,
+        m,
+        h;
+      const k = s(
+          () =>
+            e.persistent !== !0 && e.noRouteDismiss !== !0 && e.seamless !== !0
+        ),
+        { preventBodyScroll: b } = wa(),
+        { registerTimeout: p } = Kt(),
+        { registerTick: C, removeTick: g } = Xn(),
+        { transitionProps: $, transitionStyle: c } = ta(
+          e,
+          () => _t[e.position][0],
+          () => _t[e.position][1]
+        ),
+        y = s(
+          () =>
+            c.value +
+            (e.backdropFilter !== void 0
+              ? `;backdrop-filter:${e.backdropFilter};-webkit-backdrop-filter:${e.backdropFilter}`
+              : "")
+        ),
+        {
+          showPortal: q,
+          hidePortal: E,
+          portalIsAccessible: F,
+          renderPortal: A,
+        } = ma(o, i, on, "dialog"),
+        { hide: Q } = Zn({
+          showing: l,
+          hideOnRouteChange: k,
+          handleShow: P,
+          handleHide: M,
+          processOnMount: !0,
+        }),
+        { addToHistory: J, removeFromHistory: z } = Un(l, Q, k),
+        Z = s(
+          () =>
+            `q-dialog__inner flex no-pointer-events q-dialog__inner--${
+              e.maximized === !0 ? "maximized" : "minimized"
+            } q-dialog__inner--${e.position} ${Ta[e.position]}` +
+            (r.value === !0 ? " q-dialog__inner--animating" : "") +
+            (e.fullWidth === !0 ? " q-dialog__inner--fullwidth" : "") +
+            (e.fullHeight === !0 ? " q-dialog__inner--fullheight" : "") +
+            (e.square === !0 ? " q-dialog__inner--square" : "")
+        ),
+        K = s(() => l.value === !0 && e.seamless !== !0),
+        j = s(() => (e.autoClose === !0 ? { onClick: an } : {})),
+        x = s(() => [
+          `q-dialog fullscreen no-pointer-events q-dialog--${
+            K.value === !0 ? "modal" : "seamless"
+          }`,
+          a.class,
+        ]);
+      I(
+        () => e.maximized,
+        (S) => {
+          l.value === !0 && Le(S);
+        }
+      ),
+        I(K, (S) => {
+          b(S), S === !0 ? (Ca(ze), _a(Be)) : (St(ze), xt(Be));
+        });
+      function P(S) {
+        J(),
+          (f =
+            e.noRefocus === !1 && document.activeElement !== null
+              ? document.activeElement
+              : null),
+          Le(e.maximized),
+          q(),
+          (r.value = !0),
+          e.noFocus !== !0 ? (document.activeElement?.blur(), C(W)) : g(),
+          p(() => {
+            if (o.proxy.$q.platform.is.ios === !0) {
+              if (e.seamless !== !0 && document.activeElement) {
+                const { top: N, bottom: ce } =
+                    document.activeElement.getBoundingClientRect(),
+                  { innerHeight: it } = window,
+                  Ae =
+                    window.visualViewport !== void 0
+                      ? window.visualViewport.height
+                      : it;
+                N > 0 &&
+                  ce > Ae / 2 &&
+                  (document.scrollingElement.scrollTop = Math.min(
+                    document.scrollingElement.scrollHeight - Ae,
+                    ce >= it
+                      ? 1 / 0
+                      : Math.ceil(
+                          document.scrollingElement.scrollTop + ce - Ae / 2
+                        )
+                  )),
+                  document.activeElement.scrollIntoView();
+              }
+              (h = !0), i.value.click(), (h = !1);
+            }
+            q(!0), (r.value = !1), n("show", S);
+          }, e.transitionDuration);
+      }
+      function M(S) {
+        g(),
+          z(),
+          at(!0),
+          (r.value = !0),
+          E(),
+          f !== null &&
+            ((
+              (S?.type.indexOf("key") === 0
+                ? f.closest('[tabindex]:not([tabindex^="-"])')
+                : void 0) || f
+            ).focus(),
+            (f = null)),
+          p(() => {
+            E(!0), (r.value = !1), n("hide", S);
+          }, e.transitionDuration);
+      }
+      function W(S) {
+        aa(() => {
+          let N = i.value;
+          if (N !== null) {
+            if (S !== void 0) {
+              const ce = N.querySelector(S);
+              if (ce !== null) {
+                ce.focus({ preventScroll: !0 });
+                return;
+              }
+            }
+            N.contains(document.activeElement) !== !0 &&
+              ((N =
+                N.querySelector(
+                  "[autofocus][tabindex], [data-autofocus][tabindex]"
+                ) ||
+                N.querySelector(
+                  "[autofocus] [tabindex], [data-autofocus] [tabindex]"
+                ) ||
+                N.querySelector("[autofocus], [data-autofocus]") ||
+                N),
+              N.focus({ preventScroll: !0 }));
+          }
+        });
+      }
+      function Ee(S) {
+        S && typeof S.focus == "function"
+          ? S.focus({ preventScroll: !0 })
+          : W(),
+          n("shake");
+        const N = i.value;
+        N !== null &&
+          (N.classList.remove("q-animate--scale"),
+          N.classList.add("q-animate--scale"),
+          u !== null && clearTimeout(u),
+          (u = setTimeout(() => {
+            (u = null),
+              i.value !== null && (N.classList.remove("q-animate--scale"), W());
+          }, 170)));
+      }
+      function Be() {
+        e.seamless !== !0 &&
+          (e.persistent === !0 || e.noEscDismiss === !0
+            ? e.maximized !== !0 && e.noShake !== !0 && Ee()
+            : (n("escapeKey"), Q()));
+      }
+      function at(S) {
+        u !== null && (clearTimeout(u), (u = null)),
+          (S === !0 || l.value === !0) &&
+            (Le(!1), e.seamless !== !0 && (b(!1), St(ze), xt(Be))),
+          S !== !0 && (f = null);
+      }
+      function Le(S) {
+        S === !0
+          ? m !== !0 &&
+            (_e < 1 && document.body.classList.add("q-body--dialog"),
+            _e++,
+            (m = !0))
+          : m === !0 &&
+            (_e < 2 && document.body.classList.remove("q-body--dialog"),
+            _e--,
+            (m = !1));
+      }
+      function an(S) {
+        h !== !0 && (Q(S), n("click", S));
+      }
+      function ln(S) {
+        e.persistent !== !0 && e.noBackdropDismiss !== !0
+          ? Q(S)
+          : e.noShake !== !0 && Ee();
+      }
+      function ze(S) {
+        e.allowFocusOutside !== !0 &&
+          F.value === !0 &&
+          Sn(i.value, S.target) !== !0 &&
+          W('[tabindex]:not([tabindex="-1"])');
+      }
+      Object.assign(o.proxy, {
+        focus: W,
+        shake: Ee,
+        __updateRefocusTarget(S) {
+          f = S || null;
+        },
+      }),
+        Y(at);
+      function on() {
+        return d(
+          "div",
+          {
+            role: "dialog",
+            "aria-modal": K.value === !0 ? "true" : "false",
+            ...a,
+            class: x.value,
+          },
+          [
+            d(Oe, { name: "q-transition--fade", appear: !0 }, () =>
+              K.value === !0
+                ? d("div", {
+                    class: "q-dialog__backdrop fixed-full",
+                    style: y.value,
+                    "aria-hidden": "true",
+                    tabindex: -1,
+                    onClick: ln,
+                  })
+                : null
+            ),
+            d(Oe, $.value, () =>
+              l.value === !0
+                ? d(
+                    "div",
+                    {
+                      ref: i,
+                      class: Z.value,
+                      style: c.value,
+                      tabindex: -1,
+                      ...j.value,
+                    },
+                    V(t.default)
+                  )
+                : null
+            ),
+          ]
+        );
+      }
+      return A;
+    },
+  }),
+  Jt = T({
+    name: "QTimelineEntry",
+    props: {
+      heading: Boolean,
+      tag: { type: String, default: "h3" },
+      side: {
+        type: String,
+        default: "right",
+        validator: (e) => ["left", "right"].includes(e),
+      },
+      icon: String,
+      avatar: String,
+      color: String,
+      title: String,
+      subtitle: String,
+      body: String,
+    },
+    setup(e, { slots: t }) {
+      const n = me(At, R);
+      if (n === R)
+        return (
+          console.error("QTimelineEntry needs to be child of QTimeline"), R
+        );
+      const a = s(
+          () =>
+            `q-timeline__entry q-timeline__entry--${e.side}` +
+            (e.icon !== void 0 || e.avatar !== void 0
+              ? " q-timeline__entry--icon"
+              : "")
+        ),
+        o = s(() => `q-timeline__dot text-${e.color || n.color}`),
+        i = s(() => n.layout === "comfortable" && n.side === "left");
+      return () => {
+        const l = Je(t.default, []);
+        if ((e.body !== void 0 && l.unshift(e.body), e.heading === !0)) {
+          const f = [
+            d("div"),
+            d("div"),
+            d(e.tag, { class: "q-timeline__heading-title" }, l),
+          ];
+          return d(
+            "div",
+            { class: "q-timeline__heading" },
+            i.value === !0 ? f.reverse() : f
+          );
+        }
+        let r;
+        e.icon !== void 0
+          ? (r = [
+              d(re, { class: "row items-center justify-center", name: e.icon }),
+            ])
+          : e.avatar !== void 0 &&
+            (r = [d("img", { class: "q-timeline__dot-img", src: e.avatar })]);
+        const u = [
+          d("div", { class: "q-timeline__subtitle" }, [
+            d("span", {}, V(t.subtitle, [e.subtitle])),
+          ]),
+          d("div", { class: o.value }, r),
+          d(
+            "div",
+            { class: "q-timeline__content" },
+            [
+              d("h6", { class: "q-timeline__title" }, V(t.title, [e.title])),
+            ].concat(l)
+          ),
+        ];
+        return d("li", { class: a.value }, i.value === !0 ? u.reverse() : u);
+      };
+    },
+  }),
+  Zt = T({
+    name: "QTimeline",
+    props: {
+      ...te,
+      color: { type: String, default: "primary" },
+      side: {
+        type: String,
+        default: "right",
+        validator: (e) => ["left", "right"].includes(e),
+      },
+      layout: {
+        type: String,
+        default: "dense",
+        validator: (e) => ["dense", "comfortable", "loose"].includes(e),
+      },
+    },
+    setup(e, { slots: t }) {
+      const n = L(),
+        a = ne(e, n.proxy.$q);
+      Ye(At, e);
+      const o = s(
+        () =>
+          `q-timeline q-timeline--${e.layout} q-timeline--${e.layout}--${e.side}` +
+          (a.value === !0 ? " q-timeline--dark" : "")
+      );
+      return () => d("ul", { class: o.value }, V(t.default));
+    },
+  }),
+  $a = {
+    true: "inset",
+    item: "item-inset",
+    "item-thumbnail": "item-thumbnail-inset",
+  },
+  Me = { xs: 2, sm: 4, md: 8, lg: 16, xl: 24 },
+  Ea = T({
+    name: "QSeparator",
+    props: {
+      ...te,
+      spaced: [Boolean, String],
+      inset: [Boolean, String],
+      vertical: Boolean,
+      color: String,
+      size: String,
+    },
+    setup(e) {
+      const t = L(),
+        n = ne(e, t.proxy.$q),
+        a = s(() => (e.vertical === !0 ? "vertical" : "horizontal")),
+        o = s(() => ` q-separator--${a.value}`),
+        i = s(() => (e.inset !== !1 ? `${o.value}-${$a[e.inset]}` : "")),
+        l = s(
+          () =>
+            `q-separator${o.value}${i.value}` +
+            (e.color !== void 0 ? ` bg-${e.color}` : "") +
+            (n.value === !0 ? " q-separator--dark" : "")
+        ),
+        r = s(() => {
+          const u = {};
+          if (
+            (e.size !== void 0 &&
+              (u[e.vertical === !0 ? "width" : "height"] = e.size),
+            e.spaced !== !1)
+          ) {
+            const f =
+                e.spaced === !0
+                  ? `${Me.md}px`
+                  : e.spaced in Me
+                  ? `${Me[e.spaced]}px`
+                  : e.spaced,
+              m = e.vertical === !0 ? ["Left", "Right"] : ["Top", "Bottom"];
+            u[`margin${m[0]}`] = u[`margin${m[1]}`] = f;
+          }
+          return u;
+        });
+      return () =>
+        d("hr", {
+          class: l.value,
+          style: r.value,
+          "aria-orientation": a.value,
+        });
+    },
+  }),
+  en = T({
+    name: "QPage",
+    props: { padding: Boolean, styleFn: Function },
+    setup(e, { slots: t }) {
+      const {
+          proxy: { $q: n },
+        } = L(),
+        a = me($e, R);
+      if (a === R)
+        return console.error("QPage needs to be a deep child of QLayout"), R;
+      if (me(It, R) === R)
+        return console.error("QPage needs to be child of QPageContainer"), R;
+      const i = s(() => {
+          const r =
+            (a.header.space === !0 ? a.header.size : 0) +
+            (a.footer.space === !0 ? a.footer.size : 0);
+          if (typeof e.styleFn == "function") {
+            const u =
+              a.isContainer.value === !0
+                ? a.containerHeight.value
+                : n.screen.height;
+            return e.styleFn(r, u);
+          }
+          return {
+            minHeight:
+              a.isContainer.value === !0
+                ? a.containerHeight.value - r + "px"
+                : n.screen.height === 0
+                ? r !== 0
+                  ? `calc(100vh - ${r}px)`
+                  : "100vh"
+                : n.screen.height - r + "px",
+          };
+        }),
+        l = s(() => `q-page${e.padding === !0 ? " q-layout-padding" : ""}`);
+      return () => d("main", { class: l.value, style: i.value }, V(t.default));
+    },
+  }),
+  tn = T({
+    name: "QPageContainer",
+    setup(e, { slots: t }) {
+      const {
+          proxy: { $q: n },
+        } = L(),
+        a = me($e, R);
+      if (a === R)
+        return console.error("QPageContainer needs to be child of QLayout"), R;
+      Ye(It, !0);
+      const o = s(() => {
+        const i = {};
+        return (
+          a.header.space === !0 && (i.paddingTop = `${a.header.size}px`),
+          a.right.space === !0 &&
+            (i[
+              `padding${n.lang.rtl === !0 ? "Left" : "Right"}`
+            ] = `${a.right.size}px`),
+          a.footer.space === !0 && (i.paddingBottom = `${a.footer.size}px`),
+          a.left.space === !0 &&
+            (i[
+              `padding${n.lang.rtl === !0 ? "Right" : "Left"}`
+            ] = `${a.left.size}px`),
+          i
+        );
+      });
+      return () =>
+        d("div", { class: "q-page-container", style: o.value }, V(t.default));
+    },
+  }),
+  { passive: Ct } = X,
+  Ba = ["both", "horizontal", "vertical"],
+  La = T({
+    name: "QScrollObserver",
+    props: {
+      axis: {
+        type: String,
+        validator: (e) => Ba.includes(e),
+        default: "vertical",
+      },
+      debounce: [String, Number],
+      scrollTarget: va,
+    },
+    emits: ["scroll"],
+    setup(e, { emit: t }) {
+      const n = {
+        position: { top: 0, left: 0 },
+        direction: "down",
+        directionChanged: !1,
+        delta: { top: 0, left: 0 },
+        inflectionPoint: { top: 0, left: 0 },
+      };
+      let a = null,
+        o,
+        i;
+      I(
+        () => e.scrollTarget,
+        () => {
+          u(), r();
+        }
+      );
+      function l() {
+        a?.();
+        const h = Math.max(0, Gt(o)),
+          k = Ut(o),
+          b = { top: h - n.position.top, left: k - n.position.left };
+        if (
+          (e.axis === "vertical" && b.top === 0) ||
+          (e.axis === "horizontal" && b.left === 0)
+        )
+          return;
+        const p =
+          Math.abs(b.top) >= Math.abs(b.left)
+            ? b.top < 0
+              ? "up"
+              : "down"
+            : b.left < 0
+            ? "left"
+            : "right";
+        (n.position = { top: h, left: k }),
+          (n.directionChanged = n.direction !== p),
+          (n.delta = b),
+          n.directionChanged === !0 &&
+            ((n.direction = p), (n.inflectionPoint = n.position)),
+          t("scroll", { ...n });
+      }
+      function r() {
+        (o = ha(i, e.scrollTarget)), o.addEventListener("scroll", f, Ct), f(!0);
+      }
+      function u() {
+        o !== void 0 && (o.removeEventListener("scroll", f, Ct), (o = void 0));
+      }
+      function f(h) {
+        if (h === !0 || e.debounce === 0 || e.debounce === "0") l();
+        else if (a === null) {
+          const [k, b] = e.debounce
+            ? [setTimeout(l, e.debounce), clearTimeout]
+            : [requestAnimationFrame(l), cancelAnimationFrame];
+          a = () => {
+            b(k), (a = null);
+          };
+        }
+      }
+      const { proxy: m } = L();
+      return (
+        I(() => m.$q.lang.rtl, l),
+        ee(() => {
+          (i = m.$el.parentNode), r();
+        }),
+        Y(() => {
+          a?.(), u();
+        }),
+        Object.assign(m, { trigger: f, getPosition: () => n }),
+        Ge
+      );
+    },
+  }),
+  nn = T({
+    name: "QLayout",
+    props: {
+      container: Boolean,
+      view: {
+        type: String,
+        default: "hhh lpr fff",
+        validator: (e) => /^(h|l)h(h|r) lpr (f|l)f(f|r)$/.test(e.toLowerCase()),
+      },
+      onScroll: Function,
+      onScrollHeight: Function,
+      onResize: Function,
+    },
+    setup(e, { slots: t, emit: n }) {
+      const {
+          proxy: { $q: a },
+        } = L(),
+        o = B(null),
+        i = B(a.screen.height),
+        l = B(e.container === !0 ? 0 : a.screen.width),
+        r = B({ position: 0, direction: "down", inflectionPoint: 0 }),
+        u = B(0),
+        f = B(Bt.value === !0 ? 0 : Fe()),
+        m = s(
+          () =>
+            "q-layout q-layout--" +
+            (e.container === !0 ? "containerized" : "standard")
+        ),
+        h = s(() =>
+          e.container === !1 ? { minHeight: a.screen.height + "px" } : null
+        ),
+        k = s(() =>
+          f.value !== 0
+            ? { [a.lang.rtl === !0 ? "left" : "right"]: `${f.value}px` }
+            : null
+        ),
+        b = s(() =>
+          f.value !== 0
+            ? {
+                [a.lang.rtl === !0 ? "right" : "left"]: 0,
+                [a.lang.rtl === !0 ? "left" : "right"]: `-${f.value}px`,
+                width: `calc(100% + ${f.value}px)`,
+              }
+            : null
+        );
+      function p(q) {
+        if (e.container === !0 || document.qScrollPrevented !== !0) {
+          const E = {
+            position: q.position.top,
+            direction: q.direction,
+            directionChanged: q.directionChanged,
+            inflectionPoint: q.inflectionPoint.top,
+            delta: q.delta.top,
+          };
+          (r.value = E), e.onScroll !== void 0 && n("scroll", E);
+        }
+      }
+      function C(q) {
+        const { height: E, width: F } = q;
+        let A = !1;
+        i.value !== E &&
+          ((A = !0),
+          (i.value = E),
+          e.onScrollHeight !== void 0 && n("scrollHeight", E),
+          $()),
+          l.value !== F && ((A = !0), (l.value = F)),
+          A === !0 && e.onResize !== void 0 && n("resize", q);
+      }
+      function g({ height: q }) {
+        u.value !== q && ((u.value = q), $());
+      }
+      function $() {
+        if (e.container === !0) {
+          const q = i.value > u.value ? Fe() : 0;
+          f.value !== q && (f.value = q);
+        }
+      }
+      let c = null;
+      const y = {
+        instances: {},
+        view: s(() => e.view),
+        isContainer: s(() => e.container),
+        rootRef: o,
+        height: i,
+        containerHeight: u,
+        scrollbarWidth: f,
+        totalWidth: s(() => l.value + f.value),
+        rows: s(() => {
+          const q = e.view.toLowerCase().split(" ");
+          return {
+            top: q[0].split(""),
+            middle: q[1].split(""),
+            bottom: q[2].split(""),
+          };
+        }),
+        header: qe({ size: 0, offset: 0, space: !1 }),
+        right: qe({ size: 300, offset: 0, space: !1 }),
+        footer: qe({ size: 0, offset: 0, space: !1 }),
+        left: qe({ size: 300, offset: 0, space: !1 }),
+        scroll: r,
+        animate() {
+          c !== null
+            ? clearTimeout(c)
+            : document.body.classList.add("q-body--layout-animate"),
+            (c = setTimeout(() => {
+              (c = null),
+                document.body.classList.remove("q-body--layout-animate");
+            }, 155));
+        },
+        update(q, E, F) {
+          y[q][E] = F;
+        },
+      };
+      if ((Ye($e, y), Fe() > 0)) {
+        let q = function () {
+            (A = null), Q.classList.remove("hide-scrollbar");
+          },
+          E = function () {
+            if (A === null) {
+              if (Q.scrollHeight > a.screen.height) return;
+              Q.classList.add("hide-scrollbar");
+            } else clearTimeout(A);
+            A = setTimeout(q, 300);
+          },
+          F = function (J) {
+            A !== null && J === "remove" && (clearTimeout(A), q()),
+              window[`${J}EventListener`]("resize", E);
+          },
+          A = null;
+        const Q = document.body;
+        I(() => (e.container !== !0 ? "add" : "remove"), F),
+          e.container !== !0 && F("add"),
+          Xe(() => {
+            F("remove");
+          });
+      }
+      return () => {
+        const q = tt(t.default, [
+            d(La, { onScroll: p }),
+            d(Ke, { onResize: C }),
+          ]),
+          E = d(
+            "div",
+            {
+              class: m.value,
+              style: h.value,
+              ref: e.container === !0 ? void 0 : o,
+              tabindex: -1,
+            },
+            q
+          );
+        return e.container === !0
+          ? d("div", { class: "q-layout-container overflow-hidden", ref: o }, [
+              d(Ke, { onResize: g }),
+              d("div", { class: "absolute-full", style: k.value }, [
+                d("div", { class: "scroll", style: b.value }, [E]),
+              ]),
+            ])
+          : E;
+      };
+    },
+  });
+function Tt(e) {
+  if (e === !1) return 0;
+  if (e === !0 || e === void 0) return 1;
+  const t = parseInt(e, 10);
+  return isNaN(t) ? 0 : t;
+}
+const za = Lt({
+  name: "close-popup",
+  beforeMount(e, { value: t }) {
+    const n = {
+      depth: Tt(t),
+      handler(a) {
+        n.depth !== 0 &&
+          setTimeout(() => {
+            const o = sa(e);
+            o !== void 0 && ca(o, a, n.depth);
+          });
+      },
+      handlerKey(a) {
+        Ue(a, 13) === !0 && n.handler(a);
+      },
+    };
+    (e.__qclosepopup = n),
+      e.addEventListener("click", n.handler),
+      e.addEventListener("keyup", n.handlerKey);
+  },
+  updated(e, { value: t, oldValue: n }) {
+    t !== n && (e.__qclosepopup.depth = Tt(t));
+  },
+  beforeUnmount(e) {
+    const t = e.__qclosepopup;
+    e.removeEventListener("click", t.handler),
+      e.removeEventListener("keyup", t.handlerKey),
+      delete e.__qclosepopup;
+  },
+});
+function Aa() {
+  return me(gn);
+}
+const Pt = B(!1),
+  $t = B([]),
+  Et = B(0),
+  Ia = hn({
+    name: "PortfolioPage",
+    components: {
+      QLayout: nn,
+      QPageContainer: tn,
+      QPage: en,
+      QCard: U,
+      QBtn: H,
+      QAvatar: Ot,
+      QTimeline: Zt,
+      QTimelineEntry: Jt,
+      QChip: We,
+      QLinearProgress: Ht,
+      QHeader: Mt,
+      QToolbar: Nt,
+      QToolbarTitle: jt,
+      QSpace: He,
+    },
+    setup() {
+      const e = Aa(),
+        t = (p) => {
+          const C = document.getElementById(p);
+          C && C.scrollIntoView({ behavior: "smooth" });
+        },
+        n = () => {
+          window.open("/cv/CV_Al_Anasvianto.pdf", "_blank");
+        };
+      let a = null;
+      const o = () => {
+        const p = document.querySelectorAll(".animated-card");
+        p.forEach((g) => g.classList.remove("is-visible"));
+        const C = { root: null, rootMargin: "0px", threshold: 0.2 };
+        (a = new IntersectionObserver((g, $) => {
+          g.forEach((c) => {
+            c.isIntersecting &&
+              (c.target.classList.add("is-visible"), $.unobserve(c.target));
+          });
+        }, C)),
+          p.forEach((g) => {
+            a?.observe(g);
+          });
+      };
+      function i(p) {
+        ($t.value = p), (Et.value = 0), (Pt.value = !0);
+      }
+      ee(() => {
+        o();
+      }),
+        Xe(() => {
+          a && a.disconnect();
+        }),
+        ee(() => {
+          setTimeout(() => {
+            l.forEach((p, C) => {
+              setTimeout(() => {
+                f.value[C] = p.level / 100;
+              }, C * 150);
+            });
+          }, 300);
+        }),
+        I(
+          () => e.dark.isActive,
+          () => {
+            a && a.disconnect(), o();
+          }
+        );
+      const l = [
+          { name: "Vue.js", level: 80, icon: "mdi-vuejs" },
+          { name: "Node.js", level: 80, icon: "mdi-nodejs" },
+          { name: "Golang", level: 70, icon: "mdi-language-go" },
+          { name: "Database SQL", level: 80, icon: "mdi-database" },
+          { name: "ChatGPT", level: 75, icon: "mdi-robot" },
+          { name: "Python", level: 35, icon: "mdi-language-python" },
+          { name: "Teknik Komputer", level: 85, icon: "mdi-desktop-classic" },
+          {
+            name: "Teknik Jaringan Dasar",
+            level: 80,
+            icon: "mdi-access-point",
+          },
+          {
+            name: "Teknik Jaringan Lanjutan",
+            level: 60,
+            icon: "mdi-router-network",
+          },
+        ],
+        r = [
+          "Teamwork",
+          "Problem Solving",
+          "Leadership",
+          "Adaptability",
+          "Time Management",
+        ],
+        u = [
+          "primary",
+          "secondary",
+          "positive",
+          "info",
+          "warning",
+          "deep-orange",
+        ],
+        f = B(l.map(() => 0));
+      return {
+        technicalSkills: l,
+        softSkills: r,
+        projects: [
+          {
+            id: 1,
+            title: "Envismart",
+            description:
+              "Aplikasi berbasis web untuk monitoring real-time penggunaan listrik, emisi pembangkit, data limbah, keanekaragaman hayati, dan reporting",
+            tech: ["Vue.js", "Node.js", "MongoDB"],
+            link: null,
+            image: [
+              "/img/envismart1.png",
+              "/img/envismart2.png",
+              "/img/envismart3.png",
+              "/img/envismart4.png",
+              "/img/envismart5.png",
+            ],
+          },
+          {
+            id: 2,
+            title: "E-Presensi Web",
+            description:
+              "Aplikasi presensi digital sekolah untuk siswa dan guru, terintegrasi dengan fingerprint, jadwal, dan e-raport.",
+            tech: ["Vue.js", "Node.js", "MongoDB"],
+            link: null,
+            image: ["/img/e-presensi1.png", "/img/e-presensi2.png"],
+          },
+          {
+            id: 3,
+            title: "E-Presensi Mobile",
+            description:
+              "Versi mobile dari E-Presensi untuk fleksibilitas siswa & guru, menggunakan absensi foto dan lokasi GPS sebagai alternatif fingerprint.",
+            tech: ["Ionic", "Vue.js", "Node.js", "MongoDB"],
+            link: null,
+            image: ["/img/presensi-mobile1.png"],
+          },
+          {
+            id: 4,
+            title: "Hawa CEMS Online",
+            description:
+              "Aplikasi CEMS Online berbasis web yang berfungsi sebagai Data Acquisition System (DAS) dan Data Interfacing System (DIS) yang terintegrasi secara mandiri.",
+            tech: ["Node.js", "Golang", "SQL", "InfluxDB"],
+            link: null,
+            image: ["/img/hawa1.png", "/img/hawa2.png"],
+          },
+          {
+            id: 5,
+            title: "Ukara - Industrial Notification Gateway",
+            description:
+              "Gateway notifikasi dari alarm atau device monitoring, panel, atau IoT yang dikirimkan ke berbagai platform seperti WhatsApp, Telegram, dan Email secara real-time, logis, atau terjadwal.",
+            tech: ["Node.js", "Golang", "SQL", "Vue.js"],
+            link: null,
+            image: ["/img/ukara1.png"],
+          },
+          {
+            id: 6,
+            title: "PI Notification System",
+            description:
+              "Aplikasi web yang berfungsi sebagai gateway dari PI VISION untuk memonitoring tag-tag secara real-time, membuat logika alarm, dan mengirimkan notifikasi ke WhatsApp menggunakan Ukara.",
+            tech: ["Vue.js", "Node.js", "Golang", "SQL"],
+            link: null,
+            image: ["/img/pi-notif1.png"],
+          },
+          {
+            id: 6,
+            title: "Devianto Store",
+            description:
+              "Website landing page toko & katalog produk yang efektif, memudahkan pelanggan untuk berbelanja dan langsung terhubung dengan penjual melalui WhatsApp",
+            tech: ["HTML", "CSS", "JS", "Jquery"],
+            link: null,
+            image: [
+              "/img/deviantostore1.png",
+              "/img/deviantostore2.png",
+              "/img/deviantostore3.png",
+              "/img/deviantostore4.png",
+            ],
+          },
+        ],
+        services: [
+          {
+            title: "Auto Print Document",
+            desc: "Cetak otomatis dokumen dengan terjadwal",
+            icon: "print",
+          },
+          {
+            title: "MQTT Service",
+            desc: "Layanan komunikasi berbasis MQTT.",
+            icon: "hub",
+          },
+          {
+            title: "Modbus TCP/IP Reader & Parser",
+            desc: "Membaca dan mem-parsing data Modbus TCP.",
+            icon: "memory",
+          },
+          {
+            title: "Modbus RTU Reader & Parser",
+            desc: "Reader Modbus RTU untuk perangkat industri.",
+            icon: "settings_input_component",
+          },
+          {
+            title: "MySQL API Gateway",
+            desc: "Gateway API berbasis MySQL.",
+            icon: "storage",
+          },
+          {
+            title: "Gateway Server API",
+            desc: "Server gateway untuk integrasi API.",
+            icon: "dns",
+          },
+          {
+            title: "ASCII Reader & Parser",
+            desc: "Membaca & parsing data ASCII.",
+            icon: "article",
+          },
+          {
+            title: "InfluxDB Database Cloner",
+            desc: "Kloning database InfluxDB secara otomatis.",
+            icon: "content_copy",
+          },
+          {
+            title: "Auto Backup Database InfluxDB",
+            desc: "Backup otomatis untuk database InfluxDB.",
+            icon: "backup",
+          },
+          {
+            title: "OPC Collector",
+            desc: "mengambil data dari OPC dan mengirimkannya ke berbagai platform keamanan tinggi.",
+            icon: "sync_alt",
+          },
+          {
+            title: "Database Collector",
+            desc: "mengambil data dari Database dan mengirimkannya ke berbagai platform dengan keamanan tinggi.",
+            icon: "storage",
+          },
+          {
+            title: "Telegram Notification Service",
+            desc: "Layanan notifikasi telegram terjadwal dan real-time.",
+            icon: "telegram",
+          },
+          {
+            title: "Email Notification Service",
+            desc: "Layanan notifikasi email terjadwal dan real-time.",
+            icon: "email",
+          },
+        ],
+        experiences: [
+          "Freelance Fullstack Developer (2018-2020)",
+          "Junior Fullstack Developer di PT Genta Raya Cemerlang (2020-2021)",
+          "Junior Technical Support & IT Support di PT Genta Raya Cemerlang (2021-2022)",
+          "Senior Fullstack Developer di PT Genta Raya Cemerlang (2022-2025)",
+          "Senior Technical Support & IT Support di PT Genta Raya Cemerlang (2022-2025)",
+        ],
+        testimonials: [
+          {
+            name: "Budi Santoso",
+            role: "Manager IT",
+            text: "Al adalah developer yang sangat berdedikasi dan profesional.",
+            avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+          },
+          {
+            name: "Siti Aminah",
+            role: "Rekan Kerja",
+            text: "Selalu membantu dan solutif dalam tim.",
+            avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+          },
+        ],
+        chipColors: u,
+        animatedLevels: f,
+        $q: e,
+        scrollToElement: t,
+        downloadCV: n,
+        openImage: i,
+        showImage: Pt,
+        selectedImages: $t,
+        slide: Et,
+      };
+    },
+  }),
+  Qa = (e, t) => {
+    const n = e.__vccOpts || e;
+    for (const [a, o] of t) n[a] = o;
+    return n;
+  },
+  Da = { class: "profile-header-content" },
+  Va = { class: "profile-photo-container" },
+  Fa = { class: "skills-list row q-col-gutter-lg" },
+  ja = { class: "col-xs-12 col-md-6" },
+  Na = { class: "q-list" },
+  Ra = { class: "skill-info flex justify-between items-center q-mb-xs" },
+  Ma = { class: "flex items-center q-gutter-sm" },
+  Oa = { class: "text-body1 text-grey-7" },
+  Ha = { class: "skill-level text-caption text-grey-6" },
+  Ka = { class: "col-xs-12 col-md-6" },
+  Wa = { class: "soft-skills-list q-gutter-sm" },
+  Ga = { class: "projects-grid q-gutter-md" },
+  Ua = ["src"],
+  Xa = { class: "text-h6 text-weight-bold q-mb-sm" },
+  Ya = { class: "text-body2 text-grey-7" },
+  Ja = { class: "project-tech-chips q-gutter-xs q-mt-md" },
+  Za = ["href"],
+  ei = ["src"],
+  ti = { class: "q-mt-lg" };
+function ni(e, t, n, a, o, i) {
+  return (
+    D(),
+    ae(
+      nn,
+      { view: "lHh Lpr lFf" },
+      {
+        default: _(() => [
+          w(
+            Mt,
+            {
+              class: rt([
+                e.$q.dark.isActive ? "bg-dark" : "bg-white",
+                "text-grey-8 shadow-2",
+              ]),
+            },
+            {
+              default: _(() => [
+                w(
+                  Nt,
+                  { class: "q-py-xs gt-xs" },
+                  {
+                    default: _(() => [
+                      w(
+                        jt,
+                        {
+                          class:
+                            "text-weight-bold text-primary text-body1 q-ml-md",
+                        },
+                        {
+                          default: _(
+                            () => t[9] || (t[9] = [De(" Al Anasvianto ", -1)])
+                          ),
+                          _: 1,
+                          __: [9],
+                        }
+                      ),
+                      w(He),
+                      w(H, {
+                        flat: "",
+                        class: "q-mx-sm",
+                        size: "sm",
+                        color: "primary",
+                        label: "Tentang Saya",
+                        onClick:
+                          t[0] ||
+                          (t[0] = (l) => e.scrollToElement("tentang-saya")),
+                      }),
+                      w(H, {
+                        class: "q-mx-sm",
+                        flat: "",
+                        size: "sm",
+                        color: "primary",
+                        label: "Keahlian",
+                        onClick:
+                          t[1] || (t[1] = (l) => e.scrollToElement("keahlian")),
+                      }),
+                      w(H, {
+                        class: "q-mx-sm",
+                        flat: "",
+                        size: "sm",
+                        color: "primary",
+                        label: "Portofolio",
+                        onClick:
+                          t[2] ||
+                          (t[2] = (l) => e.scrollToElement("portofolio")),
+                      }),
+                      w(H, {
+                        class: "q-mx-sm",
+                        flat: "",
+                        size: "sm",
+                        color: "primary",
+                        label: "Pengalaman",
+                        onClick:
+                          t[3] ||
+                          (t[3] = (l) => e.scrollToElement("pengalaman")),
+                      }),
+                      w(H, {
+                        class: "q-mx-sm",
+                        flat: "",
+                        size: "sm",
+                        color: "primary",
+                        label: "Kontak",
+                        onClick:
+                          t[4] || (t[4] = (l) => e.scrollToElement("kontak")),
+                      }),
+                      w(
+                        H,
+                        {
+                          flat: "",
+                          round: "",
+                          dense: "",
+                          icon: e.$q.dark.isActive
+                            ? "brightness_4"
+                            : "dark_mode",
+                          size: "md",
+                          onClick: t[5] || (t[5] = (l) => e.$q.dark.toggle()),
+                          class: "q-ml-sm q-mr-md",
+                        },
+                        null,
+                        8,
+                        ["icon"]
+                      ),
+                    ]),
+                    _: 1,
+                  }
+                ),
+              ]),
+              _: 1,
+            },
+            8,
+            ["class"]
+          ),
+          w(tn, null, {
+            default: _(() => [
+              w(
+                en,
+                { class: "portfolio-page" },
+                {
+                  default: _(() => [
+                    w(
+                      U,
+                      { class: "profile-header-card animated-card" },
+                      {
+                        default: _(() => [
+                          v("div", Da, [
+                            t[11] ||
+                              (t[11] = v(
+                                "div",
+                                { class: "profile-text-content" },
+                                [
+                                  v(
+                                    "h1",
+                                    {
+                                      class:
+                                        "text-h2 text-weight-bold text-primary",
+                                    },
+                                    "Al Anasvianto"
+                                  ),
+                                  v(
+                                    "p",
+                                    {
+                                      class:
+                                        "tagline text-subtitle1 text-grey-6 q-my-sm",
+                                    },
+                                    " Fullstack Developer & Network Engineer "
+                                  ),
+                                  v(
+                                    "p",
+                                    {
+                                      class:
+                                        "bio text-body1 text-grey-8 q-mb-md",
+                                    },
+                                    " Berkomitmen membangun solusi digital yang andal, efisien, dan inovatif. "
+                                  ),
+                                  v("div", { class: "header-actions" }, [
+                                    v("div", { class: "stats-group" }, [
+                                      v("div", { class: "stat-item" }, [
+                                        v(
+                                          "span",
+                                          {
+                                            class:
+                                              "stat-value text-h5 text-weight-bold text-primary",
+                                          },
+                                          "6+ "
+                                        ),
+                                        v(
+                                          "span",
+                                          {
+                                            class:
+                                              "stat-label text-caption text-grey-6",
+                                          },
+                                          [
+                                            v(
+                                              "strong",
+                                              null,
+                                              "Tahun Pengalaman"
+                                            ),
+                                          ]
+                                        ),
+                                      ]),
+                                      v("div", { class: "stat-item" }, [
+                                        v(
+                                          "span",
+                                          {
+                                            class:
+                                              "stat-value text-h5 text-weight-bold text-primary",
+                                          },
+                                          "140+ "
+                                        ),
+                                        v(
+                                          "span",
+                                          {
+                                            class:
+                                              "stat-label text-caption text-grey-6",
+                                          },
+                                          [
+                                            v(
+                                              "strong",
+                                              null,
+                                              "Proyek Terselesaikan"
+                                            ),
+                                          ]
+                                        ),
+                                      ]),
+                                    ]),
+                                  ]),
+                                ],
+                                -1
+                              )),
+                            v("div", Va, [
+                              w(
+                                Ot,
+                                { size: "250px", class: "profile-photo" },
+                                {
+                                  default: _(
+                                    () =>
+                                      t[10] ||
+                                      (t[10] = [
+                                        v(
+                                          "img",
+                                          {
+                                            src: "/img/20250721_070304.jpg",
+                                            alt: "Al Anasvianto",
+                                          },
+                                          null,
+                                          -1
+                                        ),
+                                      ])
+                                  ),
+                                  _: 1,
+                                  __: [10],
+                                }
+                              ),
+                            ]),
+                          ]),
+                        ]),
+                        _: 1,
+                      }
+                    ),
+                    v("main", null, [
+                      w(
+                        U,
+                        {
+                          id: "tentang-saya",
+                          class: "content-card q-pa-lg animated-card",
+                        },
+                        {
+                          default: _(
+                            () =>
+                              t[12] ||
+                              (t[12] = [
+                                v(
+                                  "h2",
+                                  {
+                                    class:
+                                      "text-h5 text-weight-bold text-grey-8 q-mb-md",
+                                  },
+                                  "Tentang Saya",
+                                  -1
+                                ),
+                                v(
+                                  "div",
+                                  {
+                                    class: "about-details text-grey-8 q-mb-md",
+                                  },
+                                  " Saya adalah seorang Fullstack Developer dan Network Engineer yang memiliki passion dalam membangun aplikasi berbasis web serta infrastruktur jaringan yang handal. Dengan pengalaman lebih dari 6 tahun, saya terbiasa bekerja secara profesional, bertanggung jawab, serta mengutamakan komunikasi yang jelas dengan tim maupun klien. ",
+                                  -1
+                                ),
+                                v(
+                                  "div",
+                                  {
+                                    class: "about-details row q-col-gutter-lg",
+                                  },
+                                  [
+                                    v("div", { class: "col-xs-12 col-md-6" }, [
+                                      v(
+                                        "h3",
+                                        {
+                                          class:
+                                            "text-h6 text-weight-bold text-primary",
+                                        },
+                                        "Nilai Kerja"
+                                      ),
+                                      v(
+                                        "p",
+                                        { class: "text-body2 text-grey-7" },
+                                        " Profesional dan berintegritas dalam setiap proyek Tanggung jawab penuh atas hasil pekerjaan Komunikasi dan kolaborasi sebagai kunci keberhasilan "
+                                      ),
+                                    ]),
+                                    v("div", { class: "col-xs-12 col-md-6" }, [
+                                      v(
+                                        "h3",
+                                        {
+                                          class:
+                                            "text-h6 text-weight-bold text-primary",
+                                        },
+                                        "Tujuan Karir"
+                                      ),
+                                      v(
+                                        "p",
+                                        { class: "text-body2 text-grey-7" },
+                                        " Saya berkomitmen untuk terus mengembangkan keterampilan teknis maupun soft skill, serta berkontribusi menciptakan produk digital yang berdampak positif. Tujuan utama saya adalah mencapai kesuksesan finansial dan profesional, sekaligus memberikan manfaat nyata bagi perusahaan dan masyarakat. "
+                                      ),
+                                    ]),
+                                  ],
+                                  -1
+                                ),
+                              ])
+                          ),
+                          _: 1,
+                          __: [12],
+                        }
+                      ),
+                      w(
+                        U,
+                        {
+                          id: "keahlian",
+                          class: "content-card q-pa-lg animated-card",
+                        },
+                        {
+                          default: _(() => [
+                            t[15] ||
+                              (t[15] = v(
+                                "h2",
+                                {
+                                  class:
+                                    "text-h5 text-weight-bold text-grey-8 q-mb-md",
+                                },
+                                "Keahlian",
+                                -1
+                              )),
+                            v("div", Fa, [
+                              v("div", ja, [
+                                t[13] ||
+                                  (t[13] = v(
+                                    "h3",
+                                    {
+                                      class:
+                                        "text-h6 text-grey-8 text-weight-bold q-mb-md",
+                                    },
+                                    "Technical Skills",
+                                    -1
+                                  )),
+                                v("ul", Na, [
+                                  (D(!0),
+                                  G(
+                                    ie,
+                                    null,
+                                    le(
+                                      e.technicalSkills,
+                                      (l, r) => (
+                                        D(),
+                                        G(
+                                          "li",
+                                          { key: l.name, class: "q-mb-md" },
+                                          [
+                                            v("div", Ra, [
+                                              v("div", Ma, [
+                                                w(
+                                                  re,
+                                                  {
+                                                    name: l.icon,
+                                                    size: "20px",
+                                                    color: "primary",
+                                                  },
+                                                  null,
+                                                  8,
+                                                  ["name"]
+                                                ),
+                                                v("span", Oa, de(l.name), 1),
+                                              ]),
+                                              v(
+                                                "span",
+                                                Ha,
+                                                de(l.level) + "%",
+                                                1
+                                              ),
+                                            ]),
+                                            w(
+                                              Ht,
+                                              {
+                                                value: e.animatedLevels[r],
+                                                size: "10px",
+                                                color: "info",
+                                                rounded: "",
+                                                stripe: "",
+                                                "animation-speed": "800",
+                                              },
+                                              null,
+                                              8,
+                                              ["value"]
+                                            ),
+                                          ]
+                                        )
+                                      )
+                                    ),
+                                    128
+                                  )),
+                                ]),
+                              ]),
+                              v("div", Ka, [
+                                t[14] ||
+                                  (t[14] = v(
+                                    "h3",
+                                    {
+                                      class:
+                                        "text-h6 text-weight-bold q-mb-md text-grey-8",
+                                    },
+                                    "Soft Skills",
+                                    -1
+                                  )),
+                                v("div", Wa, [
+                                  (D(!0),
+                                  G(
+                                    ie,
+                                    null,
+                                    le(
+                                      e.softSkills,
+                                      (l, r) => (
+                                        D(),
+                                        ae(
+                                          We,
+                                          {
+                                            key: r,
+                                            label: l,
+                                            color:
+                                              e.chipColors[
+                                                r % e.chipColors.length
+                                              ],
+                                            "text-color": "white",
+                                          },
+                                          null,
+                                          8,
+                                          ["label", "color"]
+                                        )
+                                      )
+                                    ),
+                                    128
+                                  )),
+                                ]),
+                              ]),
+                            ]),
+                          ]),
+                          _: 1,
+                          __: [15],
+                        }
+                      ),
+                      w(
+                        U,
+                        { id: "portofolio", class: "content-card q-pa-lg" },
+                        {
+                          default: _(() => [
+                            t[16] ||
+                              (t[16] = v(
+                                "h2",
+                                {
+                                  class:
+                                    "text-h5 text-weight-bold text-grey-8 q-mb-md",
+                                },
+                                "Portofolio Proyek",
+                                -1
+                              )),
+                            v("div", Ga, [
+                              (D(!0),
+                              G(
+                                ie,
+                                null,
+                                le(
+                                  e.projects,
+                                  (l) => (
+                                    D(),
+                                    ae(
+                                      U,
+                                      {
+                                        key: l.id,
+                                        class: "project-card animated-card",
+                                      },
+                                      {
+                                        default: _(() => [
+                                          w(
+                                            Ve,
+                                            {
+                                              class:
+                                                "project-image-placeholder text-center bg-primary cursor-pointer",
+                                              style: { padding: "0px" },
+                                              onClick: (r) =>
+                                                e.openImage(l.image ?? []),
+                                            },
+                                            {
+                                              default: _(() => [
+                                                l.image && l.image.length > 0
+                                                  ? (D(),
+                                                    G(
+                                                      "img",
+                                                      {
+                                                        key: 0,
+                                                        src: l.image[0] ?? "",
+                                                        alt: "Project Image",
+                                                        class: "project-image",
+                                                      },
+                                                      null,
+                                                      8,
+                                                      Ua
+                                                    ))
+                                                  : st("", !0),
+                                              ]),
+                                              _: 2,
+                                            },
+                                            1032,
+                                            ["onClick"]
+                                          ),
+                                          w(
+                                            Ve,
+                                            null,
+                                            {
+                                              default: _(() => [
+                                                v("h3", Xa, de(l.title), 1),
+                                                v(
+                                                  "p",
+                                                  Ya,
+                                                  de(l.description),
+                                                  1
+                                                ),
+                                                v("div", Ja, [
+                                                  (D(!0),
+                                                  G(
+                                                    ie,
+                                                    null,
+                                                    le(
+                                                      l.tech,
+                                                      (r) => (
+                                                        D(),
+                                                        ae(
+                                                          We,
+                                                          {
+                                                            key: r,
+                                                            label: r,
+                                                            color: "info",
+                                                            "text-color":
+                                                              "white",
+                                                          },
+                                                          null,
+                                                          8,
+                                                          ["label"]
+                                                        )
+                                                      )
+                                                    ),
+                                                    128
+                                                  )),
+                                                ]),
+                                                l.link
+                                                  ? (D(),
+                                                    G(
+                                                      "a",
+                                                      {
+                                                        key: 0,
+                                                        href: l.link,
+                                                        target: "_blank",
+                                                        rel: "noopener",
+                                                        class:
+                                                          "demo-link text-weight-bold q-mt-md text-secondary",
+                                                      },
+                                                      "Lihat Demo",
+                                                      8,
+                                                      Za
+                                                    ))
+                                                  : st("", !0),
+                                              ]),
+                                              _: 2,
+                                            },
+                                            1024
+                                          ),
+                                        ]),
+                                        _: 2,
+                                      },
+                                      1024
+                                    )
+                                  )
+                                ),
+                                128
+                              )),
+                            ]),
+                            t[17] ||
+                              (t[17] = v(
+                                "h3",
+                                {
+                                  class:
+                                    "text-h6 text-weight-bold text-grey-8 q-mb-md",
+                                },
+                                "Aplikasi Services & Tools Buatan Saya",
+                                -1
+                              )),
+                            v("div", null, [
+                              w(
+                                En,
+                                { bordered: "", separator: "" },
+                                {
+                                  default: _(() => [
+                                    (D(!0),
+                                    G(
+                                      ie,
+                                      null,
+                                      le(
+                                        e.services,
+                                        (l, r) => (
+                                          D(),
+                                          ae(
+                                            Pn,
+                                            { key: r, clickable: "" },
+                                            {
+                                              default: _(() => [
+                                                w(
+                                                  ft,
+                                                  { avatar: "" },
+                                                  {
+                                                    default: _(() => [
+                                                      w(
+                                                        re,
+                                                        {
+                                                          name: l.icon,
+                                                          color: "primary",
+                                                        },
+                                                        null,
+                                                        8,
+                                                        ["name"]
+                                                      ),
+                                                    ]),
+                                                    _: 2,
+                                                  },
+                                                  1024
+                                                ),
+                                                w(
+                                                  ft,
+                                                  null,
+                                                  {
+                                                    default: _(() => [
+                                                      w(
+                                                        mt,
+                                                        null,
+                                                        {
+                                                          default: _(() => [
+                                                            De(de(l.title), 1),
+                                                          ]),
+                                                          _: 2,
+                                                        },
+                                                        1024
+                                                      ),
+                                                      w(
+                                                        mt,
+                                                        { caption: "" },
+                                                        {
+                                                          default: _(() => [
+                                                            De(de(l.desc), 1),
+                                                          ]),
+                                                          _: 2,
+                                                        },
+                                                        1024
+                                                      ),
+                                                    ]),
+                                                    _: 2,
+                                                  },
+                                                  1024
+                                                ),
+                                              ]),
+                                              _: 2,
+                                            },
+                                            1024
+                                          )
+                                        )
+                                      ),
+                                      128
+                                    )),
+                                  ]),
+                                  _: 1,
+                                }
+                              ),
+                            ]),
+                            w(
+                              Pa,
+                              {
+                                modelValue: e.showImage,
+                                "onUpdate:modelValue":
+                                  t[7] || (t[7] = (l) => (e.showImage = l)),
+                                maximized: "",
+                              },
+                              {
+                                default: _(() => [
+                                  w(
+                                    U,
+                                    { class: "bg-black" },
+                                    {
+                                      default: _(() => [
+                                        w(
+                                          Bn,
+                                          {
+                                            class: "bg-transparent text-white",
+                                          },
+                                          {
+                                            default: _(() => [
+                                              w(He),
+                                              bn(
+                                                w(
+                                                  H,
+                                                  {
+                                                    dense: "",
+                                                    flat: "",
+                                                    icon: "close",
+                                                  },
+                                                  null,
+                                                  512
+                                                ),
+                                                [[za]]
+                                              ),
+                                            ]),
+                                            _: 1,
+                                          }
+                                        ),
+                                        w(
+                                          Ve,
+                                          {
+                                            class: "q-pa-none flex flex-center",
+                                          },
+                                          {
+                                            default: _(() => [
+                                              w(
+                                                Gn,
+                                                {
+                                                  modelValue: e.slide,
+                                                  "onUpdate:modelValue":
+                                                    t[6] ||
+                                                    (t[6] = (l) =>
+                                                      (e.slide = l)),
+                                                  animated: "",
+                                                  arrows: "",
+                                                  swipeable: "",
+                                                  navigation: "",
+                                                  height: "800px",
+                                                  class: "bg-black",
+                                                },
+                                                {
+                                                  default: _(() => [
+                                                    (D(!0),
+                                                    G(
+                                                      ie,
+                                                      null,
+                                                      le(
+                                                        e.selectedImages,
+                                                        (l, r) => (
+                                                          D(),
+                                                          ae(
+                                                            Rn,
+                                                            {
+                                                              key: r,
+                                                              name: r,
+                                                              class:
+                                                                "flex flex-center bg-black",
+                                                            },
+                                                            {
+                                                              default: _(() => [
+                                                                v(
+                                                                  "img",
+                                                                  {
+                                                                    src: l,
+                                                                    class: rt(
+                                                                      e.$q
+                                                                        .screen
+                                                                        .lt.md
+                                                                        ? "w-full"
+                                                                        : "full-width full-height"
+                                                                    ),
+                                                                    style: pn(
+                                                                      e.$q
+                                                                        .screen
+                                                                        .lt.md
+                                                                        ? "height: 260px; width:100vw; object-fit: fill;"
+                                                                        : "object-fit: fill;"
+                                                                    ),
+                                                                  },
+                                                                  null,
+                                                                  14,
+                                                                  ei
+                                                                ),
+                                                              ]),
+                                                              _: 2,
+                                                            },
+                                                            1032,
+                                                            ["name"]
+                                                          )
+                                                        )
+                                                      ),
+                                                      128
+                                                    )),
+                                                  ]),
+                                                  _: 1,
+                                                },
+                                                8,
+                                                ["modelValue"]
+                                              ),
+                                            ]),
+                                            _: 1,
+                                          }
+                                        ),
+                                      ]),
+                                      _: 1,
+                                    }
+                                  ),
+                                ]),
+                                _: 1,
+                              },
+                              8,
+                              ["modelValue"]
+                            ),
+                          ]),
+                          _: 1,
+                          __: [16, 17],
+                        }
+                      ),
+                      w(
+                        U,
+                        {
+                          id: "pengalaman",
+                          class: "content-card q-pa-lg animated-card",
+                        },
+                        {
+                          default: _(() => [
+                            t[18] ||
+                              (t[18] = v(
+                                "h2",
+                                {
+                                  class:
+                                    "text-h5 text-weight-bold text-grey-8 q-mb-md",
+                                },
+                                "Pengalaman & Pencapaian",
+                                -1
+                              )),
+                            w(
+                              Zt,
+                              { color: "primary" },
+                              {
+                                default: _(() => [
+                                  (D(!0),
+                                  G(
+                                    ie,
+                                    null,
+                                    le(
+                                      e.experiences,
+                                      (l, r) => (
+                                        D(),
+                                        ae(
+                                          Jt,
+                                          { key: r, subtitle: l },
+                                          null,
+                                          8,
+                                          ["subtitle"]
+                                        )
+                                      )
+                                    ),
+                                    128
+                                  )),
+                                ]),
+                                _: 1,
+                              }
+                            ),
+                          ]),
+                          _: 1,
+                          __: [18],
+                        }
+                      ),
+                      w(
+                        U,
+                        {
+                          class:
+                            "content-card q-pa-lg text-center animated-card",
+                        },
+                        {
+                          default: _(
+                            () =>
+                              t[19] ||
+                              (t[19] = [
+                                v(
+                                  "h2",
+                                  {
+                                    class:
+                                      "text-h5 text-weight-bold text-grey-8 q-mb-md",
+                                  },
+                                  "Blog & Artikel",
+                                  -1
+                                ),
+                                v(
+                                  "p",
+                                  {
+                                    class:
+                                      "blog-placeholder text-subtitle2 text-grey-6",
+                                  },
+                                  " Segera hadir: Artikel & tulisan seputar teknologi, software, dan industri. ",
+                                  -1
+                                ),
+                              ])
+                          ),
+                          _: 1,
+                          __: [19],
+                        }
+                      ),
+                      w(
+                        U,
+                        {
+                          id: "kontak",
+                          class: "content-card q-pa-lg animated-card",
+                        },
+                        {
+                          default: _(() => [
+                            t[20] ||
+                              (t[20] = v(
+                                "div",
+                                {
+                                  class:
+                                    "text-h6 text-grey-8 text-weight-bold q-mb-md",
+                                },
+                                "Kontak & Sosial Media",
+                                -1
+                              )),
+                            w(Ea, { spaced: "" }),
+                            t[21] ||
+                              (t[21] = v(
+                                "div",
+                                { class: "q-mt-md" },
+                                [
+                                  v("ul", { class: "text-body1" }, [
+                                    v("li", { class: "q-mb-sm" }, [
+                                      v("strong", null, "Email:"),
+                                      v(
+                                        "a",
+                                        {
+                                          href: "mailto:anas.vianto11@gmail.com",
+                                          class: "text-primary",
+                                        },
+                                        " anas.vianto11@gmail.com "
+                                      ),
+                                    ]),
+                                    v("li", { class: "q-mb-sm" }, [
+                                      v("strong", null, "Instagram:"),
+                                      v(
+                                        "a",
+                                        {
+                                          href: "https://instagram.com/anasvianto_",
+                                          target: "_blank",
+                                          class: "text-primary",
+                                        },
+                                        " @anasvianto_ "
+                                      ),
+                                    ]),
+                                    v("li", { class: "q-mb-sm" }, [
+                                      v("strong", null, "WhatsApp:"),
+                                      v(
+                                        "a",
+                                        {
+                                          href: "https://wa.me/6281326914169",
+                                          target: "_blank",
+                                          class: "text-primary",
+                                        },
+                                        " 081326914169 "
+                                      ),
+                                    ]),
+                                  ]),
+                                ],
+                                -1
+                              )),
+                            v("div", ti, [
+                              w(H, {
+                                icon: "download",
+                                color: "primary",
+                                label: "Download CV (PDF)",
+                                style: { width: "100%" },
+                                onClick: t[8] || (t[8] = (l) => e.downloadCV()),
+                              }),
+                            ]),
+                          ]),
+                          _: 1,
+                          __: [20, 21],
+                        }
+                      ),
+                    ]),
+                  ]),
+                  _: 1,
+                }
+              ),
+            ]),
+            _: 1,
+          }),
+        ]),
+        _: 1,
+      }
+    )
+  );
+}
+const li = Qa(Ia, [
+  ["render", ni],
+  ["__scopeId", "data-v-b074c3d0"],
+]);
+export { li as default };
